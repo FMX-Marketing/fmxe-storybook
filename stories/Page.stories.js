@@ -1,4 +1,4 @@
-import { within, userEvent, expect } from '@storybook/test';
+import { within, userEvent, expect } from 'storybook/test';
 import { createPage } from './Page';
 
 export default {
