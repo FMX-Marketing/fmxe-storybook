@@ -1,4 +1,8 @@
-// variables.js
+/**
+ * The variables here, are a direct reference to the FMXE Style variables.
+ *
+ * @link https://www.figma.com/design/bg8ecYNq9ja8DbKW07QLrB/FMX-Styles?node-id=1211-18&p=f&vars=1&var-id=4379-23451&m=dev
+ */
 export const variables = [
   {
     "category": "fmxe-border-radius",
