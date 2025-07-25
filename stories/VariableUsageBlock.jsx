@@ -66,7 +66,7 @@ export const VariableUsageBlock = ({ data }) => {
 
   data.forEach(variable => {
     if (variable.mode) {
-      const categoryName = variable.category.replace('fmxe-', '');
+      const categoryName = variable.category.replace('fmxe-', '').replace('/', '-');
       const unitIn = variable['unit-in'] || '';
       const unitOut = variable['unit-out'] || '';
 
