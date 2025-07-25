@@ -107,7 +107,7 @@ export const variables = [
     "unit-out": "",
   },
   {
-    "category": "fmxe-font-weight",
+    "category": "fmxe-font-family/weight",
     "values": [
       { "name": "500", "value": "500" },
       { "name": "700", "value": "700" },
@@ -117,7 +117,7 @@ export const variables = [
     "unit-out": "",
   },
   {
-    "category": "fmxe-font-size",
+    "category": "fmxe-font-family/size",
     "mode": true,
     "values": [
       { "name": "h1", "desktop": "55", "mobile": "35" },
@@ -135,7 +135,7 @@ export const variables = [
     "unit-out": "rem",
   },
   {
-    "category": "fmxe-font-family-line-height",
+    "category": "fmxe-font-family/line-height",
     "mode": true,
     "values": [
       { "name": "h1", "desktop": "60", "mobile": "44" },
