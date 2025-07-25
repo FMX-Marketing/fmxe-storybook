@@ -8,32 +8,26 @@ export const VariableUsageBlock = ({ data }) => {
   const formatValue = (rawValue, unitIn, unitOut) => {
     // Skip conversion for hex colors or values that already have units
     if (typeof rawValue === 'string' && (rawValue.startsWith('#') || rawValue.includes('px') || rawValue.includes('rem') || isNaN(parseFloat(rawValue)))) {
-      return rawValue;
+      return `${rawValue};`;
     }
 
     const numericValue = parseFloat(rawValue);
-    const inputUnit = unitIn || 'px';
-    const outputUnit = unitOut || 'px';
+    const inputUnit = unitIn || '';
+    const outputUnit = unitOut || '';
 
     // If converting from px to rem
     if (inputUnit === 'px' && outputUnit === 'rem') {
       const remValue = numericValue / 16; // Convert px to rem (assuming 16px base)
-      return `${remValue}rem /* ${numericValue}px */`;
-    }
-
-    // If converting from rem to px
-    if (inputUnit === 'rem' && outputUnit === 'px') {
-      const pxValue = numericValue * 16; // Convert rem to px (assuming 16px base)
-      return `${pxValue}px /* ${numericValue}rem */`;
+      return `${remValue}rem; /* ${numericValue}px */`;
     }
 
     // If units are the same or output unit is specified
     if (outputUnit === 'rem') {
-      return `${numericValue}rem`;
+      return `${numericValue}rem;`;
     }
 
     // Default to px for numeric values
-    return `${numericValue}px`;
+    return `${numericValue};`;
   };
 
   // Add CSS root variables
@@ -43,22 +37,22 @@ export const VariableUsageBlock = ({ data }) => {
   data.forEach(variable => {
     if (!variable.mode) {
       const categoryName = variable.category.replace('fmxe-', '').replace('/', '-');
-      const unitIn = variable['unit-in'] || 'px';
-      const unitOut = variable['unit-out'] || 'px';
+      const unitIn = variable['unit-in'] || '';
+      const unitOut = variable['unit-out'] || '';
 
       variable.values.forEach(value => {
         const formattedValue = formatValue(value.value, unitIn, unitOut);
-        lines.push(`  --fmxe-${categoryName}-${value.name}: ${formattedValue};`);
+        lines.push(`  --fmxe-${categoryName}-${value.name}: ${formattedValue}`);
       });
     } else {
       // For mode variables, add mobile values to root
       const categoryName = variable.category.replace('fmxe-', '');
-      const unitIn = variable['unit-in'] || 'px';
-      const unitOut = variable['unit-out'] || 'px';
+      const unitIn = variable['unit-in'] || '';
+      const unitOut = variable['unit-out'] || '';
 
       variable.values.forEach(value => {
         const formattedValue = formatValue(value.mobile, unitIn, unitOut);
-        lines.push(`  --fmxe-${categoryName}-${value.name}: ${formattedValue};`);
+        lines.push(`  --fmxe-${categoryName}-${value.name}: ${formattedValue}`);
       });
     }
   });
@@ -73,8 +67,8 @@ export const VariableUsageBlock = ({ data }) => {
   data.forEach(variable => {
     if (variable.mode) {
       const categoryName = variable.category.replace('fmxe-', '');
-      const unitIn = variable['unit-in'] || 'px';
-      const unitOut = variable['unit-out'] || 'px';
+      const unitIn = variable['unit-in'] || '';
+      const unitOut = variable['unit-out'] || '';
 
       variable.values.forEach(value => {
         const formattedValue = formatValue(value.desktop, unitIn, unitOut);
