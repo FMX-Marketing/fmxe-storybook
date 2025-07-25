@@ -62,8 +62,7 @@ export const VariableTable = ({ data }) => {
     }
 
     // If units are the same, just show the value with unit
-    return `${numericValue}${inputUnit}`;
-  };
+    return `${numericValue}${inputUnit}`; };
 
   return (
     <div>
