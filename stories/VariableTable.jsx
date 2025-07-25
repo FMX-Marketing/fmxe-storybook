@@ -1,29 +1,27 @@
 import React from 'react';
 
 const thStyle = {
+  fontWeight: '600',
   padding: '0.75rem',
   textAlign: 'left',
-  borderBottom: '2px solid #e5e7eb',
-  backgroundColor: '#f9fafb',
-  fontWeight: '600'
 };
 
 const tdStyle = {
+  borderBottom: '1px solid #e5e7eb',
   padding: '0.75rem',
-  borderBottom: '1px solid #e5e7eb'
 };
 
 const ColorSwatch = ({ color }) => (
   <div
     style={{
-      display: 'inline-block',
-      width: '20px',
-      height: '20px',
-      borderRadius: '4px',
       backgroundColor: color,
       border: '1px solid #d1d5db',
+      borderRadius: '4px',
+      display: 'inline-block',
+      height: '20px',
       marginRight: '8px',
-      verticalAlign: 'middle'
+      verticalAlign: 'middle',
+      width: '20px',
     }}
   />
 );
@@ -46,8 +44,8 @@ export const VariableTable = ({ data }) => {
     }
 
     const numericValue = parseFloat(rawValue);
-    const inputUnit = unitIn || 'px';
-    const outputUnit = unitOut || 'px';
+    const inputUnit = unitIn || '';
+    const outputUnit = unitOut || '';
 
     // Show original value with input unit, and converted value with output unit
     if (inputUnit !== outputUnit) {
@@ -95,8 +93,8 @@ export const VariableTable = ({ data }) => {
             </thead>
             <tbody>
               {section.values.map((entry, i) => {
-                const unitIn = section['unit-in'] || 'px';
-                const unitOut = section['unit-out'] || 'px';
+                const unitIn = section['unit-in'] || '';
+                const unitOut = section['unit-out'] || '';
                 return (
                   <tr key={i}>
                     <td style={tdStyle}>{entry.name}</td>
