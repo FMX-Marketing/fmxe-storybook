@@ -1,4 +1,5 @@
 import React from 'react';
+import { Source } from '@storybook/addon-docs/blocks';
 
 export const VariableUsageBlock = ({ data }) => {
   const lines = [];
@@ -80,8 +81,9 @@ export const VariableUsageBlock = ({ data }) => {
   lines.push('}');
 
   return (
-    <pre style={{ padding: '1rem', background: '#f6f8fa', borderRadius: '6px' }}>
-      <code>{lines.join('\n')}</code>
-    </pre>
+    <Source
+      code={lines.join('\n')}
+      language="css"
+    />
   );
 };
