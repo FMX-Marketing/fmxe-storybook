@@ -35,8 +35,9 @@ export const VariableUsageBlock = ({ data }) => {
 
   // Process non-mode variables
   data.forEach(variable => {
+    const categoryName = variable.category.replace('fmxe-', '').replace('/', '-');
+
     if (!variable.mode) {
-      const categoryName = variable.category.replace('fmxe-', '').replace('/', '-');
       const unitIn = variable['unit-in'] || '';
       const unitOut = variable['unit-out'] || '';
 
@@ -45,8 +46,6 @@ export const VariableUsageBlock = ({ data }) => {
         lines.push(`  --fmxe-${categoryName}-${value.name}: ${formattedValue}`);
       });
     } else {
-      // For mode variables, add mobile values to root
-      const categoryName = variable.category.replace('fmxe-', '');
       const unitIn = variable['unit-in'] || '';
       const unitOut = variable['unit-out'] || '';
 
