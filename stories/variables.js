@@ -151,5 +151,17 @@ export const variables = [
     ],
     "unit-in": "px",
     "unit-out": "rem",
+  },
+  {
+    "category": "fmxe-screen",
+    "values": [
+      { "name": "sm", "value": "490"},
+      { "name": "md", "value": "768"},
+      { "name": "lg", "value": "1040"},
+      { "name": "xl", "value": "1440"},
+      { "name": "2xl", "value": "1600"},
+    ],
+    "unit-in": "px",
+    "unit-out": "rem",
   }
 ];
