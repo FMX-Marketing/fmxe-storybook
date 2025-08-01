@@ -1,4 +1,5 @@
 import React from 'react';
+import { ColorSwatch } from '@components/ColorSwatch';
 
 const thStyle = {
   fontWeight: '600',
@@ -10,21 +11,6 @@ const tdStyle = {
   borderBottom: '1px solid #e5e7eb',
   padding: '0.75rem',
 };
-
-const ColorSwatch = ({ color }) => (
-  <div
-    style={{
-      backgroundColor: color,
-      border: '1px solid #d1d5db',
-      borderRadius: '4px',
-      display: 'inline-block',
-      height: '20px',
-      marginRight: '8px',
-      verticalAlign: 'middle',
-      width: '20px',
-    }}
-  />
-);
 
 const isColorValue = (value) => {
   // Check if value is a hex color
