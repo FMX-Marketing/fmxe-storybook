@@ -18,7 +18,9 @@ export const variables = [
     "category": "fmxe-shadow",
     "values": [
       { "name": "sm", "value": "5" },
-      { "name": "md", "value": "10" }
+      { "name": "md", "value": "10" },
+      { "name": "color", "value": "#D7D7D8"},
+      { "name": "glow", "value": "#12AFD7"},
     ],
     "unit-in": "px",
     "unit-out": "rem",
