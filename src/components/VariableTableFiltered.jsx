@@ -1,6 +1,7 @@
 import React from 'react';
 import { ColorSwatch } from '@components/ColorSwatch';
 import isColorValue from '@utils/isColorValue';
+import formatVariableValue from '@utils/formatVariableValue';
 
 const thStyle = {
   fontWeight: '600',
@@ -17,41 +18,15 @@ export const VariableTableFiltered = ({
   data,
   categories = null,
 }) => {
-  const formatValueForDisplay = (rawValue, unitIn, unitOut) => {
-    // Skip conversion for hex colors or values that already have units
-    if (typeof rawValue === 'string' && (rawValue.startsWith('#') || rawValue.includes('px') || rawValue.includes('rem') || isNaN(parseFloat(rawValue)))) {
-      return rawValue;
-    }
-
-    const numericValue = parseFloat(rawValue);
-    const inputUnit = unitIn || '';
-    const outputUnit = unitOut || '';
-
-    // Show original value with input unit, and converted value with output unit
-    if (inputUnit !== outputUnit) {
-      if (inputUnit === 'px' && outputUnit === 'rem') {
-        const remValue = numericValue / 16;
-        return `${numericValue}${inputUnit} → ${remValue}${outputUnit}`;
-      }
-      if (inputUnit === 'rem' && outputUnit === 'px') {
-        const pxValue = numericValue * 16;
-        return `${numericValue}${inputUnit} → ${pxValue}${outputUnit}`;
-      }
-    }
-
-    return `${numericValue}${inputUnit}`;
-  };
 
   // Filter the data based on the provided criteria
   const filteredData = data.filter(section => {
     const categoryName = section.category;
 
-    // If categories array is provided, only include matching categories
     if (categories && Array.isArray(categories)) {
       return categories.some(cat => typeof cat === 'string' && categoryName === cat)
     }
 
-    // If no filters are provided, include all
     return true;
   });
 
@@ -90,10 +65,10 @@ export const VariableTableFiltered = ({
                     {section.mode ? (
                       <>
                         <td style={tdStyle}>
-                          {formatValueForDisplay(entry.desktop, unitIn, unitOut)}
+                          {formatVariableValue(entry.desktop, unitIn, unitOut)}
                         </td>
                         <td style={tdStyle}>
-                          {formatValueForDisplay(entry.mobile, unitIn, unitOut)}
+                          {formatVariableValue(entry.mobile, unitIn, unitOut)}
                         </td>
                       </>
                     ) : (
@@ -101,7 +76,7 @@ export const VariableTableFiltered = ({
                         { isColorValue(section.category, entry.value) && (
                           <ColorSwatch color={entry.value} />
                         )}
-                        {formatValueForDisplay(entry.value, unitIn, unitOut)}
+                        {formatVariableValue(entry.value, unitIn, unitOut)}
                       </td>
                     )}
                   </tr>
