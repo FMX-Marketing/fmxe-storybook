@@ -124,8 +124,8 @@ export const VariableTableFiltered = ({
     <div>
       {filteredData.map((section, index) => (
         <div key={index} style={{ marginBottom: '2rem' }}>
-          <h3>
-            { `${section.category}-{name}`}
+          <h4>
+            { `--${section.category}-{name}`}
             {(section['unit-in'] || section['unit-out']) && (
               <span style={{ fontSize: '0.875rem', fontWeight: 'normal', color: '#6b7280', marginLeft: '8px' }}>
                 {section['unit-in'] && section['unit-out'] && section['unit-in'] !== section['unit-out']
@@ -134,7 +134,7 @@ export const VariableTableFiltered = ({
                 }
               </span>
             )}
-          </h3>
+          </h4>
           <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '0.5rem' }}>
             <thead>
               <tr>
