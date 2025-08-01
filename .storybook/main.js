@@ -28,8 +28,9 @@ const config = {
   async viteFinal(config) {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      '@components': path.resolve(__dirname, '../src/components'),
+      '@components': path.resolve(__dirname, '../src/components/'),
       '@src': path.resolve(__dirname, '../src/'),
+      '@utils': path.resolve(__dirname, '../src/utilities/'),
     };
     return config;
   },
