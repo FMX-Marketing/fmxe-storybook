@@ -1,0 +1,16 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { VariableTable } from '@components/VariableTable';
+import { VariablesToCSS } from '@components/VariablesToCSS';
+import { variables } from '@src/variables';
+
+<Meta title="Design Tokens/Variables" />
+
+# Design System Variables
+
+The following data is table is generated from the style stable seen in the FMXE Figma.
+
+<VariableTable data={variables} />
+
+## CSS Variable Bundle
+
+<VariablesToCSS data={variables} />

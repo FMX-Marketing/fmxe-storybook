@@ -1,0 +1,620 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design Philosophy/Accessbility" />
+
+# Accessibility
+
+## 1. Goals
+
+Our ultimate goal is to design and develop our digital experiences so that they
+can be consumed and operated reliably by as many people as possible.
+
+An accessible experience opens the opportunity for a larger audience and
+customer base.
+
+An accessible experience is more easily consumed by search engine crawlers and
+large language models.
+
+And morally speaking, we believe it's just the right thing to do.
+
+## 2. Standards
+
+We aim to meet [Web Content Accessibility Guidelines (WCAG) 2 Level AA
+Conformance][1].
+
+## 3. Tooling
+
+The following tools can aid in testing designs and web pages for accessibility
+best practices.
+
+<dl>
+	<dt>
+		<a
+			href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh"
+		>WAVE Evaluation Tool</a>
+	</dt>
+	<dd>
+		The WAVE Chrome exension is a web accessibility evaluation tool
+		developed by WebAIM. It provides visual feedback about the accessibility
+		of your web content by injecting icons and indicators into your page.
+	</dd>
+
+	<dt>
+		<a
+			href="https://developer.chrome.com/docs/lighthouse/overview/"
+		>Lighthouse</a>
+	</dt>
+	<dd>
+		An open-source, automated tool for improving the quality of web pages.
+		You can run it against any web page, public or requiring authentication.
+		It has audits for performance, accessibility, progressive web apps, SEO,
+		and more. You can run Lighthouse in Chrome DevTools, from the command
+		line, or as a Node module.
+	</dd>
+
+	<dt>
+		<a
+			href="https://webaim.org/resources/contrastchecker/"
+		>WebAIM Color Contrast Checker</a>
+	</dt>
+	<dd>
+		This tool allows you to check the contrast ratio between foreground
+		and background colors. It is an easy way to determine whether there is
+		enough contrast in order to pass WCAG AA for normal text, large text,
+		or graphical objects and user interface components.
+	</dd>
+
+	<dt>
+		<a href="https://colororacle.org/">Color Oracle</a>
+	</dt>
+	<dd>
+		Color Oracle is a free color blindness simulator for Windows, Mac, and
+		Linux. It takes the guesswork out of designing for color blindness by
+		showing you what people with common color vision impairments will see.
+	</dd>
+</dl>
+
+## 4. Guidelines
+
+While not extensive, the following guidelines are a good start at learning the
+basics of how we structure our website implementations and color contrast
+ratios.
+
+### 4.1 Semantic HTML
+
+Using proper HTML elements and attributes goes a long way in describing website
+content in a way that can be understood by all. These are guidelines for
+authoring the most commonly-used structural elements.
+
+#### 4.1.1 Containers
+
+Consider structuring an HTML document with the following tags:
+
+##### `<main>`
+
+Used only once, `<main>` represents the dominant content of the `<body>` of a
+document.
+
+##### `<article>`
+
+An `<article>` is intended to contain an independently distributable or reusable
+item of content. `<article>`s can be embedded within other `<article>`s (e.g., a
+comment can be an article associated with a parent blog post article).
+
+##### `<header>`
+
+At the top level of a document, `<header>` represents the global site header
+(the [`banner` ARIA landmark role][6]).
+
+Within a sectioning element, it is considered introductory content for the scope
+of that secion.
+
+##### `<footer>`
+
+At the top level of a document, a `<footer>` applies to the entire document as
+the `contentinfo` landmark role. It usually contains copyright, authorship, and
+related navigation.
+
+Within a sectioning element, it is scoped as a footer to just that section.
+
+##### `address`
+
+The enclosed HTML in an `<address>` provides contact information for a person or
+organization.
+
+##### `<section>`
+
+The `<section>` element represents a generic section of the document.
+
+##### `<div>`
+
+A `<div>` is a generic container. It has no inherent meaning as is usually used
+for applying styles via CSS.
+
+#### 4.1.2 Navigation
+
+The `<nav>` element is intended to be used for a major block of navigation
+links. The links can be used to navigate to other pages or anchors within the
+same page.
+
+An `aria-labelledby` attribute can tie the `<nav>` element to a title for
+increased semantics:
+
+```html
+<header>
+  <nav aria-labelledby="primary-navigation">
+    <h2 id="primary-navigation">Primary navigation</h2>
+    <!-- navigation items -->
+  </nav>
+</header>
+
+<!-- page content -->
+
+<footer>
+  <nav aria-labelledby="footer-navigation">
+    <h2 id="footer-navigation">Footer navigation</h2>
+    <!-- navigation items -->
+  </nav>
+</footer>
+```
+
+#### 4.1.3 Forms
+
+A `<form>` element represents a document section containing interactive controls
+for submitting information.
+
+For increased accessibility, consider the following guidelines:
+
+##### 4.1.3.1 Labels
+
+Input fields should be described by `<label>` elements. The label text and
+input element can be nested within the `<label>` or cross-referenced using the
+`id` and `for` attributes:
+
+```html
+<form action="#">
+	<div>
+		<label>
+			Your name
+			<input name="name">
+		</label>
+	</div>
+
+	<div>
+		<label for="email">
+			Email address
+		</label>
+
+		<input id="email" type="email" name="email">
+	</div>
+
+	<div>
+		<input id="consent" name="consent" value="true">
+		<label for="consent">I consent.</label>
+	</div>
+
+	<div>
+		<input type="submit" value="Submit">
+	</div>
+</form>
+```
+
+##### 4.1.3.2 Group like fields with fieldsets
+
+Longer forms should be grouped by `<fieldset>`s:
+
+```html
+<form action="#">
+	<fieldset>
+		<legend>Name</legend>
+
+		<div>
+			<label>
+				First
+				<input name="firstname">
+			</label>
+		</div>
+
+		<div>
+			<label>
+				Last
+				<input name="lastname">
+			</label>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend>Contact</legend>
+
+		<div>
+			<label>
+				Email
+				<input type="email" name="email">
+			</label>
+		</div>
+
+		<div>
+			<label>
+				Phone
+				<input type="tel" name="phone">
+			</label>
+		</div>
+	</fieldset>
+
+	<div>
+		<input type="submit" value="Submit">
+	</div>
+</form>
+```
+
+`<fieldset>`s also allow logical grouping for sets of checkboxes and radio
+buttons:
+
+```html
+<form action="#">
+	<fieldset>
+		<legend>Features</legend>
+
+		<label>
+			<input type="checkbox" name="features" value="Maintenance Requests">
+			Maintenance Requests
+		</label>
+
+		<label>
+			<input type="checkbox" name="features" value="Planned Maintenance">
+			Planned Maintenance
+		</label>
+
+		<label>
+			<input type="checkbox" name="features" value="Schedule Requests">
+			Schedule Requests
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Favorite pizza topping</legend>
+
+		<label>
+			<input type="radio" name="favorite_topping" value="Pepperoni">
+			Pepperoni
+		</label>
+
+		<label>
+			<input type="radio" name="favorite_topping" value="Mushrooms">
+			Mushrooms
+		</label>
+
+		<label>
+			<input type="radio" name="favorite_topping" value="Sausage">
+			Sausage
+		</label>
+	</fieldset>
+
+	<div>
+		<input type="submit" value="Submit">
+	</div>
+</form>
+```
+
+##### 4.1.3.3 Input types
+
+Take advantage of the various `type` values for `<input>` fields, as many of
+them provide alternative styles for inputting data:
+
+-  `email`
+-  `tel`
+-  `number`
+-  `date`
+-  `time`
+-  `search`
+-  `url`
+-  `color`
+-  `range`
+-  `month`
+
+#### 4.1.4 Lists
+
+There are 3 main types of lists to use semantically:
+
+##### 4.1.4.1 Ordered lists
+
+The `<ol>` element is used when there is an implicit order in the list or if the
+items are being counted.
+
+##### 4.1.4.2 Unordered lists
+
+The `<ol>` element is used when there is no implicit order amongst the items.
+
+##### 4.1.4.2 Description lists
+
+When providing a list of key/values or terms/definitions, the `<dl>` element
+containing `<dt>` and `<dd>` provides semantic context.
+
+#### 4.1.5 Tables
+
+A fully-formed table should contain these elements at a minimum:
+
+1. `<table>`
+	1. `<thead>`
+		1. `<tr>`
+		2. `<th>`
+	2. `<tbody>`
+		1. `<tr>`
+		2. `<td>`
+
+A summary or total row can be contained within a `<tfoot>` element.
+
+A title or caption for a table is ideally grouped within the `<table>` element
+as a `<caption>`.
+
+If the first column within each row acts as a heading that describes the row, a
+`<th>` element can be used along with an attribute of `scope="row"`:
+
+```html
+<table>
+	<tbody>
+		<tr>
+			<th scope="row">
+				Species
+			</th>
+			<td>
+				Tyrannosaurus Rex
+			<td>
+		</tr>
+		<tr>
+			<th scope="row">
+				Period
+			</th>
+			<td>
+				Cretaceous
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				Continent
+			</th>
+			<td>
+				North America
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				Speed
+			</th>
+			<td>
+				12 mph
+			</td>
+		</tr>
+	</tbody>
+</table>
+```
+
+#### 4.1.6 Accessible Rich Internet Applications (ARIA)
+
+Regarding [ARIA][3], [MDN states it well][2]:
+
+> Developers should prefer using the correct semantic HTML element over using
+> ARIA, if such an element exists.
+
+ARIA markup should however be used in cases where additional roles and labels
+can increase clarity for users of assistive technologies.
+
+### 4.2 Heading hierarchy
+
+Whenever humanly possible, a hierarchical heading structure should be used to
+summarize sections of content within a web page.
+
+The page's functional title should be marked up with an `<h1>`, and all
+subsequent headings should be nested underneath that. Practically speaking,
+there should only be one `<h1>` per HTML document.
+
+It is important to maintain a logical hierarchy, even if a heading should be
+displayed with a style that is different than the base tag's.
+
+[Typography][4] utility classes are available to display a subheading at a
+different size/style visually, while maintaining the original semantic
+hierarchy.
+
+Consider this example where `<h3>`s need to be styled like `<h4>`s but will
+keep its semantic meaning within the document:
+
+```html
+<h1>Work Order Management</h1>
+<p>...</p>
+
+<h2>Types of work orders</h2>
+<p>...</p>
+
+<h3 class="h4-style">
+	Corrective maintenance work order
+</h3>
+<p>...</p>
+
+<h3 class="h4-style">
+	Preventive maintenance work order
+</h3>
+<p>...</p>
+
+<h2>Examples of work orders</h2>
+```
+
+### 4.3 Alt texts
+
+Alt texts describe images using the `alt` attribute on `<img>` tags. They are
+read aloud by screen readers and are also used by technologies like search
+engine crawlers to better understand the contents of an image.
+
+An alt text should describe the information that the image is communicating to
+sighted users. This can require a judgment call in some cases, so following are
+guidelines to consider.
+
+Guidelines:
+
+1. If there is textual content in the image, it should be repeated fully within
+   the alt text.
+2. If the image is decorative in nature and doesn't provide any information that
+   would be useful for a vision-impaired visitor, then it should be described by
+   a blank alt text (e.g., `alt=""`).
+3. It's useful to consider the "job" the image is doing within its context in
+   the content. Simply stating "what" the image is may omit important
+   information like what it is trying to communicate within its context.
+
+### 4.4 Video captions
+
+All video content should include, at a minimum, closed captioning in English.
+
+Many video hosting platforms like YouTube and Wistia provide automatic
+captioning and editors to touch up capitalization, punctuation, and errors
+generated by the auto-captioning.
+
+If a video's captioning cannot be auto-transcribed by the platform in use, one
+can be auto-generated by uploading as "private" video to YouTube, waiting on
+the captioning to be generated, and then downloading it as a [SRT file][5].
+
+### 4.5 Link and button texts
+
+Some users will use their <kbd>Tab</kbd> key to navigate to links and buttons to
+discover where they can navigate to next. While doing this in screen readers,
+the visitor will hear only the link or button text.
+
+With that in mind, we need to make sure that links and buttons are described in
+a manner that is sufficient for that use.
+
+When the visible text of a link or button cannot be descriptive enough, the
+`title` element can help provide further context for all visitors.
+
+For example, this link does a poor job of describing what the visitor will
+navigate to by clicking it:
+
+```html
+<a href="/preventive-maintenance-software/">Learn more</a>
+```
+
+This is the ideal button text:
+
+```html
+<a href="/preventive-maintenance-software/">Preventive maintenance software</a>
+```
+
+If it's not practical visually to expand the link text in such a way, then the
+`title` attribute can explain the title of the linked-to page:
+
+```html
+<a
+	href="/preventive-maintenance-software/"
+	title="Preventive Maintenance Software"
+>
+	Learn more
+</a>
+```
+
+### 4.6 Abbreviations
+
+Abbreviated content and acronyms can be wrapped with an `<abbr>` tag with the
+fully-spelled definition within the `title` attribute:
+
+```html
+This document is written in <abbr title="Hypertext Markup Language">HTML</abbr>.
+```
+
+### 4.7 Sizing
+
+We should prefer text sizes no smaller than `16px`. For special cases, we should
+avoid text sizes smaller than `14px`.
+
+Our key buying audience is comprised mostly of middle-aged men, many of whose
+eye sight is not what is once was. By serving them well, we provide an
+experience that works for everyone.
+
+### 4.8 Hit targets
+
+A touch target (e.g., link, button, form control) must be at least 44 x 44
+CSS pixels in size.
+
+This hard rule can be broken with these exceptions:
+
+1. The same command can be performed with another element on the page that meets
+   the 44-pixel requirement.
+2. The touch target is within a sentence or block of text.
+3. A particular presentation is essential to the information being conveyed.
+
+### 4.8 Color contrast
+
+Most legal standards align with WCAG 2 Level AA for the needed contrast level
+between text, objects, and their background.
+
+The baseline AA contrast standard is 4:5:1 for most text and 3:1 for large text
+(`24px`+ normal weight or `19px`+ bold).
+
+Color accessibility standards can be found within the [Electric Styles Figma
+file][6], or you can check the color contrast level by using the [WebAIM
+Contrast Checker][7] tool.
+
+<iframe
+	style={{
+		border: '1px solid rgba(0, 0, 0, 0.1);',
+		width: 800,
+		height: 450,
+	}}
+	src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fbg8ecYNq9ja8DbKW07QLrB%2FFMX-Styles%3Ftype%3Ddesign%26node-id%3D2126%253A32%26mode%3Ddesign%26t%3DNIfEAJMoNKXhyD9Y-1"
+	allowfullscreen
+></iframe>
+
+### 4.9 Screen reader utilities
+
+There are two screen reader utilities available with the `sr` prefix:
+
+`.sr-only` allows you to mark up content that is hidden from the visible UI but
+consumable by screen readers.
+
+```html
+<p>The lack of check marks are an implied &ldquo;no&rdquo; to sighted users:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Feature</th>
+			<th>Plan A</th>
+			<th>Plan B</th>
+			<th>Plan C</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">Widgets</th>
+			<td><span title="Yes">✅</span></td>
+			<td><span title="Yes">✅</span></td>
+			<td><span title="Yes">✅</span></td>
+		</tr>
+		<tr>
+			<th scope="row">Bobbles</th>
+			<td><span class="sr-only">No</span></td>
+			<td><span title="Yes">✅</span></td>
+			<td><span title="Yes">✅</span></td>
+		</tr>
+		<tr>
+			<th scope="row">Kazoos</th>
+			<td><span class="sr-only">No</span></td>
+			<td><span class="sr-only">No</span></td>
+			<td><span title="Yes">✅</span></td>
+		</tr>
+	</tbody>
+</table>
+```
+
+Combine `.sr-only` with `.sr-only-focusable` to show the element when it’s
+focused (e.g. by a keyboard-only user).
+
+```html
+<a class="sr-only sr-only-focusable" href="#content">
+	Skip to main content
+</a>
+```
+
+[1]: https://www.w3.org/WAI/WCAG2AA-Conformance
+[2]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+[3]: https://www.w3.org/TR/using-aria/
+[4]: /typography
+[5]: https://blog.hubspot.com/marketing/srt-file
+[6]: https://www.figma.com/file/bg8ecYNq9ja8DbKW07QLrB/FMX-Styles?type=design&node-id=2126%3A32&mode=design&t=N04a8cMp3Ddhx0xq-1
+[7]: https://webaim.org/resources/contrastchecker/

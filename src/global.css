@@ -1,0 +1,163 @@
+:root {
+  --fmxe-border-radius-sm: 0.3125rem; /* 5px */
+  --fmxe-border-radius-md: 0.625rem; /* 10px */
+  --fmxe-border-radius-round: 62.5rem; /* 1000px */
+  --fmxe-shadow-sm: 0.3125rem; /* 5px */
+  --fmxe-shadow-md: 0.625rem; /* 10px */
+  --fmxe-space-1: 0.0625rem; /* 1px */
+  --fmxe-space-2: 0.125rem; /* 2px */
+  --fmxe-space-xs: 0.25rem; /* 4px */
+  --fmxe-space-sm: 0.5rem; /* 8px */
+  --fmxe-space-md: 1rem; /* 16px */
+  --fmxe-space-lg: 2rem; /* 32px */
+  --fmxe-space-xl: 5rem; /* 80px */
+  --fmxe-color-orange: #CE4A12;
+  --fmxe-color-yellow: #F5C855;
+  --fmxe-color-red: #D13429;
+  --fmxe-color-green: #6AB67A;
+  --fmxe-color-black: #000000;
+  --fmxe-color-white: #FFFFFF;
+  --fmxe-color-electric-blue-core: #12AFD7;
+  --fmxe-color-electric-blue-light: #E9FAFF;
+  --fmxe-color-electric-blue-light-1: #CAECF6;
+  --fmxe-color-electric-blue-light-2: #96DAEC;
+  --fmxe-color-electric-blue-light-3: #66C8E3;
+  --fmxe-color-electric-blue-dark: #00A2C7;
+  --fmxe-color-electric-blue-dark-1: #0D819F;
+  --fmxe-color-cobalt-blue-core: #0735A8;
+  --fmxe-color-cobalt-blue-light: #EEF3FF;
+  --fmxe-color-cobalt-blue-light-1: #C6D1EB;
+  --fmxe-color-cobalt-blue-light-2: #91A4D7;
+  --fmxe-color-cobalt-blue-light-3: #5F7BC4;
+  --fmxe-color-cobalt-blue-dark: #042B8C;
+  --fmxe-color-cobalt-blue-dark-1: #041662;
+  --fmxe-color-cobalt-blue-midnight: #031047;
+  --fmxe-color-sky-blue-core: #B9D2E6;
+  --fmxe-color-sky-blue-light: #FBFCFD;
+  --fmxe-color-sky-blue-light-1: #EFF5F9;
+  --fmxe-color-sky-blue-light-2: #CFE0EE;
+  --fmxe-color-sky-blue-light-3: #5F7BC4;
+  --fmxe-color-sky-blue-dark: #81A9C9;
+  --fmxe-color-sky-blue-dark-1: #3E6E95;
+  --fmxe-color-gray-core: #38383D;
+  --fmxe-color-gray-light: #FAFAFA;
+  --fmxe-color-gray-light-1: #D7D7D8;
+  --fmxe-color-gray-light-2: #A5A5A8;
+  --fmxe-color-gray-light-3: #6C6C72;
+  --fmxe-color-gray-dark: #202026;
+  --fmxe-color-gray-dark-1: #15151E;
+  --fmxe-font-family-Figtree: "Figtree", serif;
+  --fmxe-font-family-Code: monaco, consolas, "Andale Mon", "DejaVu Sans Mono", monospace;
+  --fmxe-font-family-weight-500: 500;
+  --fmxe-font-family-weight-700: 700;
+  --fmxe-font-family-weight-800: 800;
+  --fmxe-font-family-size-h1: 2.1875rem; /* 35px */
+  --fmxe-font-family-size-h2: 1.875rem; /* 30px */
+  --fmxe-font-family-size-h3: 1.5625rem; /* 25px */
+  --fmxe-font-family-size-h4: 1.3125rem; /* 21px */
+  --fmxe-font-family-size-h5: 1.0625rem; /* 17px */
+  --fmxe-font-family-size-h6: 0.875rem; /* 14px */
+  --fmxe-font-family-size-lg: 1.3125rem; /* 21px */
+  --fmxe-font-family-size-md: 1.125rem; /* 18px */
+  --fmxe-font-family-size-sm: 1rem; /* 16px */
+  --fmxe-font-family-size-xs: 1rem; /* 16px */
+  --fmxe-font-family-line-height-h1: 2.75rem; /* 44px */
+  --fmxe-font-family-line-height-h2: 2.3125rem; /* 37px */
+  --fmxe-font-family-line-height-h3: 2.0625rem; /* 33px */
+  --fmxe-font-family-line-height-h4: 1.625rem; /* 26px */
+  --fmxe-font-family-line-height-h5: 1.4375rem; /* 23px */
+  --fmxe-font-family-line-height-h6: 1.25rem; /* 20px */
+  --fmxe-font-family-line-height-lg: 1.875rem; /* 30px */
+  --fmxe-font-family-line-height-md: 1.75rem; /* 28px */
+  --fmxe-font-family-line-height-sm: 1.4375rem; /* 23px */
+  --fmxe-font-family-line-height-xs: 1.1875rem; /* 19px */
+  --fmxe-screen-sm: 30.625rem; /* 490px */
+  --fmxe-screen-md: 48rem; /* 768px */
+  --fmxe-screen-lg: 65rem; /* 1040px */
+  --fmxe-screen-xl: 90rem; /* 1440px */
+  --fmxe-screen-2xl: 100rem; /* 1600px */
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --fmxe-font-family-size-h1: 3.4375rem; /* 55px */;
+    --fmxe-font-family-size-h2: 2.5rem; /* 40px */;
+    --fmxe-font-family-size-h3: 1.875rem; /* 30px */;
+    --fmxe-font-family-size-h4: 1.5625rem; /* 25px */;
+    --fmxe-font-family-size-h5: 1.1875rem; /* 19px */;
+    --fmxe-font-family-size-h6: 0.875rem; /* 14px */;
+    --fmxe-font-family-size-lg: 1.3125rem; /* 21px */;
+    --fmxe-font-family-size-md: 1.1875rem; /* 19px */;
+    --fmxe-font-family-size-sm: 1rem; /* 16px */;
+    --fmxe-font-family-size-xs: 0.875rem; /* 14px */;
+    --fmxe-font-family-line-height-h1: 3.75rem; /* 60px */;
+    --fmxe-font-family-line-height-h2: 3rem; /* 48px */;
+    --fmxe-font-family-line-height-h3: 2.5rem; /* 40px */;
+    --fmxe-font-family-line-height-h4: 1.875rem; /* 30px */;
+    --fmxe-font-family-line-height-h5: 1.625rem; /* 26px */;
+    --fmxe-font-family-line-height-h6: 1.25rem; /* 20px */;
+    --fmxe-font-family-line-height-lg: 1.875rem; /* 30px */;
+    --fmxe-font-family-line-height-md: 1.875rem; /* 30px */;
+    --fmxe-font-family-line-height-sm: 1.4375rem; /* 23px */;
+    --fmxe-font-family-line-height-xs: 1.1875rem; /* 19px */;
+  }
+}
+
+/**
+ * Typography
+ */
+@font-face {
+  font-family: "Figtree";
+  src: url('./assets/figtree-variable.ttf') format('truetype');
+  font-optical-sizing: auto;
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url('./assets/figtree-italic-variable.ttf') format('truetype');
+  font-optical-sizing: auto;
+  font-weight: 400 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--fmxe-font-family-Figtree);
+}
+
+h1 {
+  font-size: var(--fmxe-font-family-line-height-h1);
+  line-height: var(--fmxe-font-family-line-height-h1);
+}
+
+h2 {
+  font-size: var(--fmxe-font-family-line-height-h2);
+  line-height: var(--fmxe-font-family-line-height-h2);
+}
+
+h3 {
+  font-size: var(--fmxe-font-family-line-height-h3);
+  line-height: var(--fmxe-font-family-line-height-h3);
+}
+
+h4 {
+  font-size: var(--fmxe-font-family-line-height-h4);
+  line-height: var(--fmxe-font-family-line-height-h4);
+}
+
+h5 {
+  font-size: var(--fmxe-font-family-line-height-h5);
+  line-height: var(--fmxe-font-family-line-height-h5);
+}
+
+h6 {
+  font-size: var(--fmxe-font-family-line-height-h6);
+  line-height: var(--fmxe-font-family-line-height-h6);
+}
+
+p {
+  font-size: var(--fmxe-font-family-size-m);
+}
