@@ -15,11 +15,8 @@ const tdStyle = {
 
 export const VariableTableFiltered = ({
   data,
-  categories = null, // Array of category names to include, or null for all
-  excludeCategories = null, // Array of category names to exclude
-  categoryPattern = null // Regex pattern to match category names
+  categories = null,
 }) => {
-  // Helper function to format value with units and comments for display
   const formatValueForDisplay = (rawValue, unitIn, unitOut) => {
     // Skip conversion for hex colors or values that already have units
     if (typeof rawValue === 'string' && (rawValue.startsWith('#') || rawValue.includes('px') || rawValue.includes('rem') || isNaN(parseFloat(rawValue)))) {
@@ -42,7 +39,6 @@ export const VariableTableFiltered = ({
       }
     }
 
-    // If units are the same, just show the value with unit
     return `${numericValue}${inputUnit}`;
   };
 
@@ -50,51 +46,18 @@ export const VariableTableFiltered = ({
   const filteredData = data.filter(section => {
     const categoryName = section.category;
 
-    // If excludeCategories is provided, exclude matching categories
-    if (excludeCategories) {
-      if (Array.isArray(excludeCategories)) {
-        if (excludeCategories.some(exclude =>
-          typeof exclude === 'string'
-            ? categoryName.toLowerCase().includes(exclude.toLowerCase())
-            : exclude.test(categoryName)
-        )) {
-          return false;
-        }
-      }
-    }
-
     // If categories array is provided, only include matching categories
-    if (categories) {
-      if (Array.isArray(categories)) {
-        return categories.some(cat =>
-          typeof cat === 'string'
-            ? categoryName.toLowerCase().includes(cat.toLowerCase())
-            : cat.test(categoryName)
-        );
-      }
-    }
-
-    // If categoryPattern is provided, match against the pattern
-    if (categoryPattern) {
-      const pattern = typeof categoryPattern === 'string'
-        ? new RegExp(categoryPattern, 'i')
-        : categoryPattern;
-      return pattern.test(categoryName);
+    if (categories && Array.isArray(categories)) {
+      return categories.some(cat => typeof cat === 'string' && categoryName === cat)
     }
 
     // If no filters are provided, include all
-    if (!categories && !excludeCategories && !categoryPattern) {
-      return true;
-    }
-
     return true;
   });
 
   if (filteredData.length === 0) {
     return (
-      <div style={{ padding: '1rem', color: '#6b7280', fontStyle: 'italic' }}>
-        No categories match the specified criteria.
-      </div>
+      <p>No categories match the specified criteria.</p>
     );
   }
 
@@ -102,17 +65,7 @@ export const VariableTableFiltered = ({
     <div>
       {filteredData.map((section, index) => (
         <div key={index} style={{ marginBottom: '2rem' }}>
-          <h4>
-            { `--${section.category}-{name}`}
-            {(section['unit-in'] || section['unit-out']) && (
-              <span style={{ fontSize: '0.875rem', fontWeight: 'normal', color: '#6b7280', marginLeft: '8px' }}>
-                {section['unit-in'] && section['unit-out'] && section['unit-in'] !== section['unit-out']
-                  ? `(${section['unit-in']} → ${section['unit-out']})`
-                  : `(unit: ${section['unit-in'] || section['unit-out']})`
-                }
-              </span>
-            )}
-          </h4>
+          <h4>{ `--${section.category}-{name}`}</h4>
           <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '0.5rem' }}>
             <thead>
               <tr>
