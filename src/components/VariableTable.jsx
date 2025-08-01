@@ -1,5 +1,6 @@
 import React from 'react';
 import { ColorSwatch } from '@components/ColorSwatch';
+import isColorValue from '@utils/isColorValue';
 
 const thStyle = {
   fontWeight: '600',
@@ -10,15 +11,6 @@ const thStyle = {
 const tdStyle = {
   borderBottom: '1px solid #e5e7eb',
   padding: '0.75rem',
-};
-
-const isColorValue = (value) => {
-  // Check if value is a hex color
-  return typeof value === 'string' && /^#[0-9A-Fa-f]{6}$/.test(value);
-};
-
-const isColorCategory = (category) => {
-  return category.includes('color');
 };
 
 export const VariableTable = ({ data }) => {
@@ -87,21 +79,15 @@ export const VariableTable = ({ data }) => {
                     {section.mode ? (
                       <>
                         <td style={tdStyle}>
-                          {isColorCategory(section.category) && isColorValue(entry.desktop) && (
-                            <ColorSwatch color={entry.desktop} />
-                          )}
                           {formatValueForDisplay(entry.desktop, unitIn, unitOut)}
                         </td>
                         <td style={tdStyle}>
-                          {isColorCategory(section.category) && isColorValue(entry.mobile) && (
-                            <ColorSwatch color={entry.mobile} />
-                          )}
                           {formatValueForDisplay(entry.mobile, unitIn, unitOut)}
                         </td>
                       </>
                     ) : (
                       <td style={tdStyle} colSpan={1}>
-                        {isColorCategory(section.category) && isColorValue(entry.value) && (
+                        {isColorValue(section.category, entry.value) && (
                           <ColorSwatch color={entry.value} />
                         )}
                         {formatValueForDisplay(entry.value, unitIn, unitOut)}
