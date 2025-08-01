@@ -1,7 +1,7 @@
 import React from 'react';
 import { Source } from '@storybook/addon-docs/blocks';
 
-export const VariableUsageBlock = ({ data }) => {
+export const VariablesToCSS = ({ data }) => {
   const lines = [];
   const getCategory = (cat) => data.find(v => v.category === cat);
 
