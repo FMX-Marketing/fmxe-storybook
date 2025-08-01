@@ -4,35 +4,43 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Layout
 
-Layout is a major set of frames on which we can hang content and design elements.
+Layout is a major set of frames on which we can hang content and design
+elements.
 
-Our layout system provides a toolkit for positioning within a grid layout, spacing, and grouping of elements like cards. This all can be configured flexibly with optional mobile-first responsive breakpoints.
+Our layout system provides a toolkit for positioning within a grid
+layout, spacing, and grouping of elements like cards. This all can be configured
+flexibly with optional mobile-first responsive breakpoints.
 
 ## Responsive breakpoints
 
-Based on Bootstrap, Electric references five responsive breakpoints. The five tiers are as follows:
+Based on Bootstrap, Electric references five responsive breakpoints. The five
+tiers are as follows:
 
-- Extra small (xs)
-- Small (sm)
-- Medium (md)
-- Large (lg)
-- Extra large (xl)
+1. Extra small (`xs`)
+2. Small (`sm`)
+3. Medium (`md`)
+4. Large (`lg`)
+5. Extra large (`xl`)
 
-As noted above, each of these breakpoints have their own container, unique class prefix, and modifiers. Here are the thresholds and class prefixes for the breakpoints:
+As noted above, each of these breakpoints have their own container, unique class
+prefix, and modifiers. Here are the thresholds and class prefixes for the
+breakpoints:
 
-| Breakpoint | xs | sm | md | lg | xl |
-|---|---|---|---|---|---|
-| **Screen min width** | 0 | ≥576px | ≥768px | ≥992px | ≥1200px |
-| **Class prefix** | | `sm:` | `md:` | `lg:` | `xl:` |
+|                       | xs   | sm       | md       | lg       | xl        |
+|-----------------------|------|----------|----------|----------|-----------|
+| Screen min width      | 0    | ≥576px   | ≥768px   | ≥992px   | ≥1200px   |
+| Class prefix          |      | `sm:`    | `md:`    | `lg:`    | `xl:`     |
 
-Responsive class prefixes can be applied across several different layout utilities:
-
-- Grid
-- Spacing
+Responsive class prefixes can be applied across several different layout
+utilities:
+* [Grid][2]
+* [Spacing][1]
 
 ## Grid system
 
-Most FMX website layouts use the grid system. It provides a set of utilities for composing row- and column-based layouts scaling from mobile up through desktop viewport sizes.
+Most FMX website layouts use the [grid system][2]. It provides a set of
+utilities for composing row- and column-based layouts scaling from mobile up
+through desktop viewport sizes.
 
 ```html
 <main class="container">
@@ -49,15 +57,18 @@ Most FMX website layouts use the grid system. It provides a set of utilities for
 </main>
 ```
 
-See the chapter about the grid for more information.
+See the chapter about the [grid][2] for more information.
 
 ## Spacing
 
-Electric spacing utilities and tokens provide a toolkit for consistent spacing of elements vertically and horizontally.
+Electric [spacing utilities and tokens][1] provide a toolkit for consistent
+spacing of elements vertically and horizontally.
 
-Utilities for padding and margin can be applied as square and squish insets, stacked, inline, and on the grid.
+Utilities for padding and margin can be applied as square and squish insets,
+stacked, inline, and on the grid.
 
-Following is an example of applying a medium inset padding to a frame and a small stack margin to the bottom of the first element.
+Following is an example of applying a medium inset padding to a frame and a
+small stack margin to the bottom of the first element.
 
 ```html
 <style type="text/css">
@@ -91,9 +102,7 @@ Following is an example of applying a medium inset padding to a frame and a smal
 </main>
 ```
 
-See the chapter about the spacing for more information.
-
-# Cards
+See the chapter about the [spacing][2] for more information.
 
 ## Cards
 
@@ -115,15 +124,17 @@ A card component can contain a header, image, body, and footer.
 </div>
 ```
 
-**TODO:** link it up See more about the card component.
+<mark>TODO: link it up</mark> See more about the card component.
 
-All card components in the design system extend this base card component and override properties within to add extra visual effects. The following components extend the base card component:
+All card components in the design system extend this base card component and
+override properties within to add extra visual effects. The following components
+extend the base card component:
+* <mark>TODO: list these</mark> Feature card
 
-**TODO:** list these Feature card
+### Card decks
 
-## Card decks
-
-Cards are typically laid out within a card deck grid, which sets the number of cards per row based on what makes sense for each breakpoint.
+Cards are typically laid out within a card deck grid, which sets the number of
+cards per row based on what makes sense for each breakpoint.
 
 A base card deck looks like the following:
 
@@ -164,3 +175,8 @@ A base card deck looks like the following:
 ```
 
 Custom card decks are provided for each card outlined above:
+
+* <mark>TODO: list these after we sort out components</mark>
+
+[1]: /spacing/
+[2]: /grid/

@@ -6,9 +6,9 @@ import { variables } from '../variables';
 
 # Grid
 
-# Show only spacing and typography
-
-Most major layout elements are laid on top of a responsive grid system. Electric draws inspiration from Bootstrap's grid system, but our implementation strips out unnecessary weight and complexity.
+Most major layout elements are laid on top of a responsive grid system. Electric
+draws inspiration from [Bootstrap's grid system][1], but our implementation
+strips out unnecessary weight and complexity.
 
 ## 1. How it works
 
@@ -16,65 +16,98 @@ Much like Bootstrap's, here's how the grid system comes together.
 
 ### 1.1 Our grid supports five responsive breakpoints
 
-Breakpoints are based on min-width media queries, meaning they affect that breakpoint and all those above it (e.g., `.sm:col-4` applies to sm, md, lg, and xl).
+Breakpoints are based on `min-width` media queries, meaning they affect that
+breakpoint and all those above it (e.g., `.sm:col-4` applies to `sm`, `md`,
+`lg`, and `xl`).
 
-This means you can control container and column sizing and behavior by each breakpoint.
+This means you can control container and column sizing and behavior by each
+breakpoint.
 
 ### 1.2 Containers center and horizontally pad your content
 
-Use `.container` for a responsive pixel width, `.container-fluid` for width: 100% across all viewports and devices, or a responsive container (e.g., `.container-md`) for a combination of fluid and pixel widths.
+Use `.container` for a responsive pixel width, `.container-fluid` for
+`width: 100%` across all viewports and devices, or a responsive container (e.g.,
+`.container-md`) for a combination of fluid and pixel widths.
 
 ### 1.3 Rows are wrappers for columns
 
-Each column has horizontal padding (called a gutter) for controlling the space between them. This padding is then counteracted on the rows with negative margins to ensure the content in your columns is visually aligned down the left side.
+Each column has horizontal `padding` (called a _gutter_) for controlling the
+space between them. This `padding` is then counteracted on the rows with
+negative margins to ensure the content in your columns is visually aligned down
+the left side.
 
-Rows also support modifier classes to uniformly apply column sizing and gutter classes to change the spacing of your content.
+Rows also support modifier classes to uniformly apply column sizing and gutter
+classes to change the spacing of your content.
 
 ### 1.4 Columns are incredibly flexible
 
-There are 12 template columns available per row, allowing you to create different combinations of elements that span any number of columns.
+There are 12 template columns available per row, allowing you to create
+different combinations of elements that span any number of columns.
 
-Column classes indicate the number of template columns to span (e.g., `col-4` spans four).
+Column classes indicate the number of template columns to span (e.g., `col-4`
+spans four).
 
-Widths are set in percentages so you always have the same relative sizing.
+`width`s are set in percentages so you always have the same relative sizing.
 
 ### 1.5 Gutters are also responsive and customizable
 
-Gutter classes are available across all breakpoints, with all the same sizes as our margin and padding spacing. Change horizontal gutters with `.gx-*` classes, vertical gutters with `.gy-*`, or all gutters with `.g-*` classes. `.g-0` is also available to remove gutters.
+Gutter classes are available across all breakpoints, with all the same sizes as
+our margin and padding spacing. Change horizontal gutters with `.gx-*` classes,
+vertical gutters with `.gy-*`, or all gutters with `.g-*` classes. `.g-0` is
+also available to remove gutters.
 
 ## 2. Breakpoints
 
-The grid system can adapt across all five breakpoints:
+The grid system can adapt across all five breakpoints. The five grid tiers are
+as follows:
 
-<VariableTableFiltered data={variables} categories={['fmxe-screen']} />
+1. Extra small (`xs`)
+2. Small (`sm`)
+3. Medium (`md`)
+4. Large (`lg`)
+5. Extra large (`xl`)
 
-_As noted above, each of these breakpoints have their own container, unique class prefix, and modifiers. Here's how the grid changes across these breakpoints:_
+As noted above, each of these breakpoints have their own container, unique class
+prefix, and modifiers. Hereâ€™s how the grid changes across these breakpoints:
 
-| | xs | sm | md | lg | xl |
-|---|---|---|---|---|---|
-| **Screen min width** | 0 | ≥576px | ≥768px | ≥992px | ≥1200px |
-| **Container max width** | None (auto) | 540px | 720px | 960px | 1140px |
-| **Class prefix** | `col-` | `sm:col-` | `md:col-` | `lg:col-` | `xl:col-` |
+|                         | xs        | sm       | md       | lg       | xl        |
+|-------------------------|-----------|----------|----------|----------|-----------|
+| Screen min width        | 0         | ≥576px   | ≥768px   | ≥992px   | ≥1200px   |
+| Container max width     | None (auto) | 540px  | 720px    | 960px    | 1140px    |
+| Class prefix            | `col-`    | `sm:col-` | `md:col-` | `lg:col-` | `xl:col-` |
 
-<VariableTableFiltered data={variables} categories={['fmxe-screen']} />
 
 The gutter width on all breakpoints is 1.5rem (0.75rem on each side).
 
 ## 3. The grid in Figma
 
-382px 3-column mobile and 1,440px 12-column desktop grid system frames are available in the Figma styles file.
+<iframe
+  style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+  width="800"
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fbg8ecYNq9ja8DbKW07QLrB%2FFMX-Styles%3Ftype%3Ddesign%26node-id%3D1882%253A100%26mode%3Ddesign%26t%3DxQw65GdvUtkSaSgr-1"
+  allowfullscreen
+></iframe>
 
-To turn on the grid for a frame, select the frame and click the eye icon next to the Layout grid > columns inspector control.
+382px 3-column mobile and 1,440px 12-column desktop grid system frames are
+available in the [Figma styles file][3].
+
+To turn on the grid for a frame, select the frame and click the eye icon next to
+the _Layout grid > columns_ inspector control.
 
 ## 4. Responsive classes
 
-The grid system employs a "current size and up" style of layering varied column sizing based on breakpoints. This follows the mobile first style of building responsive UIs.
+The grid system employs a "current size and up" style of layering varied
+column sizing based on breakpoints. This follows the [mobile first][2] style of
+building responsive UIs.
 
 ### 4.1 Applying to all breakpoints
 
-For grids that are the same from the smallest of devices to the largest, use the `.col` and `.col-*` classes.
+For grids that are the same from the smallest of devices to the largest, use the
+`.col` and `.col-*` classes.
 
-Specify a numbered class when you need a particularly sized column. Otherwise, feel free to stick to `.col` to get evenly-spaced columns across.
+Specify a numbered class when you need a particularly sized column. Otherwise,
+feel free to stick to `.col` to get evenly-spaced columns across.
 
 ```html
 <div class="container text-center">
@@ -93,7 +126,8 @@ Specify a numbered class when you need a particularly sized column. Otherwise, f
 
 ### 4.2 Stacked to horizontal
 
-Using a single set of `.sm:col-*` classes, you can create a basic grid system that starts out stacked and becomes horizontal at the small breakpoint (sm).
+Using a single set of `.sm:col-*` classes, you can create a basic grid system
+that starts out stacked and becomes horizontal at the small breakpoint (`sm`).
 
 ```html
 <div class="container text-center">
@@ -111,7 +145,9 @@ Using a single set of `.sm:col-*` classes, you can create a basic grid system th
 
 ### 4.3 Layer various breakpoints
 
-If you need more nuance across various breakpoints, you can layer the grid classes from the base `.col-*` classes to largest breakpoint (e.g., `.xl:col-*`).
+If you need more nuance across various breakpoints, you can layer the grid
+classes from the base `.col-*` classes to largest breakpoint (e.g.,
+`.xl:col-*`).
 
 ```html
 <div class="container text-center">
@@ -128,9 +164,11 @@ If you need more nuance across various breakpoints, you can layer the grid class
 
 ## 5. Nesting
 
-To nest your content within the grid, add a new `.row` and set of `.col-*` columns within an existing `.col-*` column.
+To nest your content within the grid, add a new `.row` and set of `.col-*`
+columns within an existing `.col-*` column.
 
-Nested rows should include a set of columns that add up to 12 or fewer. (It is not required that you use all 12 available columns.)
+Nested rows should include a set of columns that add up to 12 or fewer. (It is
+not required that you use all 12 available columns.)
 
 ```html
 <div class="container text-center">
@@ -154,13 +192,16 @@ Nested rows should include a set of columns that add up to 12 or fewer. (It is n
 
 ## 6. Column alignment
 
-Use alignment utilities to vertically and horizontally align columns within the grid.
+Use alignment utilities to vertically and horizontally align columns within the
+grid.
 
 ### 6.1 Vertical alignment
 
-Change the vertical alignment with any of the responsive `row-align-items-*` classes. The naming is inspired by flexbox's align-items property.
+Change the vertical alignment with any of the responsive `row-align-items-*`
+classes. The naming is inspired by flexbox's `align-items` property.
 
-`row-align-items-start` aligns all columns in the row to the top of the row boundary:
+`row-align-items-start` aligns all columns in the row to the top of the row
+boundary:
 
 ```html
 <div class="container text-center">
@@ -178,7 +219,8 @@ Change the vertical alignment with any of the responsive `row-align-items-*` cla
 </div>
 ```
 
-`row-align-items-center` aligns all columns in the row to the center of the boundary:
+`row-align-items-center` aligns all columns in the row to the center of the
+boundary:
 
 ```html
 <div class="container text-center">
@@ -196,7 +238,8 @@ Change the vertical alignment with any of the responsive `row-align-items-*` cla
 </div>
 ```
 
-`row-align-items-end` aligns all columns in the row to the bottom of the row boundary.
+`row-align-items-end` aligns all columns in the row to the bottom of the row
+boundary.
 
 ```html
 <div class="container text-center">
@@ -214,7 +257,8 @@ Change the vertical alignment with any of the responsive `row-align-items-*` cla
 </div>
 ```
 
-Or change the alignment of each column individually with any of the responsive `.col-align-self-*` classes:
+Or change the alignment of each column individually with any of the responsive
+`.col-align-self-*` classes:
 
 ```html
 <div class="container text-center">
@@ -234,9 +278,11 @@ Or change the alignment of each column individually with any of the responsive `
 
 ### 6.2 Horizontal alignment
 
-Change the horizontal alignment with any of the responsive `row-justify-content-*` classes.
+Change the horizontal alignment with any of the responsive
+`row-justify-content-*` classes.
 
-Like with our vertical alignment utilities, these classes are named after a flexbox property: justify-content.
+Like with our vertical alignment utilities, these classes are named after a
+flexbox property: `justify-content`.
 
 ```html
 <div class="container text-center">
@@ -293,7 +339,8 @@ Like with our vertical alignment utilities, these classes are named after a flex
 
 ## 7. Column wrapping
 
-If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.
+If more than 12 columns are placed within a single row, each group of extra
+columns will, as one unit, wrap onto a new line.
 
 ```html
 <div class="container">
@@ -316,7 +363,8 @@ If more than 12 columns are placed within a single row, each group of extra colu
 
 ## 8. Reordering columns
 
-Use `.col-order-*` classes for controlling the visual order of your content. This includes support for 1 through 5 across all six grid tiers.
+Use `.col-order-*` classes for controlling the visual order of your content.
+This includes support for `1` through `5` across all six grid tiers.
 
 ```html
 <div class="container text-center">
@@ -334,7 +382,8 @@ Use `.col-order-*` classes for controlling the visual order of your content. Thi
 </div>
 ```
 
-These classes are responsive, so you can set the order by breakpoint (e.g., `.col-order-1.md:col-order-2`).
+These classes are responsive, so you can set the order by breakpoint (e.g.,
+`.col-order-1.md:col-order-2`).
 
 ```html
 <div class="container text-center">
@@ -351,9 +400,13 @@ These classes are responsive, so you can set the order by breakpoint (e.g., `.co
 
 ### 8.1 Forcing column order to beginning or end
 
-There are also responsive `.col-order-0` and `.col-order-6` classes that change the order of an element by applying `order: 0` and `order: 6`, respectively. These should be used sparingly in cases where you want a guaranteed way to force a column to the beginning or ending positions.
+There are also responsive `.col-order-0` and `.col-order-6` classes that
+change the order of an element by applying `order: 0` and `order: 6`,
+respectively. These should be used sparingly in cases where you want a
+guaranteed way to force a column to the beginning or ending positions.
 
-These classes can also be intermixed with the numbered `.col-order-*` classes as needed.
+These classes can also be intermixed with the numbered `.col-order-* `classes as
+needed.
 
 ```html
 <div class="container text-center">
@@ -370,17 +423,25 @@ These classes can also be intermixed with the numbered `.col-order-*` classes as
 
 ## 9. Gutters
 
-Gutters are the gaps between column content, created by horizontal padding. We set `padding-right` and `padding-left` on each column, and use negative margin to offset that at the start and end of each row to align content.
+Gutters are the gaps between column content, created by horizontal padding. We
+set `padding-right` and `padding-left` on each column, and use negative margin
+to offset that at the start and end of each row to align content.
 
-Gutters start at 1.5rem (24px) wide. This allows us to match our grid to the padding and margin spacers scale.
+Gutters start at `1.5rem` (`24px`) wide. This allows us to match our grid to the
+padding and margin spacers scale.
 
 ### 9.1 Remove gutters
 
-The gutters between columns in our predefined grid classes can be removed with `.row-gutter-0`. This removes the negative margins from `.row` and the horizontal padding from all immediate children columns.
+The gutters between columns in our predefined grid classes can be removed with
+`.row-gutter-0`. This removes the negative margins from `.row` and the
+horizontal padding from all immediate children columns.
 
-Need an edge-to-edge design? Drop the parent `.container` or `.container-fluid` and add `.mx-0` to the `.row` to prevent overflow.
+Need an edge-to-edge design? Drop the parent `.container` or `.container-fluid`
+and add `.mx-0` to the `.row` to prevent overflow.
 
-In practice, here's how it looks. Note you can continue to use this with all other predefined grid classes (including column widths, responsive tiers, reorders, and more).
+In practice, hereâ€™s how it looks. Note you can continue to use this with all
+other predefined grid classes (including column widths, responsive tiers,
+reorders, and more).
 
 ```html
 <div class="row row-gutter-0 text-center">
@@ -392,3 +453,7 @@ In practice, here's how it looks. Note you can continue to use this with all oth
   </div>
 </div>
 ```
+
+[1]: https://getbootstrap.com/docs/5.3/layout/grid/
+[2]: https://medium.com/@Vincentxia77/what-is-mobile-first-design-why-its-important-how-to-make-it-7d3cf2e29d00
+[3]: https://www.figma.com/file/bg8ecYNq9ja8DbKW07QLrB/FMX-Styles?type=design&node-id=1211-18&mode=design&t=xQw65GdvUtkSaSgr-0

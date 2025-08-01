@@ -1,29 +1,34 @@
 import { Meta } from "@storybook/addon-docs/blocks";
+import { VariableTableFiltered } from '../VariableTableFiltered.jsx';
+import { variables } from '../variables';
 
 <Meta title="Design Philosophy/Typography" />
-
-# Typography
 
 Styling text to reflect the FMX brand on the web.
 
 ## 1. Base typography
 
-Base typography provides minimum text styling as a foundation to meet the needs of both prose content and components.
+Base typography provides minimum text styling as a foundation to meet the needs
+of both prose content and components.
 
-One important feature is that it removes extra margin on the last block element within a containing block.
+One important feature is that it removes extra margin on the last block element
+within a containing block.
 
-FMX uses a customized version of normalize.css as a starting point for our styles to achieve consistency between browsers and best-practice accessibility.
+FMX uses a customized version of [normalize.css][1] as a starting point for our
+styles to achieve consistency between browsers and best-practice accessibility.
 
 ### 1.1 Headings
 
-The "major third" scale (1.25x between levels) works really well for web UI because of the flow between type levels. This scale uses medium contrast so fonts are not drastic in sizing and can fit in more content.
+The "major third" scale (1.25x between levels) works really well for web UI
+because of the flow between type levels. This scale uses medium contrast so
+fonts are not drastic in sizing and can fit in more content.
 
 Headings follow this priority list of fonts and fallbacks:
 
-- Hind
-- sans-serif (usually Arial)
+1. [Hind][2]
+2. sans-serif (usually Arial)
 
-```html
+```
 <h1>This is a Level 1 Header</h1>
 <h2>This is a Level 2 Header</h2>
 <h3>This is a Level 3 Header</h3>
@@ -32,14 +37,14 @@ Headings follow this priority list of fonts and fallbacks:
 <h6>This is a Level 6 Header</h6>
 ```
 
-### 1.2 Body text
+### 1.2. Body text
 
 Paragraphs and other body text follow this priority list of fonts and fallbacks:
 
-- Mulish (formerly called Muli)
-- sans-serif (usually Arial)
+1. [Mulish][3] (formerly called Muli)
+2. sans-serif (usually Arial)
 
-```html
+```
 <p>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisi
   erat, varius et lectus eget, placerat maximus quam. Duis malesuada
@@ -56,7 +61,7 @@ Paragraphs and other body text follow this priority list of fonts and fallbacks:
 
 Styling for common HTML inline elements.
 
-```html
+```
 <p>You can use the mark tag to <mark>highlight</mark> text.</p>
 <p><del>This line of text is deleted.</del></p>
 <p><s>This line of text is no longer accurate.</s></p>
@@ -73,28 +78,30 @@ Styling for common HTML inline elements.
 
 <p>
   <abbr title="standard operating procedure">SOP</abbr>
-  is an abbreviation for "hypertext markup language."
+  is an abbreviation for &ldquo;hypertext markup language.&rdquo;
 </p>
 ```
 
 Beware that those tags should be used for semantic purpose:
 
-- `<mark>` represents text which is marked or highlighted for reference or notation purposes.
-- `<small>` represents side-comments and small print, like copyright and legal text.
-- `<s>` represents elements that are no longer relevant or no longer accurate.
+* `<mark>` represents text which is marked or highlighted for reference or
+  notation purposes.
+* `<small>` represents side-comments and small print, like copyright and legal
+  text.
+* `<s>` represents elements that are no longer relevant or no longer accurate.
 
-### 1.4 Hyperlinks
+### 1.3 Hyperlinks
 
-```html
+```
 Lorem ipsum dolor sit amet,
 <a href="#">consectetur adipiscing elit</a>.
 ```
 
-### 1.5 Lists
+### 1.4 Lists
 
 #### Unordered lists
 
-```html
+```
 <ul>
   <li>
     Curabitur ultricies lectus quis tellus hendrerit, a faucibus nibh
@@ -113,7 +120,7 @@ Lorem ipsum dolor sit amet,
 
 #### Ordered lists
 
-```html
+```
 <ol>
   <li>
     Curabitur ultricies lectus quis tellus hendrerit, a faucibus nibh
@@ -132,9 +139,11 @@ Lorem ipsum dolor sit amet,
 
 #### Description lists
 
-A description list helps describe a glossary of terms or key/value pairs. Description lists are preferred over bulleted lists with a bolded short phrase followed by a lengthier description.
+A description list helps describe a glossary of terms or key/value pairs.
+Description lists are preferred over bulleted lists with a bolded short phrase
+followed by a lengthier description.
 
-```html
+```
 <dl>
   <dt>Reactive maintenance</dt>
   <dd>
@@ -166,23 +175,26 @@ A description list helps describe a glossary of terms or key/value pairs. Descri
 
 ### 2.1 Text alignment
 
-These utilities allow for easy adjustment of text alignment within a block element.
+These utilities allow for easy adjustment of text alignment within a block
+element.
 
-- `.text-start` aligns text to the beginning of the line (left side for LTR languages)
-- `.text-center` center-aligns text
-- `.text-end` aligns text to the end of the line (right side for LTR languages)
-- `.text-left` is deprecated. It should be replaced with `.text-start`.
-- `.text-right` is deprecated. It should be replaced with `.text-end`.
+* `.text-start` aligns text to the beginning of the line (left side for LTR
+  languages)
+* `.text-center` center-aligns text
+* `.text-end` aligns text to the end of the line (right side for LTR languages)
+* `.text-left` is deprecated. It should be replaced with `.text-start`.
+* `.text-right` is deprecated. It should be replaced with `.text-end`.
 
-```html
+```
 <p class="text-start">start-aligned text on all viewport sizes.</p>
 <p class="text-center">center-aligned text on all viewport sizes.</p>
 <p class="text-end">end-aligned text on all viewport sizes.</p>
 ```
 
-There is also a set of responsive utilities that determine which breakpoint to start applying the alignment.
+There is also a set of responsive utilities that determine which breakpoint to
+start applying the alignment.
 
-```html
+```
 <p class="lg:text-center">
   Centered on large and up viewport sizes
 </p>
@@ -193,9 +205,12 @@ There is also a set of responsive utilities that determine which breakpoint to s
 </p>
 ```
 
-The responsive utilities can be combined to allow different styles for different responsive breakpoints.
+The responsive utilities can be combined to allow different styles for different
+responsive breakpoints.
 
-For easier readability, the ordering of the classes should be mobile-first: default screenless class first, followed by override for increasing screen size variants. Consider this example:
+For easier readability, the ordering of the classes
+should be mobile-first: default screenless class first, followed by override for
+increasing screen size variants. Consider this example:
 
 ```html
 <div class="text-center sm:text-start md:text-center lg:text-start">
@@ -206,16 +221,17 @@ For easier readability, the ordering of the classes should be mobile-first: defa
 
 Apply text capitalization transformations to text within the container.
 
-```html
+```
 <p class="text-lowercase">lowercased text</p>
 <p class="text-uppercase">uppercased text</p>
 ```
 
 ### 2.3 Forced heading style
 
-Useful if you want to keep the correct document heading hierarchy but want for the headings to appear at different sizes than the base styles.
+Useful if you want to keep the correct document heading hierarchy but want for
+the headings to appear at different sizes than the base styles.
 
-```html
+```
 <h6 class="h1-style">
   Heading 6 styled as heading 1
 </h6>
@@ -243,9 +259,10 @@ Useful if you want to keep the correct document heading hierarchy but want for t
 
 ### 2.4 Font sizes
 
-Quickly change the font size based on heading font sizes. Note that this only applies font sizes and not other font styles.
+Quickly change the font size based on heading font sizes. Note that this only
+applies font sizes and not other font styles.
 
-```html
+```
 <p class="text-sm">.text-sm size</p>
 <p class="text-md">.text-md size</p>
 <p class="text-lg">.text-lg size</p>
@@ -255,7 +272,7 @@ Quickly change the font size based on heading font sizes. Note that this only ap
 
 Quickly change the font weight with these utilities.
 
-```html
+```
 <p class="text-normal">normal text weight</p>
 <p class="text-semi-bold">semi-bold text</p>
 <p class="text-bold">bold text</p>
@@ -263,17 +280,18 @@ Quickly change the font weight with these utilities.
 
 ### 2.6 Font styles
 
-```html
+ ```
 <p class="text-italic">
- This is italicized text
+  This is italicized text
 </p>
-```
+ ```
 
 ### 2.7 Blockquotes
 
-For quoting blocks of content from another source within your document. Wrap `<blockquote class="blockquote">` around any HTML as the quote.
+For quoting blocks of content from another source within your document. Wrap
+`<blockquote class="blockquote">`around any HTML as the quote.
 
-```html
+```
 <blockquote class="blockquote">
   <p>A well-known quote, contained in a blockquote element.</p>
 </blockquote>
@@ -281,9 +299,12 @@ For quoting blocks of content from another source within your document. Wrap `<b
 
 #### Naming a source
 
-The HTML spec requires that blockquote attribution be placed outside the `<blockquote>`. When providing attribution, wrap your `<blockquote>` in a `<figure>` and use a `<figcaption>` with the `blockquote-footer` class. Be sure to wrap the name of the source work in `<cite>` as well.
+The HTML spec requires that blockquote attribution be placed outside the
+`<blockquote>`. When providing attribution, wrap your `<blockquote>` in a
+`<figure>` and use a `<figcaption>` with the blockquote-footer class. Be sure to
+wrap the name of the source work in `<cite>` as well.
 
-```html
+```
 <figure>
   <blockquote class="blockquote">
     <p>A well-known quote, contained in a blockquote element.</p>
@@ -296,9 +317,10 @@ The HTML spec requires that blockquote attribution be placed outside the `<block
 
 ### 2.8 Tight leading/line height
 
-The default line height (leading) for our text is 1.58. Tighten line height on shorter blocks of text by adding the `.text-tight` class.
+The default line height (leading) for our text is 1.58. Tighten line height on
+shorter blocks of text by adding the `.text-tight` class.
 
-```html
+```
 <p>
   <strong>This is normal text.</strong> I called the IT department
   about that ransomware because of the old antivirus, but he said
@@ -316,9 +338,10 @@ The default line height (leading) for our text is 1.58. Tighten line height on s
 
 ### 2.9 Unstyled lists
 
-Use this utility in the event that the content should be structured like a list but presented without the styling of one.
+Use this utility in the event that the content should be structured like a list
+but presented without the styling of one.
 
-```html
+```
 <p>My favorite things:</p>
 
 <ul class="list-unstyled">
@@ -338,9 +361,10 @@ Use this utility in the event that the content should be structured like a list 
 
 ### 2.10 Inline lists
 
-Remove a list's bullets and apply some light margin with a combination of two classes, `list-inline` and `list-inline-item`.
+Remove a list's bullets and apply some light margin with a combination of two
+classes, `list-inline` and `list-inline-item`.
 
-```html
+```
 <p>My favorite things:</p>
 
 <ul class="list-inline">
@@ -358,14 +382,19 @@ Remove a list's bullets and apply some light margin with a combination of two cl
 
 ## 3. Prose typography
 
-Adding a class of `.prose` to a block containing content provides styling suitable for longer-form content and builds on top of base typography styles.
+Adding a class of `.prose` to a block containing content provides styling
+suitable for longer-form content and builds on top of base typography styles.
 
-- Typically used for large blocks of prose or content authored through a rich text or WYSIWYG editor. Think bodies of articles, extended descriptions, and posts.
-- Provides extra space between subheadings that aren't the first element within the block.
-- Adds margin below ordered and unordered list items.
-- For maximum readability, measure does not exceed 2½ lengths of the alphabet in the paragraph font size.
+* Typically used for large blocks of prose or content authored through a rich
+  text or WYSIWYG editor. Think bodies of articles, extended descriptions, and
+  posts.
+* Provides extra space between subheadings that aren't the first element within
+  the block.
+* Adds margin below ordered and unordered list items.
+* For maximum readability, measure does not exceed 2Â½ lengths of the alphabet in
+  the paragraph font size.
 
-```html
+```
 <div class="prose">
   <h2>Line length test</h2>
   <p>
@@ -403,4 +432,10 @@ Adding a class of `.prose` to a block containing content provides styling suitab
 
 ## 4. Typography design tokens
 
-*[Content appears to be cut off in the original document]*
+<VariableTableFiltered data={variables} categories={['fmxe-font-family', 'fmxe-font-family/size', 'fmxe-font-family/weight']} />
+
+[See all design tokens](#)
+
+[1]: https://necolas.github.io/normalize.css/
+[2]: https://fonts.google.com/specimen/Hind
+[3]: https://fonts.google.com/specimen/Mulish
