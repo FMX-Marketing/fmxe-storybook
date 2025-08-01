@@ -40,7 +40,7 @@ export const VariableTableFiltered = ({
     <div>
       {filteredData.map((section, index) => (
         <div key={index} style={{ marginBottom: '2rem' }}>
-          <h4>{ `--${section.category}-{name}`}</h4>
+          <h4>{ `--${section.category.replace('/', '-')}-{name}`}</h4>
           <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '0.5rem' }}>
             <thead>
               <tr>
