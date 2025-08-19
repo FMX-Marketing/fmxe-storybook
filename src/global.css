@@ -4,6 +4,8 @@
   --fmxe-border-radius-round: 62.5rem; /* 1000px */
   --fmxe-shadow-sm: 0.3125rem; /* 5px */
   --fmxe-shadow-md: 0.625rem; /* 10px */
+  --fmxe-shadow-color: #D7D7D8;
+  --fmxe-shadow-glow: #12AFD7;
   --fmxe-space-1: 0.0625rem; /* 1px */
   --fmxe-space-2: 0.125rem; /* 2px */
   --fmxe-space-xs: 0.25rem; /* 4px */
@@ -46,8 +48,8 @@
   --fmxe-color-gray-light-3: #6C6C72;
   --fmxe-color-gray-dark: #202026;
   --fmxe-color-gray-dark-1: #15151E;
-  --fmxe-font-family-Figtree: "Figtree", serif;
-  --fmxe-font-family-Code: monaco, consolas, "Andale Mon", "DejaVu Sans Mono", monospace;
+  --fmxe-font-family-figtree: "Figtree", serif;
+  --fmxe-font-family-code: monaco, consolas, "Andale Mon", "DejaVu Sans Mono", monospace;
   --fmxe-font-family-weight-500: 500;
   --fmxe-font-family-weight-700: 700;
   --fmxe-font-family-weight-800: 800;
