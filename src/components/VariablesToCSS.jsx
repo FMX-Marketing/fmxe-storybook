@@ -36,7 +36,7 @@ export const VariablesToCSS = ({ data }) => {
 
   // Process non-mode variables
   data.forEach(variable => {
-    const categoryName = variable.category.replace('fmxe-', '').replace('/', '-');
+    const categoryName = variable.category.replace('fmxe-', '').replace('/', '-').toLowerCase();
 
     if (!variable.mode) {
       const unitIn = variable['unit-in'] || '';
@@ -44,7 +44,7 @@ export const VariablesToCSS = ({ data }) => {
 
       variable.values.forEach(value => {
         const formattedValue = formatValue(value.value, unitIn, unitOut);
-        lines.push(`  --fmxe-${categoryName}-${value.name}: ${formattedValue}`);
+        lines.push(`  --fmxe-${categoryName}-${value.name.toLowerCase()}: ${formattedValue}`);
       });
     } else {
       const unitIn = variable['unit-in'] || '';
@@ -52,7 +52,7 @@ export const VariablesToCSS = ({ data }) => {
 
       variable.values.forEach(value => {
         const formattedValue = formatValue(value.mobile, unitIn, unitOut);
-        lines.push(`  --fmxe-${categoryName}-${value.name}: ${formattedValue}`);
+        lines.push(`  --fmxe-${categoryName}-${value.name.toLowerCase()}: ${formattedValue}`);
       });
     }
   });
