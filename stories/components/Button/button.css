@@ -1,3 +1,231 @@
+.wp-block-button {
+  border: 1px solid transparent;
+  font-family: var(--fmxe-font-family-figtree);
+
+
+  .wp-block-button__link {
+    background-clip: padding-box;
+    background-color: var(--fmxe-color-orange);
+    border-color: transparent;
+    border-radius: 99em;
+    border-style: solid;
+    border-width: .2em;
+    color: #fff;
+    font-family: var(--fmxe-text-family-brand);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: .17em;
+    padding: .73em 1.35em;
+    text-decoration: none;
+    transition: box-shadow .15s ease-in-out;
+  }
+
+  /* Common styles for both arrow variants */
+  &.is-style-arrow,
+  &.is-style-arrow-lg,
+  &.is-style-arrow-prev,
+  &.is-style-arrow-prev-lg,
+  &.is-style-arrow-electric,
+  &.is-style-arrow-lg-electric {
+    .wp-block-button__link {
+      background-color: transparent;
+      border: none;
+      color: var(--fmxe-color-orange);
+      display: inline-block;
+      justify-content: start;
+      margin: 0;
+      max-width: none;
+      padding: 0 20px 0 0;
+      position: relative;
+      text-decoration: none;
+      width: auto;
+
+      /* Arrow icon (shared between both styles) */
+      &::after {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13.919" height="12.804" fill="none"><path d="m8.436.314 5.179 5.335c.204.207.304.48.304.753 0 .274-.101.547-.304.755l-5.178 5.335a1.014 1.014 0 0 1-1.464 0 1.09 1.09 0 0 1 0-1.51l3.412-3.512H1.007C.434 7.469 0 6.992 0 6.433c0-.56.434-1.098 1.007-1.098h9.378L6.973 1.82a1.09 1.09 0 0 1 0-1.51 1.012 1.012 0 0 1 1.463.003z" fill="%23ce4a12"/></svg>');
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+        display: inline-block;
+        height: 12px;
+        margin-left: 5px;
+        position: absolute;
+        top: calc(50% - 12px / 2);
+        transform-origin: left center;
+        transition: transform .4s ease;
+        width: 13px;
+      }
+    }
+  }
+
+  /* Reverse arrows */
+  &.is-style-arrow-prev,
+  &.is-style-arrow-prev-lg {
+
+    .wp-block-button__link {
+      padding: 0 0 0 13px;
+      text-align: left;
+
+      &::after {
+        left: 0;
+        margin-left: 0;
+        right: auto;
+        transform: rotate(180deg);
+      }
+
+      &:hover,
+      &:focus {
+        /* @include arrow-prev-hover-effect(); */
+      }
+    }
+  }
+
+  /* Style-specific overrides */
+  &.is-style-arrow {
+
+    .wp-block-button__link {
+      font-size: var(--fmxe-font-family-size-sm);
+      font-weight: var(--fmxe-font-family-weight-700);
+      line-height: var(--fmxe-font-family-line-height-sm);
+      max-width: none;
+    }
+  }
+
+  &.is-style-arrow-lg,
+  &.is-style-arrow-prev-lg {
+
+    .wp-block-button__link {
+      font-size: var(--fmxe-font-family-size-h5);
+      line-height: var(--fmxe-font-family-line-height-h5);
+      max-width: none;
+    }
+  }
+
+  /* Electric blue arrow variants */
+  &.is-style-arrow-electric,
+  &.is-style-arrow-lg-electric {
+
+    .wp-block-button__link {
+      color: var(--fmxe-color-electric-blue-light-3, #66C8E3);
+
+      &::after {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13.919" height="12.804" fill="none"><path d="m8.436.314 5.179 5.335c.204.207.304.48.304.753 0 .274-.101.547-.304.755l-5.178 5.335a1.014 1.014 0 0 1-1.464 0 1.09 1.09 0 0 1 0-1.51l3.412-3.512H1.007C.434 7.469 0 6.992 0 6.433c0-.56.434-1.098 1.007-1.098h9.378L6.973 1.82a1.09 1.09 0 0 1 0-1.51 1.012 1.012 0 0 1 1.463.003z" fill="%2366C8E3"/></svg>');
+      }
+
+      &:hover,
+      &:focus {
+        box-shadow: none;
+
+        &::after {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22.695" height="12.803" fill="none"><path d="m17.212.312 5.178 5.335c.204.207.305.48.305.753 0 .274-.102.547-.304.755l-5.177 5.335a1.014 1.014 0 0 1-1.465 0 1.09 1.09 0 0 1 0-1.509l3.412-3.513H1.006C.434 7.468 0 6.99 0 6.43c0-.559.434-1.096 1.006-1.096H19.16L15.75 1.82a1.09 1.09 0 0 1 0-1.509 1.012 1.012 0 0 1 1.462.002z" fill="#%2366C8E3"/></svg>');
+          transform: scaleX(1.1);
+          width: 22px;
+        }
+      }
+    }
+  }
+
+  &.is-style-arrow-electric {
+    .wp-block-button__link {
+      font-size: var(--fmxe-font-family-size-sm);
+      font-weight: var(--fmxe-font-family-weight-700);
+      line-height: var(--fmxe-font-family-line-height-sm);
+      max-width: none;
+    }
+  }
+
+  &.is-style-arrow-lg-electric {
+    .wp-block-button__link {
+      font-size: var(--fmxe-font-family-size-h5);
+      line-height: var(--fmxe-font-family-line-height-h5);
+      max-width: none;
+    }
+  }
+}
+
+/**
+ * Force regular link hover effects when buttons are nested.
+ */
+a.wp-block-fmx-blocks-card-base:hover,
+a.wp-block-fmx-blocks-card-base:focus {
+
+ .wp-block-button {
+    border: 1px solid transparent;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+
+    /* Common styles for both arrow variants */
+    &.is-style-arrow,
+    &.is-style-arrow-lg,
+    &.is-style-arrow-prev,
+    &.is-style-arrow-prev-lg {
+
+    }
+
+    /* Reverse arrows */
+    &.is-style-arrow-prev,
+    &.is-style-arrow-prev-lg {
+
+      .wp-block-button__link {
+        /* @include arrow-prev-hover-effect(); */
+      }
+    }
+
+    /* Electric blue arrows */
+    &.is-style-arrow-electric,
+    &.is-style-arrow-lg-electric {
+
+      .wp-block-button__link {
+        /* @include arrow-hover-effect('%2366C8E3'); */
+      }
+    }
+  }
+}
+
+/**
+ * Force dark mode link hover effects when buttons are nested in dark theme sections.
+ */
+[data-theme="dark"] {
+  .wp-block-button {
+    /* Color theme overrides */
+    &.is-style-arrow,
+    &.is-style-arrow-lg {
+
+      .wp-block-button__link {
+        color: var(--white);
+
+        &::after {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13.919" height="12.804" fill="none"><path d="m8.436.314 5.179 5.335c.204.207.304.48.304.753 0 .274-.101.547-.304.755l-5.178 5.335a1.014 1.014 0 0 1-1.464 0 1.09 1.09 0 0 1 0-1.51l3.412-3.512H1.007C.434 7.469 0 6.992 0 6.433c0-.56.434-1.098 1.007-1.098h9.378L6.973 1.82a1.09 1.09 0 0 1 0-1.51 1.012 1.012 0 0 1 1.463.003z" fill="%23FFFFFF"/></svg>');
+        }
+
+        &:hover,
+        &:focus {
+          /* @include arrow-hover-effect('%23FFFFFF'); */
+        }
+      }
+    }
+  }
+
+  /**
+   * Force dark-link hover effects when buttons are nested.
+   */
+  a.wp-block-fmx-blocks-card-base:hover,
+  a.wp-block-fmx-blocks-card-base:focus {
+    .wp-block-button {
+
+      /* Color theme overrides */
+      &.is-style-arrow,
+      &.is-style-arrow-lg {
+
+        .wp-block-button__link {
+          &::after {
+            transform: rotate(180deg) scaleX(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+
 .storybook-button {
   font-family: Figtree, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
