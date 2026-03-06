@@ -53,6 +53,23 @@ const preview = {
       },
     },
   },
+  decorators: [
+    (story, context) => {
+      const selectedBgKey = context.globals.backgrounds?.value;
+      /**
+       * For A11y to work in real time, we need to apply the currently selected background color to the
+       * storybook root element. We do this via DOM manipulation so it doesn't appear in the "Show code" output.
+       */
+      const root = document.getElementById('storybook-root');
+      if (selectedBgKey && backgroundOptions[selectedBgKey] && root) {
+        const bgValue = backgroundOptions[selectedBgKey].value;
+        root.style.backgroundColor = bgValue;
+      } else if (root) {
+        root.style.backgroundColor = '';
+      }
+      return story();
+    },
+  ],
 };
 
 export default preview;
