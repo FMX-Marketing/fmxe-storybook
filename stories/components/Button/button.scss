@@ -1,9 +1,26 @@
+// Mixin for arrow hover/focus effects
+@mixin arrow-hover-effect($color: '%23ce4a12') {
+  box-shadow: none;
+
+  &::after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22.695" height="12.803" fill="none"><path d="m17.212.312 5.178 5.335c.204.207.305.48.305.753 0 .274-.102.547-.304.755l-5.177 5.335a1.014 1.014 0 0 1-1.465 0 1.09 1.09 0 0 1 0-1.509l3.412-3.513H1.006C.434 7.468 0 6.99 0 6.43c0-.559.434-1.096 1.006-1.096H19.16L15.75 1.82a1.09 1.09 0 0 1 0-1.509 1.012 1.012 0 0 1 1.462.002z" fill="#{$color}"/></svg>');
+    transform: scaleX(1.1);
+    width: 22px;
+  }
+}
+
+// Mixin for reverse arrow hover/focus effects
+@mixin arrow-prev-hover-effect {
+  &::after {
+    transform: rotate(180deg) scaleX(1.1);
+  }
+}
+
 .wp-block-button {
   border: 1px solid transparent;
-  font-family: var(--fmxe-font-family-figtree);
-
 
   .wp-block-button__link {
+    /* legacy button style clone */
     background-clip: padding-box;
     background-color: var(--fmxe-color-orange);
     border-color: transparent;
@@ -11,16 +28,23 @@
     border-style: solid;
     border-width: .2em;
     color: #fff;
-    font-family: var(--fmxe-text-family-brand);
+    font-family: var(--fmxe-font-family-figtree);
     font-weight: 600;
     line-height: 1;
     margin-bottom: .17em;
     padding: .73em 1.35em;
     text-decoration: none;
     transition: box-shadow .15s ease-in-out;
+
+    &:hover,
+    &:focus {
+      background-color: var(--fmxe-color-orange);
+      box-shadow: 0 0 0 .087em var(--fmxe-color-orange);
+      color: var(--fmxe-color-white);
+    }
   }
 
-  /* Common styles for both arrow variants */
+  // Common styles for both arrow variants
   &.is-style-arrow,
   &.is-style-arrow-lg,
   &.is-style-arrow-prev,
@@ -40,7 +64,7 @@
       text-decoration: none;
       width: auto;
 
-      /* Arrow icon (shared between both styles) */
+      // Arrow icon (shared between both styles)
       &::after {
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13.919" height="12.804" fill="none"><path d="m8.436.314 5.179 5.335c.204.207.304.48.304.753 0 .274-.101.547-.304.755l-5.178 5.335a1.014 1.014 0 0 1-1.464 0 1.09 1.09 0 0 1 0-1.51l3.412-3.512H1.007C.434 7.469 0 6.992 0 6.433c0-.56.434-1.098 1.007-1.098h9.378L6.973 1.82a1.09 1.09 0 0 1 0-1.51 1.012 1.012 0 0 1 1.463.003z" fill="%23ce4a12"/></svg>');
         background-repeat: no-repeat;
@@ -54,6 +78,12 @@
         transform-origin: left center;
         transition: transform .4s ease;
         width: 13px;
+      }
+
+      // Shared hover/focus arrow extension
+      &:hover,
+      &:focus {
+        @include arrow-hover-effect();
       }
     }
   }
@@ -75,12 +105,12 @@
 
       &:hover,
       &:focus {
-        /* @include arrow-prev-hover-effect(); */
+        @include arrow-prev-hover-effect();
       }
     }
   }
 
-  /* Style-specific overrides */
+  // Style-specific overrides
   &.is-style-arrow {
 
     .wp-block-button__link {
@@ -101,7 +131,7 @@
     }
   }
 
-  /* Electric blue arrow variants */
+  // Electric blue arrow variants
   &.is-style-arrow-electric,
   &.is-style-arrow-lg-electric {
 
@@ -114,13 +144,7 @@
 
       &:hover,
       &:focus {
-        box-shadow: none;
-
-        &::after {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22.695" height="12.803" fill="none"><path d="m17.212.312 5.178 5.335c.204.207.305.48.305.753 0 .274-.102.547-.304.755l-5.177 5.335a1.014 1.014 0 0 1-1.465 0 1.09 1.09 0 0 1 0-1.509l3.412-3.513H1.006C.434 7.468 0 6.99 0 6.43c0-.559.434-1.096 1.006-1.096H19.16L15.75 1.82a1.09 1.09 0 0 1 0-1.509 1.012 1.012 0 0 1 1.462.002z" fill="#%2366C8E3"/></svg>');
-          transform: scaleX(1.1);
-          width: 22px;
-        }
+        @include arrow-hover-effect('%2366C8E3');
       }
     }
   }
@@ -153,12 +177,15 @@ a.wp-block-fmx-blocks-card-base:focus {
     border: 1px solid transparent;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
 
-    /* Common styles for both arrow variants */
+    // Common styles for both arrow variants
     &.is-style-arrow,
     &.is-style-arrow-lg,
     &.is-style-arrow-prev,
     &.is-style-arrow-prev-lg {
 
+      .wp-block-button__link {
+        @include arrow-hover-effect();
+      }
     }
 
     /* Reverse arrows */
@@ -166,7 +193,7 @@ a.wp-block-fmx-blocks-card-base:focus {
     &.is-style-arrow-prev-lg {
 
       .wp-block-button__link {
-        /* @include arrow-prev-hover-effect(); */
+        @include arrow-prev-hover-effect();
       }
     }
 
@@ -175,7 +202,7 @@ a.wp-block-fmx-blocks-card-base:focus {
     &.is-style-arrow-lg-electric {
 
       .wp-block-button__link {
-        /* @include arrow-hover-effect('%2366C8E3'); */
+        @include arrow-hover-effect('%2366C8E3');
       }
     }
   }
@@ -199,7 +226,7 @@ a.wp-block-fmx-blocks-card-base:focus {
 
         &:hover,
         &:focus {
-          /* @include arrow-hover-effect('%23FFFFFF'); */
+          @include arrow-hover-effect('%23FFFFFF');
         }
       }
     }
@@ -217,42 +244,9 @@ a.wp-block-fmx-blocks-card-base:focus {
       &.is-style-arrow-lg {
 
         .wp-block-button__link {
-          &::after {
-            transform: rotate(180deg) scaleX(1.1);
-          }
+          @include arrow-hover-effect('%23FFFFFF');
         }
       }
     }
   }
-}
-
-.storybook-button {
-  font-family: Figtree, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-}
-.storybook-button--primary {
-  color: white;
-  background-color: #1ea7fd;
-}
-.storybook-button--secondary {
-  color: #333;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-}
-.storybook-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
-}
-.storybook-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
-}
-.storybook-button--large {
-  font-size: 16px;
-  padding: 12px 24px;
 }
