@@ -28,6 +28,9 @@ export default {
   },
   parameters: {
     docs: {
+      description: {
+        component: 'Wordpress core button block which supports multiple style variants.',
+      },
       source: {
         language: 'html',
         format: true,
