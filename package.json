@@ -17,6 +17,7 @@
     "@storybook/addon-docs": "^10.2.16",
     "@storybook/addon-links": "^10.2.16",
     "@storybook/html-vite": "^10.2.16",
+    "sass": "^1.97.3",
     "storybook": "^10.2.16"
   },
   "dependencies": {
