@@ -57,7 +57,7 @@ Small border radius can be applied via the `--fmxe-border-radius-sm` token.
 Commonly used for cards and other medium- to large-style components and
 sections.
 
-Large border radius can be applied via the `--fmxe-border-radius-lg` token.
+Medium border radius can be applied via the `--fmxe-border-radius-md` token.
 
 ```html
 <style type="text/css">
@@ -78,7 +78,7 @@ Large border radius can be applied via the `--fmxe-border-radius-lg` token.
 Can be used for more exaggerated roundness on objects such as buttons. When
 applied to square objects, it will appear as a circle.
 
-Small border radius can be applied via the `--fmxe-border-radius-round` token.
+Round border radius can be applied via the `--fmxe-border-radius-round` token.
 
 ```html
 <style type="text/css">
@@ -173,12 +173,4 @@ This can be accomplished with the `--fmxe-shadow-color-glow` token.
 
 ## 3. Shapes and elevation design tokens
 
-| Token                           | Value                         | Figma Usage |
-|--------------------------------|-------------------------------|-------------|
-| `--fmxe-border-radius-sm`      | 0.3125rem                     | 5px         |
-| `--fmxe-border-radius-md`      | 0.625rem                      | 10px        |
-| `--fmxe-border-radius-round`   | 50%                           | 1000px      |
-| `--fmxe-shadow-sm`             | 0.3125rem                     | 5px         |
-| `--fmxe-shadow-md`             | 0.625rem                      | 10px        |
-| `--fmxe-shadow-color`          | `var(--fmxe-color-gray-light-1)` | #d7d7d8     |
-| `--fmxe-shadow-color-glow`     | `var(--fmxe-color-electric-blue)` | #12afd7     |
+<VariableTableFiltered data={variables} categories={['fmxe-border-radius', 'fmxe-shadow']} />
