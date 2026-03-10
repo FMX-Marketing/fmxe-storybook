@@ -176,10 +176,10 @@ ul {
   }
 }
 
-.page-link-item {
+li.page-link-item {
   background: var(--fmxe-space-1);
-  margin-bottom: var(--fmxe-space-lg);
-  padding: var(--fmxe-space-sm) var(--fmxe-space-md);
+  margin: 0 0 var(--fmxe-space-sm) 0 !important; /* Override sb default list item margin */
+  padding: 0;
 
   .page-link-title {
     font-size: var(--fmxe-font-family-size-md);
