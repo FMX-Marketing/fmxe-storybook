@@ -52,6 +52,11 @@ const preview = {
         date: /Date$/i,
       },
     },
+    options: {
+      storySort: {
+        order: ['Welcome', 'Styles', 'Design Tokens', 'Components'],
+      },
+    },
   },
   decorators: [
     (story, context) => {
