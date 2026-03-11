@@ -1,3 +1,5 @@
+import './typography.css';
+
 export default {
   title: 'Styles/Typography',
   tags: ['autodocs'],
