@@ -1,5 +1,10 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
+import { fileURLToPath } from "node:url";
 import remarkGfm from 'remark-gfm';
-import path from 'path';
+import path, { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /** @type { import('@storybook/html-vite').StorybookConfig } */
 const config = {
@@ -7,20 +12,16 @@ const config = {
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-  addons: [
-    "@storybook/addon-links",
-    "@chromatic-com/storybook",
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        mdxPluginOptions: {
-          mdxCompileOptions: {
-            remarkPlugins: [remarkGfm],
-          },
+  addons: ["@storybook/addon-links", {
+    name: '@storybook/addon-docs',
+    options: {
+      mdxPluginOptions: {
+        mdxCompileOptions: {
+          remarkPlugins: [remarkGfm],
         },
       },
     },
-  ],
+  }, '@storybook/addon-a11y'],
   framework: {
     name: "@storybook/html-vite",
     options: {},

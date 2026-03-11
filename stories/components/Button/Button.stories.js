@@ -1,53 +1,54 @@
-import { fn } from 'storybook/test';
 import { createButton } from './Button';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
   title: 'Components/Button',
   tags: ['autodocs'],
-  render: ({ label, ...args }) => {
-    // You can either use a function to create DOM elements or use a plain html string!
-    // return `<div>${label}</div>`;
-    return createButton({ label, ...args });
+  render: (args) => {
+    return createButton(args);
   },
   argTypes: {
-    backgroundColor: { control: 'color' },
-    label: { control: 'text' },
-    onClick: { action: 'onClick' },
-    primary: { control: 'boolean' },
-    size: {
+    label: {
+      control: 'text',
+      description: 'Button text content',
+    },
+    href: {
+      control: 'text',
+      description: 'Link URL',
+    },
+    style: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['default', 'arrow', 'arrow-lg', 'arrow-prev', 'arrow-prev-lg', 'arrow-electric', 'arrow-lg-electric'],
+      description: 'Block style variant.',
     },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
-};
-
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
   args: {
-    primary: true,
-    label: 'Button',
+    label: 'Button text',
+    href: '#',
+    style: '',
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'Wordpress core button block which supports multiple style variants.',
+      },
+      source: {
+        language: 'html',
+        format: true,
+        type: 'dynamic',
+      },
+    },
   },
 };
 
-export const Secondary = {
-  args: {
-    label: 'Button',
-  },
-};
+const createStyleStory = (styleValue) => ({
+  args: { style: styleValue },
+});
 
-export const Large = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
-};
+// Output block style variants.
+export const Default = createStyleStory('');
+export const Arrow = createStyleStory('arrow');
+export const ArrowLarge = createStyleStory('arrow-lg');
+export const ArrowPrevious = createStyleStory('arrow-prev');
+export const ArrowPreviousLarge = createStyleStory('arrow-prev-lg');
+export const ArrowElectric = createStyleStory('arrow-electric');
+export const ArrowLargeElectric = createStyleStory('arrow-lg-electric');

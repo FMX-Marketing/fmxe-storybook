@@ -1,21 +1,20 @@
-import './button.css';
+import './button.scss';
 
 export const createButton = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
-  onClick,
+  label = '',
+  href = '',
+  style = '',
 }) => {
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.innerText = label;
-  btn.addEventListener('click', onClick);
+  const buttonClasses = ['wp-block-button'];
 
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  btn.className = ['storybook-button', `storybook-button--${size}`, mode].join(' ');
+  if (style) {
+    buttonClasses.push(`is-style-${style}`);
+  }
 
-  btn.style.backgroundColor = backgroundColor;
+  const btn = `
+  <div class="${buttonClasses.join(' ')}">
+    <a class="wp-block-button__link wp-element-button" href="${href}">${label}</a>
+  </div>`;
 
   return btn;
 };
