@@ -246,9 +246,9 @@ export const DescriptionList = {
   },
 };
 
-// 2.1 Text Alignment
+// 2. Typography utilities
 export const TextAlignment = {
-  name: '2.1 Text Alignment',
+  name: '2. Typography utilities',
   args: {
     html: `<p class="text-start">start-aligned text on all viewport sizes.</p>
 <p class="text-center">center-aligned text on all viewport sizes.</p>
@@ -257,7 +257,7 @@ export const TextAlignment = {
   parameters: {
     docs: {
       description: {
-        story: `## 2. Typography utilities
+        story: `### 2.1 Text Alignment
 
 These utilities allow for easy adjustment of text alignment within a block element.
 
@@ -272,39 +272,26 @@ These utilities allow for easy adjustment of text alignment within a block eleme
 };
 
 export const TextAlignmentResponsive = {
-  name: 'Text Alignment - Responsive',
+  name: '2.1.1 Text Alignment - Responsive',
   args: {
     html: `<p class="lg:text-center">
   Centered on large and up viewport sizes
 </p>
 
 <p class="text-center md:text-start">
-  Centered on small viewports and left aligned starting at the medium viewport
-  size and up
-</p>`,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: `There is also a set of responsive utilities that determine which breakpoint to start applying the alignment.`,
-      },
-    },
-  },
-};
+  Centered on small viewports and left-aligned starting at the medium viewport size and up
+</p>
 
-export const TextAlignmentBreakpoints = {
-  name: 'Text Alignment - Breakpoints',
-  args: {
-    html: `<div class="text-center sm:text-start md:text-center lg:text-start">
+<div class="text-center sm:text-start md:text-center lg:text-start">
   This text changes alignment at different breakpoints
 </div>`,
   },
   parameters: {
     docs: {
       description: {
-        story: `The responsive utilities can be combined to allow different styles for different responsive breakpoints.
+        story: `There is also a set of responsive utilities that determine which breakpoint to start applying the alignment. The responsive utilities can be combined to allow different styles for different responsive breakpoints.
 
-For easier readability, the ordering of the classes should be mobile-first: default screenless class first, followed by override for increasing screen size variants. Consider this example:`,
+For easier readability, the ordering of the classes should be mobile-first: default screenless class first, followed by override for increasing screen size variants.`,
       },
     },
   },
@@ -413,23 +400,11 @@ export const Blockquote = {
   args: {
     html: `<blockquote class="blockquote">
   <p>A well-known quote, contained in a blockquote element.</p>
-</blockquote>`,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: `For quoting blocks of content from another source within your document. Wrap \`<blockquote class="blockquote">\` around any HTML as the quote.`,
-      },
-    },
-  },
-};
+</blockquote>
 
-export const BlockquoteWithSource = {
-  name: 'Blockquotes - Naming a Source',
-  args: {
-    html: `<figure>
+<figure>
   <blockquote class="blockquote">
-    <p>A well-known quote, contained in a blockquote element.</p>
+    <p>A well-known quote with attribution, contained in a blockquote element.</p>
   </blockquote>
   <figcaption class="blockquote-footer">
     Someone famous in <cite title="Source Title">Source Title</cite>
@@ -439,7 +414,11 @@ export const BlockquoteWithSource = {
   parameters: {
     docs: {
       description: {
-        story: `The HTML spec requires that blockquote attribution be placed outside the \`<blockquote>\`. When providing attribution, wrap your \`<blockquote>\` in a \`<figure>\` and use a \`<figcaption>\` with the blockquote-footer class. Be sure to wrap the name of the source work in \`<cite>\` as well.`,
+        story: `For quoting blocks of content from another source within your document. Wrap \`<blockquote class="blockquote">\` around any HTML as the quote.
+
+### Naming a Source
+
+The HTML spec requires that blockquote attribution be placed outside the \`<blockquote>\`. When providing attribution, wrap your \`<blockquote>\` in a \`<figure>\` and use a \`<figcaption>\` with the blockquote-footer class. Be sure to wrap the name of the source work in \`<cite>\` as well.`,
       },
     },
   },
