@@ -102,7 +102,7 @@ border-radius: var(--fmxe-border-radius-round);
     html: `
       <div class="example-grid">
         <div class="example-box border-radius-sm">sm</div>
-        <div class="example-box border-radius-md">md</code></div>
+        <div class="example-box border-radius-md">md</div>
         <div class="example-box border-radius-round">round</div>
       </div>
     `,
