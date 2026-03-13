@@ -64,39 +64,37 @@ See the chapter about the [grid][2] for more information.
 Electric [spacing utilities and tokens][1] provide a toolkit for consistent
 spacing of elements vertically and horizontally.
 
-Utilities for padding and margin can be applied as square and squish insets,
-stacked, inline, and on the grid.
+Utilities for padding and margin can be applied using t-shirt sized spacing tokens and responsive breakpoint classes.
 
-Following is an example of applying a medium inset padding to a frame and a
-small stack margin to the bottom of the first element.
+Following is an example of applying medium padding to a frame and small margin to the bottom of the first element.
 
 ```html
 <style type="text/css">
     .frame {
         background: red;
-        padding: var(--fmxe-space-inset-md);
+        padding: var(--fmxe-space-md);
     }
 
     .frame:first-child {
-        margin-bottom: var(--fmxe-space-stack-sm);
+        margin-bottom: var(--fmxe-space-sm);
     }
 
     .inner {
         background: white;
-        padding: var(--fmxe-space-inset-lg);
+        padding: var(--fmxe-space-lg);
     }
 </style>
 
 <main>
     <figure class="frame">
         <div class="inner">
-            space-inset-lg
+            Large padding
         </div>
     </figure>
 
     <figure class="frame">
         <div class="inner">
-            space-inset-lg
+            Large padding
         </div>
     </figure>
 </main>
