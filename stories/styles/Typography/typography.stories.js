@@ -160,16 +160,24 @@ Beware that those tags should be used for semantic purpose:
 export const Hyperlinks = {
   name: '1.4 Hyperlinks',
   args: {
-    html: `Lorem ipsum dolor sit amet,
-<a href="#">consectetur adipiscing elit</a>.`,
+    html: `<p>Lorem ipsum dolor sit amet,
+<a href="#">consectetur adipiscing elit</a>.</p>`,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `Hyperlinks use the brand color and include an underline for accessibility.`,
+      },
+    },
   },
 };
 
-// 1.5 Lists - Unordered
-export const UnorderedList = {
-  name: '1.5 Lists - Unordered',
+// 1.5 Lists
+export const Lists = {
+  name: '1.5 Lists',
   args: {
-    html: `<ul>
+    html: `<h4>Unordered List</h4>
+<ul>
   <li>
     Curabitur ultricies lectus quis tellus hendrerit, a faucibus nibh
     auctor. Pellentesque tempor neque at augue efficitur, eget
@@ -182,15 +190,10 @@ export const UnorderedList = {
     Pellentesque sollicitudin nisl id orci sollicitudin varius. Cras
     vehicula feugiat justo, sed pretium justo euismod ut.
   </li>
-</ul>`,
-  },
-};
+</ul>
 
-// 1.5 Lists - Ordered
-export const OrderedList = {
-  name: '1.5 Lists - Ordered',
-  args: {
-    html: `<ol>
+<h4>Ordered List</h4>
+<ol>
   <li>
     Curabitur ultricies lectus quis tellus hendrerit, a faucibus nibh
     auctor. Pellentesque tempor neque at augue efficitur, eget
@@ -203,15 +206,10 @@ export const OrderedList = {
     Pellentesque sollicitudin nisl id orci sollicitudin varius. Cras
     vehicula feugiat justo, sed pretium justo euismod ut.
   </li>
-</ol>`,
-  },
-};
+</ol>
 
-// 1.5 Lists - Description
-export const DescriptionList = {
-  name: '1.5 Lists - Description',
-  args: {
-    html: `<dl>
+<h4>Description List</h4>
+<dl>
   <dt>Reactive maintenance</dt>
   <dd>
     Managed by submitting, working on, and closing out work orders
@@ -235,12 +233,44 @@ export const DescriptionList = {
     Uses sensors to alert you to perform maintenance when a reading
     is out of specification.
   </dd>
-</dl>`,
+</dl>
+
+<h4>Unstyled List</h4>
+<p>My favorite things:</p>
+<ul class="list-unstyled">
+  <li>Peanut butter</li>
+  <li>Ice cream</li>
+  <li>
+    Nested lists:
+    <ul>
+      <li>are unaffected by this style</li>
+      <li>will still show a bullet</li>
+      <li>and have appropriate left margin</li>
+    </ul>
+  </li>
+  <li>Long walks on the beach</li>
+</ul>
+
+<h4>Inline List</h4>
+<p>My favorite things:</p>
+<ul class="list-inline">
+  <li class="list-inline-item">Peanut butter</li>
+  <li class="list-inline-item">Ice cream</li>
+  <li class="list-inline-item">Long walks on the beach</li>
+</ul>`,
   },
   parameters: {
     docs: {
       description: {
-        story: `A description list helps describe a glossary of terms or key/value pairs. Description lists are preferred over bulleted lists with a bolded short phrase followed by a lengthier description.`,
+        story: `HTML supports three types of lists: unordered, ordered, and description lists.
+
+**Description lists** help describe a glossary of terms or key/value pairs. Description lists are preferred over bulleted lists with a bolded short phrase followed by a lengthier description.
+
+### List Utilities
+
+**Unstyled lists** (using \`.list-unstyled\`) remove default list styling for content that should be structured like a list but presented without the styling of one.
+
+**Inline lists** (using \`.list-inline\` and \`.list-inline-item\`) remove bullets and display list items horizontally with light margin.`,
       },
     },
   },
@@ -392,6 +422,13 @@ export const FontStyles = {
   This is italicized text
 </p>`,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: `Apply italic styling to text with the \`.text-italic\` utility class.`,
+      },
+    },
+  },
 };
 
 // 2.7 Blockquotes
@@ -446,62 +483,6 @@ export const TightLeading = {
     docs: {
       description: {
         story: `The default line height (leading) for our text is 1.58. Tighten line height on shorter blocks of text by adding the \`.text-tight\` class.`,
-      },
-    },
-  },
-};
-
-// 2.9 Unstyled Lists
-export const UnstyledList = {
-  name: '2.9 Unstyled Lists',
-  args: {
-    html: `<p>My favorite things:</p>
-
-<ul class="list-unstyled">
-  <li>Peanut butter</li>
-  <li>Ice cream</li>
-  <li>
-    Nested lists:
-    <ul>
-      <li>are unaffected by this style</li>
-      <li>will still show a bullet</li>
-      <li>and have appropriate left margin</li>
-    </ul>
-  </li>
-  <li>Long walks on the beach</li>
-</ul>`,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: `Use this utility in the event that the content should be structured like a list but presented without the styling of one.`,
-      },
-    },
-  },
-};
-
-// 2.10 Inline Lists
-export const InlineList = {
-  name: '2.10 Inline Lists',
-  args: {
-    html: `<p>My favorite things:</p>
-
-<ul class="list-inline">
-  <li class="list-inline-item">
-    Peanut butter
-  </li>
-  <li class="list-inline-item">
-    Ice cream
-  </li>
-  <li class="list-inline-item">
-    Long walks on the beach
-  </li>
-</ul>`,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: `Remove a list's bullets and apply some light margin with a combination of two classes, \`list-inline\` and \`list-inline-item\`.`,
       },
     },
   },
