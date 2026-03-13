@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
-<Meta title="Design Philosophy/Accessbility" />
+<Meta title="Styles/Accessibility" />
 
 # Accessibility
 
@@ -34,7 +34,7 @@ best practices.
 		>WAVE Evaluation Tool</a>
 	</dt>
 	<dd>
-		The WAVE Chrome exension is a web accessibility evaluation tool
+		The WAVE Chrome extension is a web accessibility evaluation tool
 		developed by WebAIM. It provides visual feedback about the accessibility
 		of your web content by injecting icons and indicators into your page.
 	</dd>
@@ -83,55 +83,11 @@ ratios.
 ### 4.1 Semantic HTML
 
 Using proper HTML elements and attributes goes a long way in describing website
-content in a way that can be understood by all. These are guidelines for
-authoring the most commonly-used structural elements.
+content in a way that can be understood by all. Use semantic elements like `<main>`, `<article>`, `<header>`, `<footer>`, `<nav>`, and `<section>` to provide meaning and structure to your content.
 
-#### 4.1.1 Containers
+For detailed guidance on semantic HTML elements, see [MDN's HTML Elements Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 
-Consider structuring an HTML document with the following tags:
-
-##### `<main>`
-
-Used only once, `<main>` represents the dominant content of the `<body>` of a
-document.
-
-##### `<article>`
-
-An `<article>` is intended to contain an independently distributable or reusable
-item of content. `<article>`s can be embedded within other `<article>`s (e.g., a
-comment can be an article associated with a parent blog post article).
-
-##### `<header>`
-
-At the top level of a document, `<header>` represents the global site header
-(the [`banner` ARIA landmark role][6]).
-
-Within a sectioning element, it is considered introductory content for the scope
-of that secion.
-
-##### `<footer>`
-
-At the top level of a document, a `<footer>` applies to the entire document as
-the `contentinfo` landmark role. It usually contains copyright, authorship, and
-related navigation.
-
-Within a sectioning element, it is scoped as a footer to just that section.
-
-##### `address`
-
-The enclosed HTML in an `<address>` provides contact information for a person or
-organization.
-
-##### `<section>`
-
-The `<section>` element represents a generic section of the document.
-
-##### `<div>`
-
-A `<div>` is a generic container. It has no inherent meaning as is usually used
-for applying styles via CSS.
-
-#### 4.1.2 Navigation
+#### 4.1.1 Navigation
 
 The `<nav>` element is intended to be used for a major block of navigation
 links. The links can be used to navigate to other pages or anchors within the
@@ -158,238 +114,17 @@ increased semantics:
 </footer>
 ```
 
-#### 4.1.3 Forms
+#### 4.1.2 Forms
 
-A `<form>` element represents a document section containing interactive controls
-for submitting information.
+For accessible forms, follow these key principles:
 
-For increased accessibility, consider the following guidelines:
+- **Always use `<label>` elements** to describe input fields
+- **Group related fields** with `<fieldset>` and `<legend>` elements
+- **Use appropriate input types** (e.g., `email`, `tel`, `date`) for better user experience
 
-##### 4.1.3.1 Labels
+For comprehensive form accessibility guidance, see [WebAIM's Creating Accessible Forms](https://webaim.org/articles/forms/).
 
-Input fields should be described by `<label>` elements. The label text and
-input element can be nested within the `<label>` or cross-referenced using the
-`id` and `for` attributes:
-
-```html
-<form action="#">
-	<div>
-		<label>
-			Your name
-			<input name="name">
-		</label>
-	</div>
-
-	<div>
-		<label for="email">
-			Email address
-		</label>
-
-		<input id="email" type="email" name="email">
-	</div>
-
-	<div>
-		<input id="consent" name="consent" value="true">
-		<label for="consent">I consent.</label>
-	</div>
-
-	<div>
-		<input type="submit" value="Submit">
-	</div>
-</form>
-```
-
-##### 4.1.3.2 Group like fields with fieldsets
-
-Longer forms should be grouped by `<fieldset>`s:
-
-```html
-<form action="#">
-	<fieldset>
-		<legend>Name</legend>
-
-		<div>
-			<label>
-				First
-				<input name="firstname">
-			</label>
-		</div>
-
-		<div>
-			<label>
-				Last
-				<input name="lastname">
-			</label>
-		</div>
-	</fieldset>
-
-	<fieldset>
-		<legend>Contact</legend>
-
-		<div>
-			<label>
-				Email
-				<input type="email" name="email">
-			</label>
-		</div>
-
-		<div>
-			<label>
-				Phone
-				<input type="tel" name="phone">
-			</label>
-		</div>
-	</fieldset>
-
-	<div>
-		<input type="submit" value="Submit">
-	</div>
-</form>
-```
-
-`<fieldset>`s also allow logical grouping for sets of checkboxes and radio
-buttons:
-
-```html
-<form action="#">
-	<fieldset>
-		<legend>Features</legend>
-
-		<label>
-			<input type="checkbox" name="features" value="Maintenance Requests">
-			Maintenance Requests
-		</label>
-
-		<label>
-			<input type="checkbox" name="features" value="Planned Maintenance">
-			Planned Maintenance
-		</label>
-
-		<label>
-			<input type="checkbox" name="features" value="Schedule Requests">
-			Schedule Requests
-		</label>
-	</fieldset>
-
-	<fieldset>
-		<legend>Favorite pizza topping</legend>
-
-		<label>
-			<input type="radio" name="favorite_topping" value="Pepperoni">
-			Pepperoni
-		</label>
-
-		<label>
-			<input type="radio" name="favorite_topping" value="Mushrooms">
-			Mushrooms
-		</label>
-
-		<label>
-			<input type="radio" name="favorite_topping" value="Sausage">
-			Sausage
-		</label>
-	</fieldset>
-
-	<div>
-		<input type="submit" value="Submit">
-	</div>
-</form>
-```
-
-##### 4.1.3.3 Input types
-
-Take advantage of the various `type` values for `<input>` fields, as many of
-them provide alternative styles for inputting data:
-
--  `email`
--  `tel`
--  `number`
--  `date`
--  `time`
--  `search`
--  `url`
--  `color`
--  `range`
--  `month`
-
-#### 4.1.4 Lists
-
-There are 3 main types of lists to use semantically:
-
-##### 4.1.4.1 Ordered lists
-
-The `<ol>` element is used when there is an implicit order in the list or if the
-items are being counted.
-
-##### 4.1.4.2 Unordered lists
-
-The `<ol>` element is used when there is no implicit order amongst the items.
-
-##### 4.1.4.2 Description lists
-
-When providing a list of key/values or terms/definitions, the `<dl>` element
-containing `<dt>` and `<dd>` provides semantic context.
-
-#### 4.1.5 Tables
-
-A fully-formed table should contain these elements at a minimum:
-
-1. `<table>`
-	1. `<thead>`
-		1. `<tr>`
-		2. `<th>`
-	2. `<tbody>`
-		1. `<tr>`
-		2. `<td>`
-
-A summary or total row can be contained within a `<tfoot>` element.
-
-A title or caption for a table is ideally grouped within the `<table>` element
-as a `<caption>`.
-
-If the first column within each row acts as a heading that describes the row, a
-`<th>` element can be used along with an attribute of `scope="row"`:
-
-```html
-<table>
-	<tbody>
-		<tr>
-			<th scope="row">
-				Species
-			</th>
-			<td>
-				Tyrannosaurus Rex
-			<td>
-		</tr>
-		<tr>
-			<th scope="row">
-				Period
-			</th>
-			<td>
-				Cretaceous
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				Continent
-			</th>
-			<td>
-				North America
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				Speed
-			</th>
-			<td>
-				12 mph
-			</td>
-		</tr>
-	</tbody>
-</table>
-```
-
-#### 4.1.6 Accessible Rich Internet Applications (ARIA)
+#### 4.1.3 Accessible Rich Internet Applications (ARIA)
 
 Regarding [ARIA][3], [MDN states it well][2]:
 
@@ -441,23 +176,15 @@ keep its semantic meaning within the document:
 ### 4.3 Alt texts
 
 Alt texts describe images using the `alt` attribute on `<img>` tags. They are
-read aloud by screen readers and are also used by technologies like search
-engine crawlers to better understand the contents of an image.
+read aloud by screen readers and used by search engines to understand image content.
 
-An alt text should describe the information that the image is communicating to
-sighted users. This can require a judgment call in some cases, so following are
-guidelines to consider.
+**Key guidelines:**
 
-Guidelines:
+1. If there is textual content in the image, repeat it fully within the alt text.
+2. If the image is decorative, use a blank alt text (e.g., `alt=""`).
+3. Consider the "job" the image is doing in context—describe what it communicates, not just what it is.
 
-1. If there is textual content in the image, it should be repeated fully within
-   the alt text.
-2. If the image is decorative in nature and doesn't provide any information that
-   would be useful for a vision-impaired visitor, then it should be described by
-   a blank alt text (e.g., `alt=""`).
-3. It's useful to consider the "job" the image is doing within its context in
-   the content. Simply stating "what" the image is may omit important
-   information like what it is trying to communicate within its context.
+For comprehensive guidance, see [WebAIM's Alternative Text guide](https://webaim.org/articles/images/).
 
 ### 4.4 Video captions
 
@@ -529,7 +256,7 @@ experience that works for everyone.
 ### 4.8 Hit targets
 
 A touch target (e.g., link, button, form control) must be at least 44 x 44
-CSS pixels in size.
+CSS pixels in size per [WCAG 2.5.5 Target Size (Level AAA)](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
 
 This hard rule can be broken with these exceptions:
 
@@ -538,12 +265,12 @@ This hard rule can be broken with these exceptions:
 2. The touch target is within a sentence or block of text.
 3. A particular presentation is essential to the information being conveyed.
 
-### 4.8 Color contrast
+### 4.9 Color contrast
 
 Most legal standards align with WCAG 2 Level AA for the needed contrast level
 between text, objects, and their background.
 
-The baseline AA contrast standard is 4:5:1 for most text and 3:1 for large text
+The baseline AA contrast standard is 4.5:1 for most text and 3:1 for large text
 (`24px`+ normal weight or `19px`+ bold).
 
 Color accessibility standards can be found within the [Electric Styles Figma
@@ -560,7 +287,7 @@ Contrast Checker][7] tool.
 	allowfullscreen
 ></iframe>
 
-### 4.9 Screen reader utilities
+### 4.10 Screen reader utilities
 
 There are two screen reader utilities available with the `sr` prefix:
 
@@ -614,7 +341,7 @@ focused (e.g. by a keyboard-only user).
 [1]: https://www.w3.org/WAI/WCAG2AA-Conformance
 [2]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 [3]: https://www.w3.org/TR/using-aria/
-[4]: /typography
+[4]: /?path=/docs/styles-typography--docs
 [5]: https://blog.hubspot.com/marketing/srt-file
 [6]: https://www.figma.com/file/bg8ecYNq9ja8DbKW07QLrB/FMX-Styles?type=design&node-id=2126%3A32&mode=design&t=N04a8cMp3Ddhx0xq-1
 [7]: https://webaim.org/resources/contrastchecker/

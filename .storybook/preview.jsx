@@ -1,5 +1,14 @@
+import React from 'react';
 import '../src/global.css';
 import { variables } from '../src/variables.js';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+} from '@storybook/addon-docs/blocks';
 
 // Generate backgrounds from variables.js
 const generateBackgrounds = () => {
@@ -50,6 +59,23 @@ const preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
+      },
+    },
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <Controls />
+          <Stories includePrimary={false} />
+        </>
+      ),
+    },
+    options: {
+      storySort: {
+        order: ['Welcome', 'Styles', 'Design Tokens', 'Components'],
       },
     },
   },

@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
-<Meta title="Design Philosophy/Layout" />
+<Meta title="Styles/Layout" />
 
 # Layout
 
@@ -64,47 +64,47 @@ See the chapter about the [grid][2] for more information.
 Electric [spacing utilities and tokens][1] provide a toolkit for consistent
 spacing of elements vertically and horizontally.
 
-Utilities for padding and margin can be applied as square and squish insets,
-stacked, inline, and on the grid.
+Utilities for padding and margin can be applied using t-shirt sized spacing tokens and responsive breakpoint classes.
 
-Following is an example of applying a medium inset padding to a frame and a
-small stack margin to the bottom of the first element.
+Following is an example of applying medium padding to a frame and small margin to the bottom of the first element.
 
 ```html
 <style type="text/css">
     .frame {
         background: red;
-        padding: var(--fmxe-space-inset-md);
+        padding: var(--fmxe-space-md);
     }
 
     .frame:first-child {
-        margin-bottom: var(--fmxe-space-stack-sm);
+        margin-bottom: var(--fmxe-space-sm);
     }
 
     .inner {
         background: white;
-        padding: var(--fmxe-space-inset-lg);
+        padding: var(--fmxe-space-lg);
     }
 </style>
 
 <main>
     <figure class="frame">
         <div class="inner">
-            space-inset-lg
+            Large padding
         </div>
     </figure>
 
     <figure class="frame">
         <div class="inner">
-            space-inset-lg
+            Large padding
         </div>
     </figure>
 </main>
 ```
 
-See the chapter about the [spacing][2] for more information.
+See the chapter about the [spacing][1] for more information.
 
 ## Cards
+
+*Note: Card components and their documentation are currently being updated.*
 
 A card component can contain a header, image, body, and footer.
 
@@ -124,12 +124,8 @@ A card component can contain a header, image, body, and footer.
 </div>
 ```
 
-<mark>TODO: link it up</mark> See more about the card component.
-
 All card components in the design system extend this base card component and
-override properties within to add extra visual effects. The following components
-extend the base card component:
-* <mark>TODO: list these</mark> Feature card
+override properties within to add extra visual effects.
 
 ### Card decks
 
@@ -174,9 +170,5 @@ A base card deck looks like the following:
 </div>
 ```
 
-Custom card decks are provided for each card outlined above:
-
-* <mark>TODO: list these after we sort out components</mark>
-
-[1]: /spacing/
-[2]: /grid/
+[1]: /?path=/docs/styles-spacing--docs
+[2]: /?path=/docs/styles-grid--docs

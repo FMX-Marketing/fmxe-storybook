@@ -130,36 +130,70 @@ body {
   font-family: var(--fmxe-font-family-Figtree);
 }
 
-h1 {
+h1,
+.h1-style {
   font-size: var(--fmxe-font-family-line-height-h1);
   line-height: var(--fmxe-font-family-line-height-h1);
 }
 
-h2 {
+h2,
+.h2-style {
   font-size: var(--fmxe-font-family-line-height-h2);
   line-height: var(--fmxe-font-family-line-height-h2);
 }
 
-h3 {
+h3,
+.h3-style {
   font-size: var(--fmxe-font-family-line-height-h3);
   line-height: var(--fmxe-font-family-line-height-h3);
 }
 
-h4 {
+h4,
+.h4-style {
   font-size: var(--fmxe-font-family-line-height-h4);
   line-height: var(--fmxe-font-family-line-height-h4);
 }
 
-h5 {
+h5,
+.h5-style {
   font-size: var(--fmxe-font-family-line-height-h5);
   line-height: var(--fmxe-font-family-line-height-h5);
 }
 
-h6 {
+h6,
+.h6-style {
   font-size: var(--fmxe-font-family-line-height-h6);
   line-height: var(--fmxe-font-family-line-height-h6);
 }
 
 p {
   font-size: var(--fmxe-font-family-size-m);
+}
+
+ul {
+  &.page-link-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--fmxe-space-md) 0;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+li.page-link-item {
+  background: var(--fmxe-space-1);
+  margin: 0 0 var(--fmxe-space-sm) 0 !important; /* Override sb default list item margin */
+  padding: 0;
+
+  .page-link-title {
+    font-size: var(--fmxe-font-family-size-md);
+    margin-bottom: var(--fmxe-space-md);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

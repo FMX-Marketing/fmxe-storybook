@@ -1,4 +1,7 @@
 import { Meta } from "@storybook/addon-docs/blocks";
+import { PageLinkList } from '../src/components/PageLinkList.jsx';
+
+export const docsBasePath = '/?path=/docs/';
 
 <Meta title="Welcome" />
 
@@ -8,11 +11,85 @@ FMX Electric (FMXE) is a lightning-fast front-end system designed to power beaut
 
 Whether you're here to build, explore, or contribute, you're in the right place.
 
+## Styles
+
+<PageLinkList links={[
+  {
+    title: 'Accessibility',
+    url: `${docsBasePath}styles-accessibility--docs`,
+    description: 'Guidelines and best practices for creating accessible, inclusive experiences.'
+  },
+  {
+    title: 'Grid',
+    url: `${docsBasePath}styles-grid--docs`,
+    description: 'Responsive grid system for structuring page layouts.'
+  },
+  {
+    title: 'Layout',
+    url: `${docsBasePath}styles-layout--docs`,
+    description: 'Layout patterns and structure guidelines for consistent page design.'
+  },
+  {
+    title: 'Shapes & Elevation',
+    url: `${docsBasePath}styles-shapes-elevation--docs`,
+    description: 'Border radius, shadows, and depth guidelines for visual hierarchy.'
+  },
+  {
+    title: 'Spacing',
+    url: `${docsBasePath}styles-spacing--docs`,
+    description: 'Consistent spacing system for margins, padding, and layout elements.'
+  },
+  {
+    title: 'Typography',
+    url: `${docsBasePath}styles-typography--docs`,
+    description: 'Styling text to reflect the FMX brand including headings, body text, and utilities.'
+  }
+]} />
+
+## Design Tokens
+
+<PageLinkList links={[
+  {
+    title: 'CSS Variables',
+    url: `${docsBasePath}design-tokens-variables--docs`,
+    description: 'Complete reference of available CSS custom properties and design tokens.'
+  },
+  {
+    title: 'Design Tokens Overview',
+    url: `${docsBasePath}design-tokens-overview--docs`,
+    description: 'Raw custom values from Figma that serve as core configuration for development.'
+  },
+  {
+    title: 'Tokens Changelog',
+    url: `${docsBasePath}design-tokens-changelog--docs`,
+    description: 'Version history and updates to the design token system.'
+  }
+]} />
+
+## Components
+
+<PageLinkList links={[
+  {
+    title: 'Component Guidelines',
+    url: `${docsBasePath}components-components--docs`,
+    description: 'Guidelines for creating reusable UI components and WordPress blocks in Storybook.'
+  }
+]} />
+
 ## Resources
 
-- [Figma Design System](#)
-- [Component Guidelines](#)
-- [Storybook Repository](https://bitbucket.org/fmxwebsite/storybook/src/main/)
+<PageLinkList links={[
+  {
+    title: 'Figma Design System',
+    url: '#',
+    description: 'Access our complete design library, component specs, and visual design resources in Figma.'
+  },
+  {
+    title: 'Storybook Repository',
+    url: 'https://bitbucket.org/fmxwebsite/storybook/src/main/',
+    description: 'View the source code, contribute changes, and track issues in our Bitbucket repository.'
+  }
+]} />
 
 ## Contributors
 

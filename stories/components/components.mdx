@@ -14,7 +14,19 @@ When determining if a component belongs within this project use the following cr
 When creating a new component do the following:
 
 1. Create a new story within `/stories/components/`.
-2. Create your component as a story (you can clone an exsiting component as a starting place).
-3. Generalize the styles with vanilla CSS and content output for storybook use.
+2. Create your component as a story (you can clone an existing component as a starting place).
+3. Generalize the styles with vanilla CSS and content output for Storybook use.
 
 _Note: You can utilize the generated [CSS variables](/docs/design-tokens-variables--docs/#css-variable-bundle) to help quickly stylize your story._
+
+## Creating a WordPress block story
+
+When creating a new WordPress block as a story do the following:
+
+1. Create a new story within `/stories/blocks/`.
+2. Copy the HTML output from the block's `save` function and paste it into your story.
+3. Copy the block's styles and paste them into your story. You may need to adjust styles for the block to display correctly in both environments. Ideally, you should be able to copy and paste styles from the main site to Storybook without modification. If you need to make adjustments, try to keep them minimal and well-documented.
+4. Update the story to include simple block functionality and try to keep it simple. Use the block's block.json as a reference for control features within Storybook.
+
+
+_Note: When creating blocks for Storybook, we are only focused on the block's frontend render, not the editor views._
