@@ -115,8 +115,8 @@ export const ShadowExamples = {
   args: {
     html: `
       <div class="example-grid">
-        <div class="example-box shadow-sm">sm shadow</div>
-        <div class="example-box shadow-md">md shadow</div>
+        <div class="example-box shadow-sm">sm</div>
+        <div class="example-box shadow-md">md</div>
       </div>
     `,
   },
