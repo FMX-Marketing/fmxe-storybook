@@ -1,12 +1,17 @@
 import { createButton } from './Button';
+import { loadSprite, getIconNames } from '@utils/createIcon.js';
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Atoms/Button',
   tags: ['autodocs'],
-  render: (args) => {
-    return createButton(args);
-  },
+  loaders: [() => loadSprite().then(() => ({ iconNames: getIconNames() }))],
+  render: (args) => createButton(args),
   argTypes: {
+    tag: {
+      control: { type: 'inline-radio' },
+      options: ['a', 'button'],
+      description: 'HTML element — "a" for links, "button" for form submission',
+    },
     label: {
       control: 'text',
       description: 'Button text content',
@@ -14,41 +19,58 @@ export default {
     href: {
       control: 'text',
       description: 'Link URL',
+      if: { arg: 'tag', eq: 'a' },
     },
-    style: {
+    type: {
+      control: { type: 'inline-radio' },
+      options: ['button', 'submit', 'reset'],
+      description: 'Button type attribute',
+      if: { arg: 'tag', eq: 'button' },
+    },
+    size: {
       control: { type: 'select' },
-      options: ['default', 'arrow', 'arrow-lg', 'arrow-prev', 'arrow-prev-lg', 'arrow-electric', 'arrow-lg-electric'],
-      description: 'Block style variant.',
+      options: ['sm', 'md', 'lg'],
+      description: 'Button size variant',
+    },
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'text', 'icon-only'],
+      description: 'Button variant — "default" adds no modifier class, "text" adds is-text, "icon-only" adds fmxe-button--icon-only',
+    },
+    icon: {
+      control: { type: 'select' },
+      options: ['none', ...getIconNames()],
+      description: 'Icon to display',
+    },
+    iconPosition: {
+      control: { type: 'inline-radio' },
+      options: ['before', 'after'],
+      description: 'Icon position relative to label',
+    },
+    color: {
+      control: { type: 'select' },
+      options: ['orange', 'white', 'gray-core'],
+      description: 'Button color (sets --_bg)',
     },
   },
   args: {
-    label: 'Button text',
+    tag: 'a',
+    label: 'Register now',
     href: '#',
-    style: '',
+    type: 'button',
+    size: 'md',
+    variant: 'default',
+    icon: 'none',
+    iconPosition: 'after',
+    color: 'orange',
   },
   parameters: {
     docs: {
       description: {
-        component: 'Wordpress core button block which supports multiple style variants.',
-      },
-      source: {
-        language: 'html',
-        format: true,
-        type: 'dynamic',
+        component: 'Standard button component supporting multiple sizes, color variants, icon positions, and text/icon-only modes.',
       },
     },
   },
 };
 
-const createStyleStory = (styleValue) => ({
-  args: { style: styleValue },
-});
-
-// Output block style variants.
-export const Default = createStyleStory('');
-export const Arrow = createStyleStory('arrow');
-export const ArrowLarge = createStyleStory('arrow-lg');
-export const ArrowPrevious = createStyleStory('arrow-prev');
-export const ArrowPreviousLarge = createStyleStory('arrow-prev-lg');
-export const ArrowElectric = createStyleStory('arrow-electric');
-export const ArrowLargeElectric = createStyleStory('arrow-lg-electric');
+export const Default = {};

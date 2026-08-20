@@ -1,0 +1,131 @@
+@import '../../../src/global.css';
+
+.fmxe-button {
+  /* Local design tokens */
+  --_bg:          var(--fmxe-color-orange);
+  --_gap:         var(--fmxe-space-2);
+  --_focus-color: #006BFF;
+  --_duration:    300ms;
+  --_icon-scale:  1.1;
+  --_icon-nudge:  3px;
+
+  /* Base layout & typography */
+  align-items: center;
+  background: var(--_bg);
+  border-radius: var(--fmxe-border-radius-round);
+  border: none;
+  color: var(--fmxe-color-white);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--fmxe-font-family-figtree);
+  font-size: var(--fmxe-font-family-size-sm);
+  font-weight: var(--fmxe-font-family-weight-700);
+  gap: var(--fmxe-space-2);
+  justify-content: center;
+  line-height: 1;
+  outline: var(--fmxe-space-2) solid transparent;
+  outline-offset: 0;
+  padding: var(--fmxe-space-sm);
+  text-decoration: none;
+  transition: outline-color var(--_duration) ease-in-out, outline-offset var(--_duration) ease-in-out;
+
+  /* Icon animations */
+  .fmxe-icon {
+    transition: transform var(--_duration) ease-in-out, scale var(--_duration) ease-in-out;
+  }
+
+  /* Hover & focus ring */
+  &:hover,
+  &:focus {
+    outline-offset: var(--_gap);
+
+    .fmxe-icon {
+      scale: var(--_icon-scale);
+    }
+  }
+
+  &:hover {
+    outline-color: var(--_bg);
+  }
+
+  &:focus {
+    outline-color: var(--_focus-color);
+  }
+
+  /* Apply icon-specific movement effects on non-icon variants */
+  &:not(.is-icon-only) {
+    &:hover .fmxe-icon--arrow,
+    &:focus .fmxe-icon--arrow {
+      transform: translateX(var(--_icon-nudge));
+    }
+
+    &:hover .fmxe-icon.flip-x,
+    &:focus .fmxe-icon.flip-x {
+      transform: translateX(calc(-1 * var(--_icon-nudge)));
+    }
+  }
+
+  /* Full width on mobile, auto on sm+ (excludes text & icon-only variants) */
+  &:not(.is-text, .is-icon-only) {
+    width: 100%;
+
+    @media (--sm) {
+      width: auto;
+    }
+  }
+
+  /* Size variants */
+  &.sm {
+    font-size: var(--fmxe-font-family-size-h6);
+    line-height: var(--fmxe-font-family-line-height-h6);
+    padding: var(--fmxe-space-xs);
+  }
+
+  &.md {
+    font-size: var(--fmxe-font-family-size-h5);
+    line-height: var(--fmxe-font-family-line-height-h5);
+  }
+
+  &.lg {
+    font-size: var(--fmxe-font-family-size-h4);
+    line-height: var(--fmxe-font-family-line-height-45);
+  }
+
+  /* Color variants */
+  &.bg-color-white {
+    --_bg: var(--fmxe-color-white);
+    color: var(--fmxe-color-orange);
+    &.is-text { color: var(--fmxe-color-white); }
+  }
+
+  &.bg-color-gray-core {
+    --_bg: var(--fmxe-color-gray-core);
+    color: var(--fmxe-color-white);
+    &.is-text { color: var(--fmxe-color-gray-core); }
+  }
+
+  /* Icon-only variant — hides label text visually while keeping it for screen readers */
+  &.is-icon-only {
+    padding: var(--fmxe-space-sm);
+
+    & span:not(.fmxe-icon) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  }
+
+  /* Text variant */
+  &.is-text {
+    background: transparent;
+    color: var(--_bg);
+    gap: var(--fmxe-space-xs);
+    padding: 0 var(--fmxe-space-sm);
+  }
+}
