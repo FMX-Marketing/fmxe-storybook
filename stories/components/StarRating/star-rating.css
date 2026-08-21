@@ -1,0 +1,16 @@
+.fmxe-star-rating {
+  --_color-filled:   var(--fmxe-color-yellow);
+  --_color-unfilled: transparent;
+
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  justify-content: start;
+
+  .fmxe-icon {
+    color: var(--_color-unfilled);
+
+    &.is-filled {
+      color: var(--_color-filled);
+    }
+  }
+}
