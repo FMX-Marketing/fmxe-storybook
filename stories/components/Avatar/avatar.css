@@ -1,0 +1,12 @@
+.fmxe-avatar {
+  aspect-ratio: 1;
+  border-radius: var(--fmxe-border-radius-md);
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+
+  &.sm { width: 55px; height: 55px; }
+  &.md { width: 90px; height: 90px; }
+  &.lg { width: 180px; height: 180px; }
+}

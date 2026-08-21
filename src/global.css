@@ -1,3 +1,11 @@
+@import './animations.css';
+
+@custom-media --xs (min-width: 340px);
+@custom-media --sm (min-width: 490px);
+@custom-media --md (min-width: 768px);
+@custom-media --lg (min-width: 1040px);
+@custom-media --xl (min-width: 1440px);
+
 :root {
   --fmxe-border-radius-sm: 0.3125rem; /* 5px */
   --fmxe-border-radius-md: 0.625rem; /* 10px */
@@ -19,6 +27,7 @@
   --fmxe-color-green: #6AB67A;
   --fmxe-color-black: #000000;
   --fmxe-color-white: #FFFFFF;
+  --fmxe-color-dark: #020B32;
   --fmxe-color-electric-blue-core: #12AFD7;
   --fmxe-color-electric-blue-light: #E9FAFF;
   --fmxe-color-electric-blue-light-1: #CAECF6;
