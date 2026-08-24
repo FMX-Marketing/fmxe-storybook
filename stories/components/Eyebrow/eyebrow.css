@@ -1,0 +1,25 @@
+.fmxe-eyebrow {
+  display: block;
+
+  &::before {
+    background-color: var(--fmxe-color-electric-blue-core);
+    content: '';
+    display: block;
+    height: 5px;
+    margin-bottom: var(--fmxe-space-md);
+    margin-inline: 0 auto;
+    width: 50px;
+  }
+
+  &.center::before {
+    margin-inline: auto;
+  }
+
+  &.right::before {
+    margin-inline: auto 0;
+  }
+
+  &.white::before {
+    background-color: var(--fmxe-color-white);
+  }
+}
