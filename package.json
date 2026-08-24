@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "node scripts/build-sprite.js && storybook dev -p 6006",
+    "build-storybook": "node scripts/build-sprite.js && storybook build"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,10 @@
     "@storybook/addon-docs": "^10.2.16",
     "@storybook/addon-links": "^10.2.16",
     "@storybook/html-vite": "^10.2.16",
+    "postcss": "^8.5.26",
+    "postcss-import": "^16.1.1",
+    "postcss-import-ext-glob": "^2.1.1",
+    "postcss-preset-env": "^11.3.2",
     "sass": "^1.97.3",
     "storybook": "^10.2.16"
   },
