@@ -1,3 +1,12 @@
+.fmxe-product-logo {
+  display: inline-block;
+  height: auto;
+
+  &.sm { height: 32px; }
+  &.md { height: 44px; }
+  &.lg { height: 64px; }
+}
+
 .fmxe-logo {
   color: var(--fmxe-color-electric-blue-core);
   display: inline-flex;
