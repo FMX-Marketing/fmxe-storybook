@@ -22,12 +22,13 @@
   --fmxe-space-lg: 2rem; /* 32px */
   --fmxe-space-xl: 5rem; /* 80px */
   --fmxe-color-orange: #CE4A12;
+  --fmxe-color-orange-light: #EB5514;
   --fmxe-color-yellow: #F5C855;
   --fmxe-color-red: #D13429;
   --fmxe-color-green: #6AB67A;
   --fmxe-color-black: #000000;
   --fmxe-color-white: #FFFFFF;
-  --fmxe-color-dark: #020B32;
+  --fmxe-color-focus: #006BFF;
   --fmxe-color-electric-blue-core: #12AFD7;
   --fmxe-color-electric-blue-light: #E9FAFF;
   --fmxe-color-electric-blue-light-1: #CAECF6;
@@ -43,6 +44,7 @@
   --fmxe-color-cobalt-blue-dark: #042B8C;
   --fmxe-color-cobalt-blue-dark-1: #041662;
   --fmxe-color-cobalt-blue-midnight: #031047;
+  --fmxe-color-cobalt-blue-midnight-dark: #020B32;
   --fmxe-color-sky-blue-core: #B9D2E6;
   --fmxe-color-sky-blue-light: #FBFCFD;
   --fmxe-color-sky-blue-light-1: #EFF5F9;
