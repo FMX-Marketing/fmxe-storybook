@@ -43,7 +43,6 @@
   text-underline-offset: 3px;
 
   &.is-hover { box-shadow: 0 1px 0 currentColor; }
-  &.is-visited { color: var(--fmxe-color-cobalt-blue-core); }
   &.is-focus {
     box-shadow: 0 1px 0 currentColor;
     outline: 2px solid var(--fmxe-color-focus);
