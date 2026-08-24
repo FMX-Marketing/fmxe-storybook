@@ -40,7 +40,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Circular avatar image for content creators, authors, and team members.',
+        component: 'Stylized avatar image for content creators, authors, and team members.',
       },
     },
   },
