@@ -1,4 +1,4 @@
-import './spacing.scss';
+import './spacing.css';
 import { VariableTableFiltered } from '@components/VariableTableFiltered.jsx';
 import { variables } from '@src/variables';
 import React from 'react';
