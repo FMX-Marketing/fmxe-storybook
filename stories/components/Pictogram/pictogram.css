@@ -1,5 +1,4 @@
 .fmxe-pictogram {
-  aspect-ratio: 3 / 2;
   align-items: center;
   background-color: var(--fmxe-color-sky-blue-light-1);
   display: flex;
@@ -12,6 +11,7 @@
   &.no-padding     { padding: 0; }
 
   img {
+    aspect-ratio: 3 / 2; /* Safely limit overly wide pictograms */
     display: block;
     object-fit: contain;
     object-position: center;
