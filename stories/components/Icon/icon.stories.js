@@ -1,5 +1,5 @@
 import { AssetGallery } from '@components/AssetGallery';
-import { createIcon, loadSprite, getIconNames } from '@utils/createIcon.js';
+import { renderIcon, loadSprite, getIconNames } from '@components/Icon.jsx';
 import { variables } from '@src/variables';
 import './icon.css';
 
@@ -46,7 +46,7 @@ export default {
     color: 'inherit',
   },
   render: ({ name, size, orientation, color }) => {
-    const icon = createIcon(name, size, orientation);
+    const icon = renderIcon(name, size, orientation);
     icon.style.color = color === 'inherit' ? '' : `var(--fmxe-color-${color})`;
     return icon;
   },
@@ -90,7 +90,7 @@ export const GalleryLight = {
   },
   render: ({ columns }, { loaded: { iconNames } }) => AssetGallery({
     names: iconNames,
-    renderAsset: (name) => createIcon(name, 'md'),
+    renderAsset: (name) => renderIcon(name, 'md'),
     theme: 'light',
     columns,
   }),
@@ -109,7 +109,7 @@ export const GalleryDark = {
   },
   render: ({ columns }, { loaded: { iconNames } }) => AssetGallery({
     names: iconNames,
-    renderAsset: (name) => createIcon(name, 'md'),
+    renderAsset: (name) => renderIcon(name, 'md'),
     theme: 'dark',
     columns,
   }),

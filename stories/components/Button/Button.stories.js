@@ -1,5 +1,5 @@
 import { createButton } from './Button';
-import { loadSprite, getIconNames } from '@utils/createIcon.js';
+import { loadSprite, getIconNames } from '@components/Icon.jsx';
 
 export default {
   title: 'Components/Atoms/Button',

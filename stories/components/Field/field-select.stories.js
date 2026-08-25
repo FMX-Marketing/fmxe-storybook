@@ -1,5 +1,5 @@
 import { createFieldSelect } from './Field.js';
-import { loadSprite } from '@utils/createIcon.js';
+import { loadSprite } from '@components/Icon.jsx';
 import './field.css';
 import '../Tooltip/tooltip.css';
 import '../Icon/icon.css';

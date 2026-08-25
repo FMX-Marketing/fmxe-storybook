@@ -100,7 +100,7 @@ export function Icon({ name, size = 'md', orientation = null, className = '' }) 
 }
 
 /**
- * Creates a DOM node containing a rendered Icon component.
+ * Renders an Icon into a DOM node.
  * Use this when a DOM element is required (e.g. vanilla JS story render functions).
  *
  * @param {string} name - Icon name
@@ -108,7 +108,7 @@ export function Icon({ name, size = 'md', orientation = null, className = '' }) 
  * @param {string|null} orientation - Optional orientation class
  * @returns {HTMLElement}
  */
-export function createIcon(name, size = 'md', orientation = null) {
+export function renderIcon(name, size = 'md', orientation = null) {
   const container = document.createElement('span');
   createRoot(container).render(<Icon name={name} size={size} orientation={orientation} />);
   return container;

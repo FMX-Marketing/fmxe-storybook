@@ -1,4 +1,4 @@
-import { createIcon } from '@utils/createIcon.js';
+import { renderIcon } from '@components/Icon.jsx';
 
 export function createStarRating(rating) {
   const wrap = document.createElement('div');
@@ -7,7 +7,7 @@ export function createStarRating(rating) {
   wrap.setAttribute('role', 'img');
 
   for (let i = 1; i <= 5; i++) {
-    const icon = createIcon('star', 'md');
+    const icon = renderIcon('star', 'md');
     if (i <= rating) icon.classList.add('is-filled');
     wrap.appendChild(icon);
   }

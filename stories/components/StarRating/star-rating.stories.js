@@ -1,5 +1,5 @@
 import { createStarRating } from './StarRating.js';
-import { loadSprite } from '@utils/createIcon.js';
+import { loadSprite } from '@components/Icon.jsx';
 import './star-rating.css';
 import '../Icon/icon.css';
 

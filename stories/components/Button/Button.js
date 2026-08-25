@@ -1,9 +1,9 @@
 import './button.css';
 import '../Icon/icon.css';
-import { createIcon } from '@utils/createIcon.js';
+import { renderIcon } from '@components/Icon.jsx';
 
-function createIconEl(name, orientation) {
-  return createIcon(name, 'md', orientation || null);
+function renderIconEl(name, orientation) {
+  return renderIcon(name, 'md', orientation || null);
 }
 
 const COLORS = ['orange', 'white', 'gray-core'];
@@ -22,7 +22,7 @@ export const createButton = ({ tag = 'a', label = 'Button text', href = '#', typ
   labelSpan.textContent = label;
 
   if (icon && icon !== 'none') {
-    const iconEl = createIconEl(icon, iconOrientation);
+    const iconEl = renderIconEl(icon, iconOrientation);
     if (iconPosition === 'before') {
       el.appendChild(iconEl);
       el.appendChild(labelSpan);
