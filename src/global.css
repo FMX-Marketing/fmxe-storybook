@@ -139,9 +139,10 @@ body {
   font-family: var(--fmxe-font-family-figtree);
 }
 
-/* Scoped to #storybook-root so link styles apply to all rendered story content
-   without affecting Storybook's own UI chrome (sidebar, toolbar, docs navigation). */
-#storybook-root a {
+/* Scoped to story render roots — canvas (#storybook-root) and docs previews (.sb-unstyled).
+   Avoids affecting Storybook's own UI chrome (sidebar, toolbar, docs navigation). */
+#storybook-root a,
+.sb-unstyled a {
   color: var(--fmxe-color-orange);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -153,7 +154,8 @@ body {
   &:focus-visible { outline: 2px solid var(--fmxe-color-focus); outline-offset: 2px; }
 }
 
-[data-theme="dark"] #storybook-root a {
+#storybook-root [data-theme="dark"] a,
+.sb-unstyled [data-theme="dark"] a {
   color: var(--fmxe-color-orange-light);
 }
 
