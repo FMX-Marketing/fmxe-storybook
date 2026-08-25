@@ -1,10 +1,52 @@
 import { Meta } from "@storybook/addon-docs/blocks";
+import { ChangelogSection } from "@components/ChangelogSection.jsx";
 
 <Meta title="Changelog" />
 
 # Changelog
 
-## 1.0.0
+<ChangelogSection version="1.1.0" date="2026-08-24" defaultOpen={true}>
+
+### New Components
+
+- **Avatar** — Stylized avatar image component with size variants.
+- **Badge Group** — Grouped badge layout for displaying multiple status labels together.
+- **Divider** — Horizontal rule component for separating content sections.
+- **Eyebrow** — Small decorative label used above headings.
+- **FMX Product Logo** — Full product logos and icon-only variants for all FMX products, with light and dark (white text) versions and size controls (sm/md/lg).
+- **Icon** — SVG sprite-based icon component with size variants and a full icon gallery.
+- **Pictogram** — Illustrated pictogram component with light, dark, and transparent background variants, and optional padding control.
+- **Star Rating** — Prototype star rating display component.
+- **Tooltip** — Accessible tooltip with above/below placement, dark theme support, HTML content rendering, and SVG arrow indicator.
+- **Form Field / Number** — Numeric text input with default, focus, filled, selected, invalid, and disabled states. Supports optional leading icon and tooltip.
+- **Form Field / Currency** — Currency input using the dollar-sign icon. Supports the same states as Number.
+- **Form Field / Select** — Dropdown select with custom chevron icon, optional leading icon, and full state coverage.
+- **Form Field / Textarea** — Multi-line text input with configurable row count and full state coverage.
+- **Form Field / Checkbox** — Custom-styled checkbox with hover/focus ring, checkmark via CSS mask-image, and invalid/disabled states.
+- **Form Field / Radio** — Custom-styled radio button with hover/focus ring, inner dot indicator, and invalid/disabled states.
+
+### New Styles
+
+- **Link** — Link style documentation covering default, hover, focus, and dark theme variants.
+
+### Token Updates
+
+- Added `--fmxe-color-orange-light` (`#EB5514`) — lighter orange for link text on dark backgrounds.
+- Added `--fmxe-color-focus` (`#006BFF`) — standardised focus ring color used across all interactive components.
+- Added `--fmxe-color-cobalt-blue-midnight-dark` (`#020B32`) — replaces the removed `--fmxe-color-dark` token; all prior references updated.
+
+### Improvements
+
+- **Button** — Updated to V2 layout; legacy version preserved under Button Legacy.
+- **Form Field icons** — Leading icon slot added to Number, Currency, and Select fields using CSS `mask-image`.
+- **Select chevron** — Native browser arrow replaced with a custom rotated chevron icon via CSS `mask-image`.
+- **Global link styles** — Applied via `#storybook-root a` so all story content inherits correct link styling without affecting Storybook chrome.
+
+</ChangelogSection>
+
+<ChangelogSection version="1.0.0">
 
 - Created a storybook config.
 - Initial release of the storybook based on FMXE.
+
+</ChangelogSection>
