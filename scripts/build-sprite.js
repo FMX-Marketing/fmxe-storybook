@@ -20,7 +20,7 @@
  * SVG <use> requires the symbol to already be present in the DOM at render
  * time. Dynamic per-icon fetches would cause a flash of missing icons on every
  * page load. The pre-built sprite is fetched once up front (see loadSprite in
- * src/utilities/createIcon.js), ensuring all symbols are available before any
+ * src/components/Icon.jsx), ensuring all symbols are available before any
  * icon component renders.
  *
  * WHEN TO RUN:
