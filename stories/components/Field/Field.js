@@ -18,7 +18,12 @@ function createFieldWrap(type, state) {
 function createLabel(id, labelText, tooltip) {
   const label = document.createElement('label');
   label.htmlFor = id;
-  label.textContent = labelText;
+
+  const text = document.createElement('span');
+  text.className = 'fmxe-field__label-text';
+  text.textContent = labelText;
+  label.appendChild(text);
+
   if (tooltip) label.appendChild(createTooltip(tooltip));
   return label;
 }
