@@ -1,6 +1,7 @@
 @import '../../../src/global.css';
 
-.fmxe-button {
+a.fmxe-button,
+button.fmxe-button {
   /* Local design tokens */
   --_bg:         var(--fmxe-color-orange);
   --_gap:        var(--fmxe-space-2);
@@ -126,10 +127,12 @@
     padding: 0;
 
 		&:hover {
-			outline-color: transparent;
-		}
+      box-shadow: none;
+      outline-color: transparent;
+    }
 
     &:focus {
+      box-shadow: none;
       outline-offset: var(--fmxe-space-2);
     }
   }
