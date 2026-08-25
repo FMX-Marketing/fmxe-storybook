@@ -2,12 +2,11 @@
 
 .fmxe-button {
   /* Local design tokens */
-  --_bg:          var(--fmxe-color-orange);
-  --_gap:         var(--fmxe-space-2);
-  --_focus-color: #006BFF;
-  --_duration:    300ms;
-  --_icon-scale:  1.1;
-  --_icon-nudge:  3px;
+  --_bg:         var(--fmxe-color-orange);
+  --_gap:        var(--fmxe-space-2);
+  --_duration:   300ms;
+  --_icon-scale: 1.1;
+  --_icon-nudge: 3px;
 
   /* Base layout & typography */
   align-items: center;
@@ -20,12 +19,12 @@
   font-family: var(--fmxe-font-family-figtree);
   font-size: var(--fmxe-font-family-size-sm);
   font-weight: var(--fmxe-font-family-weight-700);
-  gap: var(--fmxe-space-2);
+  gap: 4px;
   justify-content: center;
   line-height: 1;
   outline: var(--fmxe-space-2) solid transparent;
   outline-offset: 0;
-  padding: var(--fmxe-space-sm);
+  padding: var(--fmxe-space-sm) var(--fmxe-space-sm);
   text-decoration: none;
   transition: outline-color var(--_duration) ease-in-out, outline-offset var(--_duration) ease-in-out;
 
@@ -49,24 +48,20 @@
   }
 
   &:focus {
-    outline-color: var(--_focus-color);
+    outline-color: var(--fmxe-color-focus);
   }
 
   /* Apply icon-specific movement effects on non-icon variants */
-  &:not(.is-icon-only) {
+  &:not(.is-icon) {
     &:hover .fmxe-icon--arrow,
     &:focus .fmxe-icon--arrow {
-      transform: translateX(var(--_icon-nudge));
-    }
-
-    &:hover .fmxe-icon.flip-x,
-    &:focus .fmxe-icon.flip-x {
-      transform: translateX(calc(-1 * var(--_icon-nudge)));
+      &.right  { transform: rotate(0deg)   translateX(var(--_icon-nudge)); }
+      &.left   { transform: rotate(180deg) translateX(calc(1 * var(--_icon-nudge))); }
     }
   }
 
   /* Full width on mobile, auto on sm+ (excludes text & icon-only variants) */
-  &:not(.is-text, .is-icon-only) {
+  &:not(.is-text, .is-icon) {
     width: 100%;
 
     @media (--sm) {
@@ -78,17 +73,19 @@
   &.sm {
     font-size: var(--fmxe-font-family-size-h6);
     line-height: var(--fmxe-font-family-line-height-h6);
-    padding: var(--fmxe-space-xs);
+    padding: var(--fmxe-space-xs) var(--fmxe-space-sm);
   }
 
   &.md {
     font-size: var(--fmxe-font-family-size-h5);
     line-height: var(--fmxe-font-family-line-height-h5);
+    padding: var(--fmxe-space-sm) var(--fmxe-space-md);
   }
 
   &.lg {
     font-size: var(--fmxe-font-family-size-h4);
     line-height: var(--fmxe-font-family-line-height-45);
+    padding: var(--fmxe-space-md) var(--fmxe-space-lg);
   }
 
   /* Color variants */
@@ -105,7 +102,7 @@
   }
 
   /* Icon-only variant — hides label text visually while keeping it for screen readers */
-  &.is-icon-only {
+  &.is-icon {
     padding: var(--fmxe-space-sm);
 
     & span:not(.fmxe-icon) {
@@ -126,6 +123,14 @@
     background: transparent;
     color: var(--_bg);
     gap: var(--fmxe-space-xs);
-    padding: 0 var(--fmxe-space-sm);
+    padding: 0;
+
+		&:hover {
+			outline-color: transparent;
+		}
+
+    &:focus {
+      outline-offset: var(--fmxe-space-2);
+    }
   }
 }

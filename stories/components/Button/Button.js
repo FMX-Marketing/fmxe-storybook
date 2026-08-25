@@ -2,17 +2,17 @@ import './button.css';
 import '../Icon/icon.css';
 import { createIcon } from '@utils/createIcon.js';
 
-function createIconEl(name) {
-  return createIcon(name, 'md');
+function createIconEl(name, orientation) {
+  return createIcon(name, 'md', orientation || null);
 }
 
 const COLORS = ['orange', 'white', 'gray-core'];
 
-export const createButton = ({ tag = 'a', label = 'Button text', href = '#', type = 'button', size = 'md', variant = 'default', icon = 'none', iconPosition = 'after', color = 'orange' } = {}) => {
+export const createButton = ({ tag = 'a', label = 'Button text', href = '#', type = 'button', size = 'md', variant = 'default', icon = 'none', iconPosition = 'after', iconOrientation = '', color = 'orange' } = {}) => {
   const el = document.createElement(tag);
   const classes = ['fmxe-button', size];
   if (variant === 'text') classes.push('is-text');
-  if (variant === 'icon-only') classes.push('is-icon-only');
+  if (variant === 'icon-only') classes.push('is-icon');
   if (color && COLORS.includes(color)) classes.push(`bg-color-${color}`);
   el.className = classes.join(' ');
   if (tag === 'a') el.href = href;
@@ -22,7 +22,7 @@ export const createButton = ({ tag = 'a', label = 'Button text', href = '#', typ
   labelSpan.textContent = label;
 
   if (icon && icon !== 'none') {
-    const iconEl = createIconEl(icon);
+    const iconEl = createIconEl(icon, iconOrientation);
     if (iconPosition === 'before') {
       el.appendChild(iconEl);
       el.appendChild(labelSpan);

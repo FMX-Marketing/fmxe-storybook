@@ -35,7 +35,7 @@ export default {
     variant: {
       control: { type: 'select' },
       options: ['default', 'text', 'icon-only'],
-      description: 'Button variant — "default" adds no modifier class, "text" adds is-text, "icon-only" adds fmxe-button--icon-only',
+      description: 'Button variant — "default" adds no modifier class, "text" adds is-text, "icon-only" adds is-icon',
     },
     icon: {
       control: { type: 'select' },
@@ -46,6 +46,12 @@ export default {
       control: { type: 'inline-radio' },
       options: ['before', 'after'],
       description: 'Icon position relative to label',
+    },
+    iconOrientation: {
+      control: { type: 'select' },
+      options: ['', 'right', 'down', 'left', 'up', 'flip-x', 'flip-y'],
+      description: 'Icon orientation — overrides default direction',
+      if: { arg: 'icon', neq: 'none' },
     },
     color: {
       control: { type: 'select' },
@@ -62,6 +68,7 @@ export default {
     variant: 'default',
     icon: 'none',
     iconPosition: 'after',
+    iconOrientation: '',
     color: 'orange',
   },
   parameters: {
