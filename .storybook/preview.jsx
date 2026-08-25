@@ -1,7 +1,7 @@
 import React from 'react';
 import '../src/global.css';
 import { variables } from '../src/variables.js';
-import { loadSprite } from '../src/utilities/createIcon.js';
+import { loadSprite } from '../src/components/Icon.jsx';
 
 loadSprite();
 import {
