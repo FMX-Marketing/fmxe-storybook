@@ -1,7 +1,7 @@
 .fmxe-icon {
   align-items: center;
   color: currentColor;
-  display: inline-flex;
+  display: flex;
   flex-shrink: 0;
   justify-content: center;
   margin: 0 auto;
