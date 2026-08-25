@@ -108,8 +108,8 @@ export function Icon({ name, size = 'md', orientation = null, className = '' }) 
  * @param {string|null} orientation - Optional orientation class
  * @returns {HTMLElement}
  */
-export function renderIcon(name, size = 'md', orientation = null) {
+export function renderIcon(name, size = 'md', orientation = null, className = '') {
   const container = document.createElement('span');
-  createRoot(container).render(<Icon name={name} size={size} orientation={orientation} />);
+  createRoot(container).render(<Icon name={name} size={size} orientation={orientation} className={className} />);
   return container;
 }
