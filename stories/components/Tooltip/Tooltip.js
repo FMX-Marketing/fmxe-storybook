@@ -27,15 +27,35 @@ function positionTooltip(tooltip) {
   }
 }
 
-export function createTooltip(text) {
+let tooltipIdCounter = 0;
+
+export function createTooltip(text, placement = 'top', align = null) {
+  const id = `fmxe-tooltip-${++tooltipIdCounter}`;
+
   const wrap = document.createElement('span');
-  wrap.className = 'fmxe-tooltip';
-  wrap.addEventListener('mouseenter', () => positionTooltip(wrap));
+  const classes = ['fmxe-tooltip'];
+  if (placement !== 'top') classes.push(`place-${placement}`);
+  if (align) classes.push(`align-${align}`);
+  wrap.className = classes.join(' ');
+
+  const trigger = document.createElement('button');
+  trigger.type = 'button';
+  trigger.className = 'fmxe-tooltip__trigger';
+  trigger.setAttribute('aria-describedby', id);
+  trigger.addEventListener('mouseenter', () => positionTooltip(wrap));
+  trigger.addEventListener('focus', () => positionTooltip(wrap));
 
   const iconWrap = renderIcon('information', 'md');
-  iconWrap.classList.add('fmxe-tooltip__icon');
+  iconWrap.setAttribute('aria-hidden', 'true');
+  trigger.appendChild(iconWrap);
+
+  const srLabel = document.createElement('span');
+  srLabel.className = 'sr-only';
+  srLabel.textContent = 'More information';
+  trigger.appendChild(srLabel);
 
   const content = document.createElement('span');
+  content.id = id;
   content.className = 'fmxe-tooltip__content';
   content.setAttribute('role', 'tooltip');
 
@@ -44,7 +64,7 @@ export function createTooltip(text) {
   textEl.innerHTML = text;
 
   content.appendChild(textEl);
-  wrap.appendChild(iconWrap);
+  wrap.appendChild(trigger);
   wrap.appendChild(content);
 
   return wrap;

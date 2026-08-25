@@ -40,55 +40,76 @@ export default {
 
 export const Preview = {};
 
-export const Placements = {
-  name: 'Placements',
-  parameters: {
-    controls: { disable: true },
-    docs: {
-      description: { story: 'Both placement variants — above (default) and below (flipped when viewport clips the top).' },
-      story: { iframeHeight: '300px' },
+const TOOLTIP_TEXT = 'Paragraph text <a href="#example-url">link example</a> text going to second line.';
+
+function placementStory(placement, align, label, padding) {
+  return {
+    name: label,
+    parameters: {
+      controls: { disable: true },
+      docs: {
+        description: { story: `Tooltip placed ${placement}${align ? `, aligned to ${align}` : ''}.` },
+        story: { iframeHeight: '200px' },
+      },
     },
-  },
-  render: ({ theme }) => {
-    const outer = document.createElement('div');
-    outer.setAttribute('data-theme', theme);
-    outer.style.alignItems = 'center';
-    outer.style.display = 'flex';
-    outer.style.gap = 'var(--fmxe-space-xl)';
-    outer.style.justifyContent = 'center';
-    outer.style.paddingTop = '120px';
+    render: ({ theme }) => {
+      const outer = document.createElement('div');
+      outer.setAttribute('data-theme', theme);
+      outer.style.alignItems = 'center';
+      outer.style.display = 'flex';
+      outer.style.justifyContent = 'center';
+      outer.style.padding = padding;
 
-    const labels = ['Above (default)', 'Below (flipped)'];
-    labels.forEach((label, i) => {
-      const col = document.createElement('div');
-      col.style.alignItems = 'center';
-      col.style.display = 'flex';
-      col.style.flexDirection = 'column';
-      col.style.gap = 'var(--fmxe-space-sm)';
-
-      const tooltip = createTooltip('Paragraph text <a href="#example-url">link example</a> text going to second line.');
+      const tooltip = createTooltip(TOOLTIP_TEXT, placement, align);
       const content = tooltip.querySelector('.fmxe-tooltip__content');
       content.style.opacity = '1';
       content.style.visibility = 'visible';
       content.style.pointerEvents = 'auto';
-      if (i === 1) tooltip.classList.add('is-flipped');
 
-      const caption = document.createElement('span');
-      caption.textContent = label;
-      caption.style.fontSize = 'var(--fmxe-font-family-size-xs)';
-      caption.style.color = 'var(--fmxe-color-gray-light-3)';
+      outer.appendChild(tooltip);
+      return outer;
+    },
+  };
+}
 
-      col.appendChild(tooltip);
-      col.appendChild(caption);
-      outer.appendChild(col);
-    });
+export const PlacementTop = {
+  ...placementStory('top', null, 'Placement — Top', '120px 0 0'),
+  parameters: { controls: { disable: true }, docs: { description: { story: 'Default. Use when the trigger has clear space above it.' }, story: { iframeHeight: '200px' } } },
+};
 
-    return outer;
-  },
+export const PlacementTopStart = {
+  ...placementStory('top', 'start', 'Placement — Top Start', '120px 0 0'),
+  parameters: { controls: { disable: true }, docs: { description: { story: 'Use when the trigger is near the left edge of its container, such as the first column of a table.' }, story: { iframeHeight: '200px' } } },
+};
+
+export const PlacementTopEnd = {
+  ...placementStory('top', 'end', 'Placement — Top End', '120px 0 0'),
+  parameters: { controls: { disable: true }, docs: { description: { story: 'Use when the trigger is near the right edge of its container, such as a trailing icon in a toolbar.' }, story: { iframeHeight: '200px' } } },
+};
+
+export const PlacementBottom = {
+  ...placementStory('bottom', null, 'Placement — Bottom', '0 0 120px'),
+  parameters: { controls: { disable: true }, docs: { description: { story: 'Use when the trigger is near the top of the viewport, such as a sticky header, where the bubble would otherwise clip.' }, story: { iframeHeight: '200px' } } },
+};
+
+export const PlacementBottomStart = {
+  ...placementStory('bottom', 'start', 'Placement — Bottom Start', '0 0 120px'),
+  parameters: { controls: { disable: true }, docs: { description: { story: 'Use when the trigger is in the top-left of a fixed panel or modal header.' }, story: { iframeHeight: '200px' } } },
+};
+
+export const PlacementBottomEnd = {
+  ...placementStory('bottom', 'end', 'Placement — Bottom End', '0 0 120px'),
+  parameters: { controls: { disable: true }, docs: { description: { story: 'Use when the trigger is in the top-right of a fixed panel, such as a close or settings icon.' }, story: { iframeHeight: '200px' } } },
 };
 
 export const ExampleUse = {
   name: 'Example Use',
+  parameters: {
+    docs: {
+      description: { story: 'Tooltip paired with a form label to clarify a field that may need additional context.' },
+      story: { iframeHeight: '120px' },
+    },
+  },
   render: ({ text, theme }) => {
     const outer = document.createElement('div');
     outer.setAttribute('data-theme', theme);
