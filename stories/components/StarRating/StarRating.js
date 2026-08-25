@@ -7,8 +7,7 @@ export function createStarRating(rating) {
   wrap.setAttribute('role', 'img');
 
   for (let i = 1; i <= 5; i++) {
-    const icon = renderIcon('star', 'md');
-    if (i <= rating) icon.classList.add('is-filled');
+    const icon = renderIcon('star', 'md', null, i <= rating ? 'is-filled' : '');
     wrap.appendChild(icon);
   }
 
