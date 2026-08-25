@@ -1,4 +1,4 @@
-import './link.css';
+import './links.css';
 
 const STATES = ['default', 'hover', 'visited', 'focus'];
 
@@ -42,7 +42,7 @@ function createStatesDisplay(theme) {
 }
 
 export default {
-  title: 'Styles/Link',
+  title: 'Styles/Links',
   tags: ['autodocs'],
   argTypes: {
     label: {
