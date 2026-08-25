@@ -1,0 +1,70 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import { SpriteDump } from '@components/SpriteDump';
+
+<Meta title="Components/Atoms/Icon/Usage" />
+
+# Icon Usage
+
+Icons are rendered via the **SVG sprite** pattern. The sprite is inlined once near the top of `<body>` and every icon is referenced with `<use href="#icon-name">` — the SVG is parsed once by the browser and shared across every instance on the page.
+
+**Why this approach**
+- Color controlled via CSS `color` / `currentColor` — no duplicate files per color variant
+- Size controlled via a modifier class — no duplicate files per size
+- One source file to update when an icon changes
+- Icons are available immediately — no network requests or lazy loading concerns
+- Animate the icon as a unit: `opacity`, `scale`, `rotate`, and `translate` all work on the `<use>` element
+
+**Limitations**
+- CSS cannot reach internal SVG paths via `<use>` — per-path animations must fall back to inline SVG
+- Every icon in the sprite loads on every page regardless of whether it is used
+
+---
+
+## 1. Include the sprite
+
+Paste the sprite once, hidden, near the top of `<body>`. The wrapping `<div>` prevents the SVG from rendering as visible content.
+
+<SpriteDump />
+
+## 2. Add the CSS
+
+<Source language="css" code={`.fmxe-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: currentColor;
+  width: var(--_size);
+  height: var(--_size);
+  padding: var(--_padding);
+}
+
+.fmxe-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fmxe-icon--size-16 { --_size: 16px; --_padding: 2px; }
+.fmxe-icon--size-32 { --_size: 32px; --_padding: 4px; }
+.fmxe-icon--size-48 { --_size: 48px; --_padding: 6px; }`} />
+
+## 3. Use an icon
+
+Reference any symbol by its ID. The `fmxe-icon--size-*` modifier controls the dimensions.
+
+<Source language="html" code={`<span class="fmxe-icon fmxe-icon--size-32">
+  <svg aria-hidden="true">
+    <use href="#icon-search"></use>
+  </svg>
+</span>`} />
+
+Available icon names: `arrow-right` · `check` · `close` · `menu` · `search`
+
+## 4. Override the color
+
+Icons inherit `currentColor` from their parent, so color is controlled with CSS `color`. Set it inline or via a class.
+
+<Source language="css" code={`.your-component {
+  color: var(--fmxe-color-orange);
+}`} />

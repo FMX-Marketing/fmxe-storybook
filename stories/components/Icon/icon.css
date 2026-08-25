@@ -1,0 +1,29 @@
+.fmxe-icon {
+  align-items: center;
+  color: currentColor;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  margin: 0 auto;
+
+  & svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Size options */
+  &.xs { height: 12px; width: 12px; }
+  &.sm { height: 16px; width: 16px; }
+  &.md { height: 20px; width: 20px; }
+  &.lg { height: 24px; width: 24px; }
+  &.xl { height: 32px; width: 32px; }
+
+  /* Orientation options */
+  &.right   { transform: rotate(0deg); }
+  &.down    { transform: rotate(90deg); }
+  &.left    { transform: rotate(180deg); }
+  &.up      { transform: rotate(270deg); }
+  &.flip-x  { transform: scaleX(-1); }
+  &.flip-y  { transform: scaleY(-1); }
+}
