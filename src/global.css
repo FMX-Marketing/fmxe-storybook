@@ -138,8 +138,27 @@
 }
 
 body {
-  font-family: var(--fmxe-font-family-Figtree);
+  font-family: var(--fmxe-font-family-figtree);
 }
+
+/* Scoped to #storybook-root so link styles apply to all rendered story content
+   without affecting Storybook's own UI chrome (sidebar, toolbar, docs navigation). */
+#storybook-root a {
+  color: var(--fmxe-color-orange);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 200ms ease, box-shadow 200ms ease;
+
+  &:hover,
+  &:focus { box-shadow: 0 1px 0 currentColor; }
+  &:focus-visible { outline: 2px solid var(--fmxe-color-focus); outline-offset: 2px; }
+}
+
+[data-theme="dark"] #storybook-root a {
+  color: var(--fmxe-color-orange-light);
+}
+
 
 h1,
 .h1-style {
