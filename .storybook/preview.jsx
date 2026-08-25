@@ -1,6 +1,9 @@
 import React from 'react';
 import '../src/global.css';
 import { variables } from '../src/variables.js';
+import { loadSprite } from '../src/utilities/createIcon.js';
+
+loadSprite();
 import {
   Title,
   Subtitle,
@@ -75,13 +78,15 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Welcome', 'Styles', 'Design Tokens', 'Components'],
+        order: ['Welcome', 'Styles', 'Design Tokens', 'Components', ['*', ['Atoms', ['Button', 'Icon', 'Logo', 'Input Field', ['Checkbox', 'Currency', 'Number', 'Radio', 'Select']]]]],
+        method: 'alphabetical',
       },
     },
   },
   decorators: [
     (story, context) => {
-      const selectedBgKey = context.globals.backgrounds?.value;
+      const selectedBgKey = context.globals.backgrounds?.value
+        ?? context.parameters.backgrounds?.default;
       /**
        * For A11y to work in real time, we need to apply the currently selected background color to the
        * storybook root element. We do this via DOM manipulation so it doesn't appear in the "Show code" output.
