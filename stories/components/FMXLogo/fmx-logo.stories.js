@@ -1,4 +1,4 @@
-import './logo.css';
+import './fmx-logo.css';
 import { loadSprite } from '@utils/createIcon.js';
 
 const SIZES = { sm: 32, md: 44, lg: 64 };

@@ -1,5 +1,5 @@
 import { AssetGallery } from '@components/AssetGallery';
-import './logo.css';
+import './fmx-product-logo.css';
 
 const ALL_PRODUCT_LOGOS = Object.keys(import.meta.glob('/public/product-logos/*.svg'))
   .map(p => p.replace('/public/product-logos/', '').replace('.svg', ''))
@@ -95,6 +95,7 @@ export const GalleryDark = {
   argTypes: galleryArgTypes,
   args: galleryArgs,
   parameters: {
+    backgrounds: { default: 'cobalt-blue-midnight' },
     docs: { description: { story: 'All full product logos on a dark background.' } },
   },
   render: ({ columns }) => AssetGallery({
@@ -103,6 +104,7 @@ export const GalleryDark = {
     theme: 'dark',
     columns,
     align: 'start',
+    background: 'var(--fmxe-color-cobalt-blue-midnight)',
   }),
 };
 
@@ -127,6 +129,7 @@ export const IconGalleryDark = {
   argTypes: galleryArgTypes,
   args: { columns: 4 },
   parameters: {
+    backgrounds: { default: 'cobalt-blue-midnight' },
     docs: { description: { story: 'All product icon marks on a dark background.' } },
   },
   render: ({ columns }) => AssetGallery({
@@ -134,5 +137,6 @@ export const IconGalleryDark = {
     renderAsset: (name) => renderLogo(name, 'icon', 'md'),
     theme: 'dark',
     columns,
+    background: 'var(--fmxe-color-cobalt-blue-midnight)',
   }),
 };
