@@ -7,7 +7,7 @@
 
   &.white { background-color: var(--fmxe-color-white); }
 
-  &.sm { margin-block: var(--fmxe-space-sm); }
-  &.md { margin-block: var(--fmxe-space-md); }
-  &.lg { margin-block: var(--fmxe-space-lg); }
+  &.space-sm { margin: var(--fmxe-space-sm) 0; }
+  &.space-md { margin: var(--fmxe-space-md) 0; }
+  &.space-lg { margin: var(--fmxe-space-lg) 0; }
 }

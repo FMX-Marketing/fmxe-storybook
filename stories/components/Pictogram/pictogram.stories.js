@@ -7,15 +7,16 @@ const PICTOGRAM_NAMES = Object.keys(import.meta.glob('/public/pictograms/*.svg')
   .map(path => path.replace('/public/pictograms/', '').replace('.svg', ''))
   .sort();
 
-function renderPictogram(name, size = 'md', background = 'light', padding = true) {
+function renderPictogram(name, size = 'md', background = 'light', space = 'default') {
   const wrap = document.createElement('div');
   const bgClass = background !== 'light' ? ` bg-${background}` : '';
-  wrap.className = `fmxe-pictogram${bgClass}${padding ? '' : ' no-padding'}`;
+  const spaceClass = space === 'none' ? ' space-none' : '';
+  wrap.className = `fmxe-pictogram${bgClass}${spaceClass}`;
 
   const img = document.createElement('img');
   img.src = `/pictograms/${name}.svg`;
   img.alt = name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-  img.className = size;
+  img.className = `size-${size}`;
   // img.width  = SIZES[size];
   img.height = SIZES[size];
   wrap.appendChild(img);
@@ -41,18 +42,19 @@ export default {
       options: ['light', 'dark', 'transparent'],
       description: 'Background color',
     },
-    padding: {
-      control: { type: 'boolean' },
-      description: 'Toggle padding on/off',
+    space: {
+      control: { type: 'inline-radio' },
+      options: ['none', 'default'],
+      description: 'Vertical padding around the pictogram — default scales with size',
     },
   },
   args: {
     name: PICTOGRAM_NAMES[0],
     size: 'md',
     background: 'light',
-    padding: true,
+    space: 'default',
   },
-  render: ({ name, size, background, padding }) => renderPictogram(name, size, background, padding),
+  render: ({ name, size, background, space }) => renderPictogram(name, size, background, space),
   parameters: {
     docs: {
       description: {

@@ -3,12 +3,19 @@
   background-color: var(--fmxe-color-sky-blue-light-1);
   display: flex;
   justify-content: center;
-  padding: var(--fmxe-space-md) 0;
+  padding: 0;
   width: 100%;
 
   &.bg-dark        { background-color: var(--fmxe-color-white); }
   &.bg-transparent { background-color: transparent; }
-  &.no-padding     { padding: 0; }
+
+  &:not(.space-none) {
+    img.size-sm  { padding: var(--fmxe-space-xs) 0; }
+    img.size-md  { padding: var(--fmxe-space-sm) 0; }
+    img.size-lg  { padding: var(--fmxe-space-md) 0; }
+    img.size-xl  { padding: var(--fmxe-space-lg) 0; }
+    img.size-2xl { padding: var(--fmxe-space-xl) 0; }
+  }
 
   img {
     aspect-ratio: 3 / 2; /* Safely limit overly wide pictograms */
@@ -16,25 +23,24 @@
     object-fit: contain;
     object-position: center;
 
-    &.sm {
+    &.size-sm {
       height: 44px;
     }
 
-    &.md {
+    &.size-md {
       height: 64px;
     }
 
-    &.lg {
+    &.size-lg {
       height: 96px;
     }
 
-    &.xl {
+    &.size-xl {
       height: 128px;
     }
 
-    &.2xl {
+    &.size-2xl {
       height: 175px;
-      padding: var(--fmxe-space-xl) 0;
     }
   }
 }

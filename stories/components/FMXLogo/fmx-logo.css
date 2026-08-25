@@ -10,9 +10,9 @@
   }
 
   /* Size */
-  &.sm { & svg { height: 32px; } }
-  &.md { & svg { height: 44px; } }
-  &.lg { & svg { height: 64px; } }
+  &.size-sm { & svg { height: 32px; } }
+  &.size-md { & svg { height: 44px; } }
+  &.size-lg { & svg { height: 64px; } }
 
   /* Color */
   &.color-electric-blue-core { color: var(--fmxe-color-electric-blue-core); }

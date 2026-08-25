@@ -10,7 +10,7 @@ const COLORS = ['orange', 'white', 'gray-core'];
 
 export const createButton = ({ tag = 'a', label = 'Button text', href = '#', type = 'button', size = 'md', variant = 'default', icon = 'none', iconPosition = 'after', iconOrientation = '', color = 'orange' } = {}) => {
   const el = document.createElement(tag);
-  const classes = ['fmxe-button', size];
+  const classes = ['fmxe-button', `size-${size}`];
   if (variant === 'text') classes.push('is-text');
   if (variant === 'icon-only') classes.push('is-icon');
   if (color && COLORS.includes(color)) classes.push(`bg-color-${color}`);

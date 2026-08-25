@@ -4,7 +4,7 @@ function nextId() { return `fmxe-choice-${++_choiceId}`; }
 export function createChoiceGroup({ inputType, options, size, state, legend = '' }) {
   const group = document.createElement('fieldset');
   const classes = ['fmxe-field-choice'];
-  if (size !== 'md') classes.push(size);
+  if (size !== 'md') classes.push(`size-${size}`);
   if (state === 'invalid') classes.push('is-invalid');
   group.className = classes.join(' ');
 

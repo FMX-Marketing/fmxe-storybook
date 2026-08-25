@@ -174,7 +174,7 @@
   }
 
   /* Size variants */
-  &.sm {
+  &.size-sm {
     .fmxe-field-choice__option {
       input[type="radio"],
       input[type="checkbox"] {
@@ -185,7 +185,7 @@
     }
   }
 
-  &.lg {
+  &.size-lg {
     .fmxe-field-choice__option {
       input[type="radio"],
       input[type="checkbox"] {

@@ -7,7 +7,7 @@ function createDivider({ color, margin }) {
   const el = document.createElement('hr');
   const classes = ['fmxe-divider'];
   if (color !== 'gray-light') classes.push(color);
-  if (margin !== 'none') classes.push(margin);
+  if (margin !== 'none') classes.push(`space-${margin}`);
   el.className = classes.join(' ');
   return el;
 }

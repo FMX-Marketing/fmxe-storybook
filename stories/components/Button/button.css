@@ -70,19 +70,19 @@
   }
 
   /* Size variants */
-  &.sm {
+  &.size-sm {
     font-size: var(--fmxe-font-family-size-h6);
     line-height: var(--fmxe-font-family-line-height-h6);
     padding: var(--fmxe-space-xs) var(--fmxe-space-sm);
   }
 
-  &.md {
+  &.size-md {
     font-size: var(--fmxe-font-family-size-h5);
     line-height: var(--fmxe-font-family-line-height-h5);
     padding: var(--fmxe-space-sm) var(--fmxe-space-md);
   }
 
-  &.lg {
+  &.size-lg {
     font-size: var(--fmxe-font-family-size-h4);
     line-height: var(--fmxe-font-family-line-height-45);
     padding: var(--fmxe-space-md) var(--fmxe-space-lg);

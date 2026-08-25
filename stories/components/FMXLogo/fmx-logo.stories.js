@@ -32,7 +32,7 @@ export default {
   },
   render: (args) => {
     const root = document.createElement('div');
-    root.className = `fmxe-logo ${args.size} color-${args.color}`;
+    root.className = `fmxe-logo size-${args.size} color-${args.color}`;
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('aria-hidden', 'true');

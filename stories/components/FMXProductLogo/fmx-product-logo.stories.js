@@ -18,7 +18,7 @@ function renderLogo(name, variant = 'default', size = 'md') {
     ? `/product-logos/icons/product-icon-${name}.svg`
     : `/product-logos/${name}.svg`;
   img.alt = name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-  img.className = `fmxe-product-logo ${size}`;
+  img.className = `fmxe-product-logo size-${size}`;
   return img;
 }
 

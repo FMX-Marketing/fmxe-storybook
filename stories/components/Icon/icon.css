@@ -13,11 +13,11 @@
   }
 
   /* Size options */
-  &.xs { height: 12px; width: 12px; }
-  &.sm { height: 16px; width: 16px; }
-  &.md { height: 20px; width: 20px; }
-  &.lg { height: 24px; width: 24px; }
-  &.xl { height: 32px; width: 32px; }
+  &.size-xs { height: 12px; width: 12px; }
+  &.size-sm { height: 16px; width: 16px; }
+  &.size-md { height: 20px; width: 20px; }
+  &.size-lg { height: 24px; width: 24px; }
+  &.size-xl { height: 32px; width: 32px; }
 
   /* Orientation options */
   &.right   { transform: rotate(0deg); }
