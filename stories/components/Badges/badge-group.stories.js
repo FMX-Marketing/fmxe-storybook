@@ -46,7 +46,7 @@ function createBadge(name, variant) {
 }
 
 export default {
-  title: 'Components/Atoms/BadgeGroup',
+  title: 'Components/Atoms/Badges',
   tags: ['autodocs'],
   argTypes: {
     variant: {
