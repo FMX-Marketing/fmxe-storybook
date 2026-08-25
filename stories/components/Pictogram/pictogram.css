@@ -1,0 +1,40 @@
+.fmxe-pictogram {
+  aspect-ratio: 3 / 2;
+  align-items: center;
+  background-color: var(--fmxe-color-sky-blue-light-1);
+  display: flex;
+  justify-content: center;
+  padding: var(--fmxe-space-md) 0;
+  width: 100%;
+
+  &.bg-dark        { background-color: var(--fmxe-color-white); }
+  &.bg-transparent { background-color: transparent; }
+  &.no-padding     { padding: 0; }
+
+  img {
+    display: block;
+    object-fit: contain;
+    object-position: center;
+
+    &.sm {
+      height: 44px;
+    }
+
+    &.md {
+      height: 64px;
+    }
+
+    &.lg {
+      height: 96px;
+    }
+
+    &.xl {
+      height: 128px;
+    }
+
+    &.2xl {
+      height: 175px;
+      padding: var(--fmxe-space-xl) 0;
+    }
+  }
+}
