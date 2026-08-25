@@ -62,13 +62,13 @@ const INLINE_ICONS = [];
  * so a single symbol covers all directions without needing separate assets.
  *
  * @param {string} name - Icon name matching the filename in public/icons/ (without .svg)
- * @param {string} size - Size class: xs | sm | md | lg | xl
+ * @param {string} size - Size: xs | sm | md | lg | xl (rendered as size-{value} class)
  * @param {string|null} orientation - Optional orientation class: right | down | left | up | flip-x | flip-y
  * @param {string} [className] - Additional class names to apply to the wrapper span
  * @returns {React.ReactElement}
  */
 export function Icon({ name, size = 'md', orientation = null, className = '' }) {
-  const classes = ['fmxe-icon', size, `fmxe-icon--${name}`, orientation, className]
+  const classes = ['fmxe-icon', `size-${size}`, `fmxe-icon--${name}`, orientation, className]
     .filter(Boolean)
     .join(' ');
 
@@ -104,7 +104,7 @@ export function Icon({ name, size = 'md', orientation = null, className = '' }) 
  * Use this when a DOM element is required (e.g. vanilla JS story render functions).
  *
  * @param {string} name - Icon name
- * @param {string} size - Size class: xs | sm | md | lg | xl
+ * @param {string} size - Size: xs | sm | md | lg | xl (rendered as size-{value} class)
  * @param {string|null} orientation - Optional orientation class
  * @returns {HTMLElement}
  */
