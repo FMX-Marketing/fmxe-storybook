@@ -1,0 +1,28 @@
+.figma-link {
+  align-items: center;
+  background-color: var(--fmxe-color-gray-light);
+  border-radius: var(--fmxe-border-radius-round);
+  border: 1px solid var(--fmxe-color-gray-light-1);
+  color: var(--fmxe-color-gray-core);
+  display: inline-flex;
+  font-family: var(--fmxe-font-family-figtree);
+  font-size: var(--fmxe-font-family-size-xs);
+  font-weight: var(--fmxe-font-family-weight-500);
+  gap: var(--fmxe-space-xs);
+  padding: var(--fmxe-space-xs) var(--fmxe-space-sm);
+  text-decoration: none;
+  transition: border-color 200ms ease, background-color 200ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--fmxe-color-gray-light-1);
+    border-color: var(--fmxe-color-gray-light-2);
+    box-shadow: none;
+  }
+}
+
+.figma-link-icon {
+  flex-shrink: 0;
+  height: 14px;
+  width: 10px;
+}
