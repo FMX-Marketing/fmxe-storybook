@@ -6,6 +6,7 @@ module.exports = {
       features: {
         'nesting-rules': true,
         'custom-media-queries': true,
+        'custom-properties': false,
       },
     }),
   ],
