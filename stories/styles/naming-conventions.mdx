@@ -36,7 +36,7 @@ This keeps names flat and readable without the visual noise of double underscore
 <div class="fmxe-field">
   <label class="fmxe-field-label"></label>
   <div class="fmxe-field-input-wrap"></div>
-  <span class="fmxe-field-error"></span>
+  <span class="fmxe-field-msg" data-msg="error"></span>
 </div>
 
 <span class="fmxe-tooltip">
@@ -101,6 +101,16 @@ Placement modifiers use the `place-` prefix. Alignment modifiers use the `align-
 ```html
 <span class="fmxe-tooltip place-bottom align-start"></span>
 <span class="fmxe-tooltip place-top align-end"></span>
+```
+
+### 4.6 Orientation
+
+Orientation modifiers use the `orient-` prefix. These describe a directional transformation applied to an element, such as rotating an icon.
+
+```html
+<span class="fmxe-icon orient-right"></span>
+<span class="fmxe-icon orient-down"></span>
+<span class="fmxe-icon orient-flip-x"></span>
 ```
 
 ## 5. Utility modifiers on wrappers
