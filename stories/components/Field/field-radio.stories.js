@@ -36,7 +36,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Radio button group for single-select options. Styled via CSS `appearance: none` for full design control. Supports default, invalid, and disabled states across sm, md, and lg sizes.',
+        component: 'Radio button group for single-select options. Supports default, invalid, and disabled states across small, medium, and large sizes.',
       },
     },
   },

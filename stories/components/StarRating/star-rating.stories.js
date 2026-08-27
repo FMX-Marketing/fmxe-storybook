@@ -20,7 +20,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Star rating display out of 5. Filled stars use the brand yellow; unfilled stars are transparent.',
+        component: 'Star rating display out of 5, typically used alongside review counts or testimonials.',
       },
     },
   },

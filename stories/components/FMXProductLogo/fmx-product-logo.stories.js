@@ -34,12 +34,12 @@ export default {
     variant: {
       control: { type: 'inline-radio' },
       options: ['default', 'icon'],
-      description: 'Logo variant — default renders the full logo, icon renders the icon only',
+      description: 'Full logo or icon-only mark',
     },
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
-      description: 'Height-based size — sm: 32px, md: 44px, lg: 64px',
+      description: 'Logo size',
     },
   },
   args: {
@@ -51,7 +51,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'FMX product logos rendered as `<img>` elements. Colors are fixed — product logos are self-contained graphics and are not recolored via CSS. Two variants are available: `default` renders the full logo, and `icon` renders the icon-only mark. Sizing is height-based because logo aspect ratios vary across products — constraining height ensures visual consistency while allowing width to scale naturally with each logo\'s proportions.',
+        component: 'FMX product logos available as full logos or icon-only marks, in small, medium, and large sizes. Light and dark variants are available for each product.',
       },
     },
   },

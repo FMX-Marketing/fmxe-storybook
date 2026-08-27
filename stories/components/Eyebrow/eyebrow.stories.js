@@ -48,7 +48,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Adds a decorative bar above any heading-like element via `::before`. Apply `.fmxe-eyebrow` to any `h1`–`h6`, `p`, or `span`. The bar cannot inherit `text-align` from the element — alignment must be set explicitly via `.center` or `.right` modifier classes. Left is the default.',
+        component: 'A small decorative label with an accent bar, used above headings to introduce a section. Supports left, center, and right alignment.',
       },
     },
   },

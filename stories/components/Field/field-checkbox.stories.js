@@ -36,7 +36,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Checkbox group for multi-select options. Styled via CSS `appearance: none` for full design control. Supports default, invalid, and disabled states across sm, md, and lg sizes.',
+        component: 'Checkbox group for multi-select options. Supports default, invalid, and disabled states across small, medium, and large sizes.',
       },
     },
   },

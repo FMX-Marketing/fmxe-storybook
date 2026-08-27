@@ -48,7 +48,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A semantic `<hr>` for separating sections of content. Fills all available horizontal space. Vertical margin is opt-in via `sm`, `md`, or `lg` classes matching the spacing scale.',
+        component: 'A horizontal rule for separating sections of content. Fills all available horizontal space with optional vertical margin.',
       },
     },
   },

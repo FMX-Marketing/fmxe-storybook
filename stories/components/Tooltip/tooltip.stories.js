@@ -15,7 +15,7 @@ export default {
     theme: {
       control: { type: 'inline-radio' },
       options: ['light', 'dark'],
-      description: 'Theme — matches the data-theme of the parent context',
+      description: 'Light or dark theme to match the surrounding context',
     },
   },
   args: {
@@ -31,7 +31,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'An info icon that reveals a tooltip on hover or focus. Positions above by default and flips below when clipped at the top of the viewport. Horizontal overflow is also corrected automatically.',
+        component: 'An info icon that reveals a tooltip on hover or focus. Positions above by default and flips below when near the top of the viewport.',
       },
       story: { iframeHeight: '300px' },
     },

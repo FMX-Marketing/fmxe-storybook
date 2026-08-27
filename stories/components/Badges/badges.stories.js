@@ -69,7 +69,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Award and review badge group. Badges are multi-color self-contained graphics and are not recolored via CSS. Two variants are available: `default` renders full award badges in a square tile, and `icon` renders small reviewer logos in a compact grid.',
+        component: 'Award and review badges from third-party platforms. Two variants are available: full award badges, and compact reviewer logo icons.',
       },
     },
   },

@@ -21,7 +21,7 @@ export default {
     name: {
       control: { type: 'select' },
       options: getIconNames(),
-      description: 'Icon name (filename without .svg)',
+      description: 'Icon name',
     },
     size: {
       control: { type: 'select' },
@@ -31,12 +31,12 @@ export default {
     orientation: {
       control: { type: 'select' },
       options: ['right', 'down', 'left', 'up', 'flip-x', 'flip-y'],
-      description: 'Orientation — right is default (0°)',
+      description: 'Icon orientation — right is default',
     },
     color: {
       control: { type: 'select' },
       options: ['inherit', ...COLOR_OPTIONS],
-      description: 'Icon color — uses brand color tokens via currentColor',
+      description: 'Icon color',
     },
   },
   args: {
@@ -53,7 +53,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'SVG icon set rendered via the SVG sprite pattern. Drop an `.svg` file into `public/icons/` and add its symbol to `sprite.svg` to include it in the gallery automatically.\n\nThe sprite is fetched once and injected into the DOM — every icon on the page references it via `<use>`, so there are no duplicate SVG payloads and no extra network requests. Orientation is handled purely in CSS via `transform`, meaning a single arrow symbol covers all four directions without needing separate assets.\n\n> **Orientation convention:** Icons that support orientation always assume the default (unrotated) position points **right**. For example, an arrow icon points right at `0°`. Use the `orientation` prop to rotate or flip from that baseline.',
+        component: 'A set of icons available in multiple sizes, colors, and orientations. Directional icons default to pointing right and can be rotated or flipped as needed.',
       },
     },
   },

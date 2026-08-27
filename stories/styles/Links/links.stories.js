@@ -74,7 +74,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Link styles applied via the `.link-states` context class. Uses `currentColor` for the underline so color changes on hover propagate automatically without repeating values.\n\nAdd `data-theme="dark"` to the `.link-states` wrapper element to switch the link palette for dark backgrounds — the link color updates without any additional classes on the `<a>` itself.',
+        component: 'Global link styles covering default, hover, focus, and visited states. A dark theme variant is available for use on dark backgrounds.',
       },
     },
   },

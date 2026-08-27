@@ -35,7 +35,7 @@ export default {
     variant: {
       control: { type: 'select' },
       options: ['default', 'text', 'icon-only'],
-      description: 'Button variant — "default" adds no modifier class, "text" adds is-text, "icon-only" adds is-icon',
+      description: 'Button style variant — default, text-only, or icon-only',
     },
     icon: {
       control: { type: 'select' },
@@ -56,7 +56,7 @@ export default {
     color: {
       control: { type: 'select' },
       options: ['orange', 'white', 'gray-core'],
-      description: 'Button color (sets --_bg)',
+      description: 'Button color',
     },
   },
   args: {

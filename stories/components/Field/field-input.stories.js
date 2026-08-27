@@ -14,7 +14,7 @@ export default {
     inputType: {
       control: { type: 'select' },
       options: ['text', 'email', 'password', 'tel', 'url', 'search', 'number', 'date', 'time'],
-      description: 'HTML input type',
+      description: 'Input mode',
     },
     label: {
       control: 'text',
@@ -57,7 +57,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Generic input field supporting all standard HTML input types. Supports an optional leading icon, tooltip, and default, selected, disabled, and invalid states.',
+        component: 'A general purpose text input supporting multiple input modes including text, email, password, date, and more. Supports an optional leading icon, tooltip, and default, selected, disabled, and invalid states.',
       },
     },
   },

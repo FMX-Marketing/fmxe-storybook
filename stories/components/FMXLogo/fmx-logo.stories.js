@@ -18,7 +18,7 @@ export default {
     color: {
       control: { type: 'select' },
       options: LOGO_COLORS,
-      description: 'Brand color token',
+      description: 'Logo color',
     },
     size: {
       control: { type: 'select' },
@@ -46,7 +46,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'The FMX brand logo. By default supports selected color tokens.',
+        component: 'The FMX brand logo in small, medium, and large sizes. Multiple color variants are available to suit light and dark backgrounds.',
       },
     },
   },

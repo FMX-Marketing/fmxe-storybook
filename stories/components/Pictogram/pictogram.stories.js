@@ -30,7 +30,7 @@ export default {
     name: {
       control: { type: 'select' },
       options: PICTOGRAM_NAMES,
-      description: 'Pictogram name (filename without .svg)',
+      description: 'Pictogram name',
     },
     size: {
       control: { type: 'select' },
@@ -58,7 +58,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Multi-color pictograms rendered as `<img>` elements. Colors are fixed and cannot be overridden via CSS. Pictograms are designed to be embedded within other components such as cards — because source dimensions vary across assets, sizing is governed by aspect ratio to ensure visual consistency regardless of where a pictogram appears.',
+        component: 'Illustrated pictograms for representing features, industries, and concepts. Designed to be embedded within other components such as cards. Available in multiple sizes with light, dark, and transparent background variants.',
       },
     },
   },
