@@ -19,6 +19,7 @@ export const createButton = ({ tag = 'a', label = 'Button text', href = '#', typ
   if (tag === 'button') el.type = type;
 
   const labelSpan = document.createElement('span');
+  labelSpan.className = 'fmxe-button-label';
   labelSpan.textContent = label;
 
   if (icon && icon !== 'none') {

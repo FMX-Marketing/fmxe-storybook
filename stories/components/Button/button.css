@@ -106,7 +106,7 @@ button.fmxe-button {
   &.is-icon {
     padding: var(--fmxe-space-sm);
 
-    & span:not(.fmxe-icon) {
+    & .fmxe-button-label {
       position: absolute;
       width: 1px;
       height: 1px;
@@ -126,14 +126,10 @@ button.fmxe-button {
     gap: var(--fmxe-space-xs);
     padding: 0;
 
-    &:hover {
-      box-shadow: none;
-      outline-color: transparent;
-    }
-
+    &:hover,
     &:focus {
       box-shadow: none;
-      outline-offset: var(--fmxe-space-2);
+      outline-color: transparent;
     }
   }
 }
