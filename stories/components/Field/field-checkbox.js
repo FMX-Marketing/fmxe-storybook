@@ -44,7 +44,8 @@ export function createCheckboxGroup({ options, size, state, legend = '' }) {
 
   if (state === 'invalid') {
     const error = document.createElement('span');
-    error.className   = 'fmxe-field-choice-error';
+    error.className   = 'fmxe-field-msg';
+    error.setAttribute('data-msg', 'error');
     error.textContent = 'Please select an option.';
     group.appendChild(error);
   }

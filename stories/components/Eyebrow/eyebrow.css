@@ -11,15 +11,15 @@
     width: 50px;
   }
 
-  &.center::before {
+  &.align-center::before {
     margin-inline: auto;
   }
 
-  &.right::before {
+  &.align-right::before {
     margin-inline: auto 0;
   }
 
-  &.white::before {
+  &.color-white::before {
     background-color: var(--fmxe-color-white);
   }
 }

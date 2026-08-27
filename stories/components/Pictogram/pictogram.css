@@ -6,8 +6,7 @@
   padding: 0;
   width: 100%;
 
-  &.bg-dark        { background-color: var(--fmxe-color-white); }
-  &.bg-transparent { background-color: transparent; }
+  &.is-transparent { background-color: transparent; }
 
   &:not(.space-none) {
     img.size-sm  { padding: var(--fmxe-space-xs) 0; }
@@ -23,24 +22,14 @@
     object-fit: contain;
     object-position: center;
 
-    &.size-sm {
-      height: 44px;
-    }
-
-    &.size-md {
-      height: 64px;
-    }
-
-    &.size-lg {
-      height: 96px;
-    }
-
-    &.size-xl {
-      height: 128px;
-    }
-
-    &.size-2xl {
-      height: 175px;
-    }
+    &.size-sm  { height: 44px; }
+    &.size-md  { height: 64px; }
+    &.size-lg  { height: 96px; }
+    &.size-xl  { height: 128px; }
+    &.size-2xl { height: 175px; }
   }
+}
+
+[data-theme="dark"] .fmxe-pictogram {
+  background-color: var(--fmxe-color-white);
 }

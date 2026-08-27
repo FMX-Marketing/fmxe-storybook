@@ -5,7 +5,7 @@
   height: 1px;
   width: 100%;
 
-  &.white { background-color: var(--fmxe-color-white); }
+  &.color-white { background-color: var(--fmxe-color-white); }
 
   &.space-sm { margin: var(--fmxe-space-sm) 0; }
   &.space-md { margin: var(--fmxe-space-md) 0; }

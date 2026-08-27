@@ -62,7 +62,7 @@ export default {
     const isIcon = variant === 'icon';
     const names = isIcon ? ICON_BADGES : AWARD_BADGES;
     const wrap = document.createElement('div');
-    wrap.className = isIcon ? 'fmxe-badge-group is-icon' : 'fmxe-badge-group';
+    wrap.className = isIcon ? 'fmxe-badges is-icon' : 'fmxe-badges';
     names.forEach(name => wrap.appendChild(createBadge(name, variant)));
     return wrap;
   },

@@ -1,4 +1,4 @@
-import { nextId, createFieldWrap, createLabel, createError } from './field-shared.js';
+import { nextId, createFieldWrap, createLabel, createMsg } from './field-shared.js';
 
 export function createFieldInput({ label, placeholder = '', tooltip = '', state = 'default', errorMessage = '', icon = '', inputType = 'text' }) {
   const id   = nextId();
@@ -10,7 +10,7 @@ export function createFieldInput({ label, placeholder = '', tooltip = '', state 
   input.id          = id;
   input.name        = id;
   input.placeholder = placeholder;
-  input.setAttribute('aria-describedby', `${id}-error`);
+  input.setAttribute('aria-describedby', `${id}-msg`);
 
   wrap.appendChild(createLabel(id, label, tooltip));
 
@@ -23,6 +23,6 @@ export function createFieldInput({ label, placeholder = '', tooltip = '', state 
     wrap.appendChild(input);
   }
 
-  wrap.appendChild(createError(id, state, errorMessage));
+  wrap.appendChild(createMsg(id, state, errorMessage));
   return wrap;
 }

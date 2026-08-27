@@ -191,7 +191,7 @@
     }
   }
 
-  .fmxe-field-error {
+  .fmxe-field-msg[data-msg="error"] {
     color: var(--fmxe-color-red);
     font-size: var(--fmxe-font-family-size-xs);
     line-height: var(--fmxe-font-family-line-height-xs);

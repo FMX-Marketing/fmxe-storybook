@@ -6,8 +6,8 @@ const COLORS = ['electric-blue', 'white'];
 
 function createEyebrow({ tag, text, align, color }) {
   const classes = ['fmxe-eyebrow'];
-  if (align !== 'left') classes.push(align);
-  if (color !== 'electric-blue') classes.push(color);
+  if (align !== 'left') classes.push(`align-${align}`);
+  if (color !== 'electric-blue') classes.push(`color-${color}`);
   const el = document.createElement(tag);
   el.className = classes.join(' ');
   el.textContent = text;

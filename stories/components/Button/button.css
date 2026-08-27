@@ -20,7 +20,7 @@ button.fmxe-button {
   font-family: var(--fmxe-font-family-figtree);
   font-size: var(--fmxe-font-family-size-sm);
   font-weight: var(--fmxe-font-family-weight-700);
-  gap: 4px;
+  gap: var(--_gap);
   justify-content: center;
   line-height: 1;
   outline: var(--fmxe-space-2) solid transparent;
@@ -54,10 +54,10 @@ button.fmxe-button {
 
   /* Apply icon-specific movement effects on non-icon variants */
   &:not(.is-icon) {
-    &:hover .fmxe-icon--arrow,
-    &:focus .fmxe-icon--arrow {
-      &.right  { transform: rotate(0deg)   translateX(var(--_icon-nudge)); }
-      &.left   { transform: rotate(180deg) translateX(calc(1 * var(--_icon-nudge))); }
+    &:hover .fmxe-icon-arrow,
+    &:focus .fmxe-icon-arrow {
+      &.orient-right  { transform: rotate(0deg)   translateX(var(--_icon-nudge)); }
+      &.orient-left   { transform: rotate(180deg) translateX(calc(1 * var(--_icon-nudge))); }
     }
   }
 
@@ -90,13 +90,13 @@ button.fmxe-button {
   }
 
   /* Color variants */
-  &.bg-color-white {
+  &.color-white {
     --_bg: var(--fmxe-color-white);
     color: var(--fmxe-color-orange);
     &.is-text { color: var(--fmxe-color-white); }
   }
 
-  &.bg-color-gray-core {
+  &.color-gray-core {
     --_bg: var(--fmxe-color-gray-core);
     color: var(--fmxe-color-white);
     &.is-text { color: var(--fmxe-color-gray-core); }
@@ -126,7 +126,7 @@ button.fmxe-button {
     gap: var(--fmxe-space-xs);
     padding: 0;
 
-		&:hover {
+    &:hover {
       box-shadow: none;
       outline-color: transparent;
     }

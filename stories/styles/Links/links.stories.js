@@ -23,10 +23,10 @@ function createStatesDisplay(theme) {
 
   STATES.forEach((state) => {
     const row = document.createElement('div');
-    row.className = 'link-states__row';
+    row.className = 'link-states-row';
 
     const labelEl = document.createElement('span');
-    labelEl.className   = 'link-states__label';
+    labelEl.className   = 'link-states-label';
     labelEl.textContent = state.charAt(0).toUpperCase() + state.slice(1);
 
     const span = document.createElement('span');

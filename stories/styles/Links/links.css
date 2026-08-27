@@ -26,7 +26,7 @@
       color: var(--fmxe-color-orange-light);
     }
 
-    .link-states__label {
+    .link-states-label {
       color: var(--fmxe-color-white);
     }
   }
@@ -51,13 +51,13 @@
 }
 
 /* Presentation for links */
-.link-states__row {
+.link-states-row {
   align-items: center;
   display: flex;
   gap: var(--fmxe-space-lg);
   margin-bottom: var(--fmxe-space-md);
 
-  .link-states__label {
+  .link-states-label {
     color: var(--fmxe-color-gray-core);
     font-family: var(--fmxe-font-family-figtree);
     flex-shrink: 0;

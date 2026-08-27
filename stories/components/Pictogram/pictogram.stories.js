@@ -7,11 +7,10 @@ const PICTOGRAM_NAMES = Object.keys(import.meta.glob('/public/pictograms/*.svg')
   .map(path => path.replace('/public/pictograms/', '').replace('.svg', ''))
   .sort();
 
-function renderPictogram(name, size = 'md', background = 'light', space = 'default') {
+function renderPictogram(name, size = 'md', background = 'theme', space = 'default') {
   const wrap = document.createElement('div');
-  const bgClass = background !== 'light' ? ` bg-${background}` : '';
   const spaceClass = space === 'none' ? ' space-none' : '';
-  wrap.className = `fmxe-pictogram${bgClass}${spaceClass}`;
+  wrap.className = `fmxe-pictogram${background === 'transparent' ? ' is-transparent' : ''}${spaceClass}`;
 
   const img = document.createElement('img');
   img.src = `/pictograms/${name}.svg`;
@@ -39,8 +38,8 @@ export default {
     },
     background: {
       control: { type: 'inline-radio' },
-      options: ['light', 'dark', 'transparent'],
-      description: 'Background color',
+      options: ['theme', 'transparent'],
+      description: 'Background variant — theme inherits from the surrounding context, transparent removes the background entirely',
     },
     space: {
       control: { type: 'inline-radio' },
@@ -51,14 +50,14 @@ export default {
   args: {
     name: PICTOGRAM_NAMES[0],
     size: 'md',
-    background: 'light',
+    background: 'theme',
     space: 'default',
   },
   render: ({ name, size, background, space }) => renderPictogram(name, size, background, space),
   parameters: {
     docs: {
       description: {
-        component: 'Illustrated pictograms for representing features, industries, and concepts. Designed to be embedded within other components such as cards. Available in multiple sizes with light, dark, and transparent background variants.',
+        component: 'Illustrated pictograms for representing features, industries, and concepts. Designed to be embedded within other components such as cards. Available in multiple sizes with a transparent background variant. Theme-aware — responds to a `data-theme="dark"` attribute on any ancestor element.',
       },
     },
   },
@@ -93,7 +92,7 @@ export const GalleryLight = {
   },
   render: ({ columns }) => AssetGallery({
     names: PICTOGRAM_NAMES,
-    renderAsset: (name) => renderPictogram(name, 'sm', 'light'),
+    renderAsset: (name) => renderPictogram(name, 'sm', 'theme'),
     theme: 'light',
     columns,
   }),
@@ -112,7 +111,7 @@ export const GalleryDark = {
   },
   render: ({ columns }) => AssetGallery({
     names: PICTOGRAM_NAMES,
-    renderAsset: (name) => renderPictogram(name, 'sm', 'dark'),
+    renderAsset: (name) => renderPictogram(name, 'sm', 'theme'),
     theme: 'dark',
     columns,
   }),

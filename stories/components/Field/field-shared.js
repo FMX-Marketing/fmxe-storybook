@@ -20,7 +20,6 @@ export function createLabel(id, labelText, tooltip) {
   label.htmlFor = id;
 
   const text = document.createElement('span');
-  text.className = 'fmxe-field-label';
   text.textContent = labelText;
   label.appendChild(text);
 
@@ -28,11 +27,12 @@ export function createLabel(id, labelText, tooltip) {
   return label;
 }
 
-export function createError(id, state, errorMessage) {
-  const error = document.createElement('span');
-  error.className = 'fmxe-field-error';
-  error.id = `${id}-error`;
-  error.setAttribute('aria-live', 'polite');
-  if (state === 'invalid' && errorMessage) error.textContent = errorMessage;
-  return error;
+export function createMsg(id, state, errorMessage) {
+  const msg = document.createElement('span');
+  msg.className = 'fmxe-field-msg';
+  msg.setAttribute('data-msg', 'error');
+  msg.id = `${id}-msg`;
+  msg.setAttribute('aria-live', 'polite');
+  if (state === 'invalid' && errorMessage) msg.textContent = errorMessage;
+  return msg;
 }

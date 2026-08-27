@@ -31,7 +31,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'An info icon that reveals a tooltip on hover or focus. Positions above by default and flips below when near the top of the viewport.',
+        component: 'An info icon that reveals a tooltip on hover or focus. Positions above by default and flips below when near the top of the viewport. Theme-aware — responds to a `data-theme="dark"` attribute on any ancestor element.',
       },
       story: { iframeHeight: '300px' },
     },
@@ -61,7 +61,7 @@ function placementStory(placement, align, label, padding) {
       outer.style.padding = padding;
 
       const tooltip = createTooltip(TOOLTIP_TEXT, placement, align);
-      const content = tooltip.querySelector('.fmxe-tooltip__content');
+      const content = tooltip.querySelector('.fmxe-tooltip-content');
       content.style.opacity = '1';
       content.style.visibility = 'visible';
       content.style.pointerEvents = 'auto';

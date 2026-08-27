@@ -13,7 +13,7 @@ export const createButton = ({ tag = 'a', label = 'Button text', href = '#', typ
   const classes = ['fmxe-button', `size-${size}`];
   if (variant === 'text') classes.push('is-text');
   if (variant === 'icon-only') classes.push('is-icon');
-  if (color && COLORS.includes(color)) classes.push(`bg-color-${color}`);
+  if (color && COLORS.includes(color)) classes.push(`color-${color}`);
   el.className = classes.join(' ');
   if (tag === 'a') el.href = href;
   if (tag === 'button') el.type = type;

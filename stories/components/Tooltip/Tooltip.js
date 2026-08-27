@@ -1,11 +1,11 @@
 import { renderIcon } from '@components/Icon.jsx';
 
 function positionTooltip(tooltip) {
-  const content = tooltip.querySelector('.fmxe-tooltip__content');
+  const content = tooltip.querySelector('.fmxe-tooltip-content');
   if (!content) return;
 
   // Reset everything before measuring so stale styles don't affect the result
-  tooltip.classList.remove('is-flipped');
+  tooltip.removeAttribute('data-flipped');
   content.style.left      = '';
   content.style.right     = '';
   content.style.transform = '';
@@ -13,7 +13,7 @@ function positionTooltip(tooltip) {
   const margin = 8;
 
   if (content.getBoundingClientRect().top < margin) {
-    tooltip.classList.add('is-flipped');
+    tooltip.setAttribute('data-flipped', '');
   }
 
   const rect = content.getBoundingClientRect();
@@ -40,7 +40,7 @@ export function createTooltip(text, placement = 'top', align = null) {
 
   const trigger = document.createElement('button');
   trigger.type = 'button';
-  trigger.className = 'fmxe-tooltip__trigger';
+  trigger.className = 'fmxe-tooltip-trigger';
   trigger.setAttribute('aria-describedby', id);
   trigger.addEventListener('mouseenter', () => positionTooltip(wrap));
   trigger.addEventListener('focus', () => positionTooltip(wrap));
@@ -56,11 +56,11 @@ export function createTooltip(text, placement = 'top', align = null) {
 
   const content = document.createElement('span');
   content.id = id;
-  content.className = 'fmxe-tooltip__content';
+  content.className = 'fmxe-tooltip-content';
   content.setAttribute('role', 'tooltip');
 
   const textEl = document.createElement('span');
-  textEl.className = 'fmxe-tooltip__text';
+  textEl.className = 'fmxe-tooltip-text';
   textEl.innerHTML = text;
 
   content.appendChild(textEl);

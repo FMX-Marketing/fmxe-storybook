@@ -8,9 +8,9 @@ div#story--components-atoms-tooltip--preview--primary-inner {
 .fmxe-tooltip {
   --_bg: var(--fmxe-color-white);
   --_color: var(--fmxe-color-gray-light-3);
-  --_offset: -5px;       /* bubble offset from trigger edge for aligned placements */
-  --_gap: 26px;          /* space between trigger and bubble (accommodates arrow) */
-  --_arrow-inset: 8px;   /* distance of arrow from bubble edge */
+  --_offset: -5px;     /* bubble offset from trigger edge for aligned placements */
+  --_gap: 26px;        /* space between trigger and bubble (accommodates arrow) */
+  --_arrow-inset: 8px; /* distance of arrow from bubble edge */
 
   align-items: center;
   display: inline-flex;
@@ -18,7 +18,9 @@ div#story--components-atoms-tooltip--preview--primary-inner {
   font-family: var(--fmxe-font-family-figtree);
   position: relative;
 
-  .fmxe-tooltip__trigger {
+  /* Trigger */
+
+  .fmxe-tooltip-trigger {
     appearance: none;
     background: none;
     border: none;
@@ -29,8 +31,9 @@ div#story--components-atoms-tooltip--preview--primary-inner {
     padding: 0;
   }
 
-  /* ── Shared content styles ───────────────────────────────────────────────── */
-  .fmxe-tooltip__content {
+  /* Shared content styles */
+
+  .fmxe-tooltip-content {
     filter: drop-shadow(0 0 var(--fmxe-shadow-md, 10px) var(--fmxe-color-gray-light-1));
     left: 50%;
     min-width: 220px;
@@ -45,17 +48,17 @@ div#story--components-atoms-tooltip--preview--primary-inner {
     &::before {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='31' height='27' viewBox='0 0 31 27' fill='none'%3E%3Cpath d='M12.5308 1.5C13.6855 -0.499998 16.5722 -0.500001 17.7269 1.5L29.8513 22.5C31.006 24.5 29.5626 27 27.2532 27H3.00447C0.695071 27 -0.748305 24.5 0.406396 22.5L12.5308 1.5Z' fill='%23ffffff'/%3E%3C/svg%3E");
       left: 50%;
-      z-index: 1;
       line-height: 0;
       position: absolute;
       transform: translateX(-50%);
+      z-index: 1;
     }
   }
 
-  /* ── Top (default) ───────────────────────────────────────────────────────── */
+  /* Top (default) */
 
-  &:not([class*="place-"]) .fmxe-tooltip__content,
-  &.place-top .fmxe-tooltip__content {
+  &:not([class*="place-"]) .fmxe-tooltip-content,
+  &.place-top .fmxe-tooltip-content {
     bottom: 100%;
     padding-bottom: var(--_gap);
 
@@ -65,10 +68,10 @@ div#story--components-atoms-tooltip--preview--primary-inner {
     }
   }
 
-  /* ── Bottom ──────────────────────────────────────────────────────────────── */
+  /* Bottom */
 
-  &.is-flipped .fmxe-tooltip__content,
-  &.place-bottom .fmxe-tooltip__content {
+  &[data-flipped] .fmxe-tooltip-content,
+  &.place-bottom .fmxe-tooltip-content {
     padding-top: var(--_gap);
     top: 100%;
 
@@ -78,9 +81,9 @@ div#story--components-atoms-tooltip--preview--primary-inner {
     }
   }
 
-  /* ── Alignment ───────────────────────────────────────────────────────────── */
+  /* Alignment */
 
-  &.align-start .fmxe-tooltip__content {
+  &.align-start .fmxe-tooltip-content {
     left: var(--_offset);
     transform: none;
 
@@ -90,7 +93,7 @@ div#story--components-atoms-tooltip--preview--primary-inner {
     }
   }
 
-  &.align-end .fmxe-tooltip__content {
+  &.align-end .fmxe-tooltip-content {
     left: auto;
     right: var(--_offset);
     transform: none;
@@ -102,36 +105,17 @@ div#story--components-atoms-tooltip--preview--primary-inner {
     }
   }
 
-  &.place-bottom.align-start .fmxe-tooltip__content::before,
-  &.is-flipped.align-start .fmxe-tooltip__content::before,
-  &.place-bottom.align-end .fmxe-tooltip__content::before,
-  &.is-flipped.align-end .fmxe-tooltip__content::before {
+  /* Correct arrow rotation when bottom + aligned (arrow points up, not down) */
+  &.place-bottom.align-start .fmxe-tooltip-content::before,
+  &[data-flipped].align-start .fmxe-tooltip-content::before,
+  &.place-bottom.align-end .fmxe-tooltip-content::before,
+  &[data-flipped].align-end .fmxe-tooltip-content::before {
     transform: rotate(0deg);
   }
 
-  /* ── Corner nearest the arrow point is square ────────────────────────────── */
+  /* Text bubble */
 
-  /* &.align-start:not(.place-bottom):not(.is-flipped) .fmxe-tooltip__text { */
-  /*   border-bottom-left-radius: 0; */
-  /* } */
-
-  /* &.align-end:not(.place-bottom):not(.is-flipped) .fmxe-tooltip__text { */
-  /*   border-bottom-right-radius: 0; */
-  /* } */
-
-  /* &.place-bottom.align-start .fmxe-tooltip__text, */
-  /* &.is-flipped.align-start .fmxe-tooltip__text { */
-  /*   border-top-left-radius: 0; */
-  /* } */
-
-  /* &.place-bottom.align-end .fmxe-tooltip__text, */
-  /* &.is-flipped.align-end .fmxe-tooltip__text { */
-  /*   border-top-right-radius: 0; */
-  /* } */
-
-  /* ── Text bubble ─────────────────────────────────────────────────────────── */
-
-  .fmxe-tooltip__text {
+  .fmxe-tooltip-text {
     background: var(--_bg);
     border-radius: var(--fmxe-border-radius-md);
     box-shadow: 0 0 var(--fmxe-shadow-md, 10px) 0 var(--fmxe-color-gray-light-1);
@@ -151,14 +135,16 @@ div#story--components-atoms-tooltip--preview--primary-inner {
     }
   }
 
-  /* ── Visible state ───────────────────────────────────────────────────────── */
+  /* Visible state */
 
-  .fmxe-tooltip__trigger:hover + .fmxe-tooltip__content,
-  .fmxe-tooltip__trigger:focus-visible + .fmxe-tooltip__content {
+  .fmxe-tooltip-trigger:hover + .fmxe-tooltip-content,
+  .fmxe-tooltip-trigger:focus-visible + .fmxe-tooltip-content {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
   }
+
+  /* Screen reader only */
 
   .sr-only {
     clip: rect(0 0 0 0);
@@ -171,25 +157,13 @@ div#story--components-atoms-tooltip--preview--primary-inner {
   }
 }
 
-/* ── Dark theme ──────────────────────────────────────────────────────────── */
+/* Dark theme */
 
 [data-theme="dark"] .fmxe-tooltip {
   --_bg: var(--fmxe-color-cobalt-blue-dark-1);
   --_color: var(--fmxe-color-white);
 
-  .fmxe-tooltip__content::before {
+  .fmxe-tooltip-content::before {
     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='31' height='27' viewBox='0 0 31 27' fill='none'%3E%3Cpath d='M12.5308 1.5C13.6855 -0.499998 16.5722 -0.500001 17.7269 1.5L29.8513 22.5C31.006 24.5 29.5626 27 27.2532 27H3.00447C0.695071 27 -0.748305 24.5 0.406396 22.5L12.5308 1.5Z' fill='%23041662'/%3E%3C/svg%3E");
   }
-
-  /* &.is-flipped .fmxe-tooltip__content::before, */
-  /* &.place-bottom .fmxe-tooltip__content::before { */
-  /*   transform: translateX(-50%) rotate(0deg); */
-  /* } */
-
-  /* &.place-bottom.align-start .fmxe-tooltip__content::before, */
-  /* &.is-flipped.align-start .fmxe-tooltip__content::before, */
-  /* &.place-bottom.align-end .fmxe-tooltip__content::before, */
-  /* &.is-flipped.align-end .fmxe-tooltip__content::before { */
-  /*   transform: rotate(0deg); */
-  /* } */
 }
