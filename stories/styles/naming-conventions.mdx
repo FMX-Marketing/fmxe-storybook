@@ -1,0 +1,168 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Styles/Naming Conventions" />
+
+# Naming Conventions
+
+Component class names in this design system follow a flat, readable convention that prioritizes clarity over strict methodology. The goal is names that are easy to predict, easy to extend, and consistent across every component.
+
+## 1. Component namespace
+
+Every class is prefixed with `fmxe-` to avoid collisions with third-party styles and make the source of a class immediately identifiable.
+
+```html
+<div class="fmxe-button"></div>
+<span class="fmxe-tooltip"></span>
+<img class="fmxe-avatar">
+```
+
+## 2. Component root
+
+The root element of a component takes a single flat name: `fmxe-{component}`.
+
+```html
+<div class="fmxe-field"></div>
+<div class="fmxe-badges"></div>
+<span class="fmxe-eyebrow"></span>
+```
+
+## 3. Child elements
+
+Named child elements within a component use a single hyphen to separate the component name from the element role: `fmxe-{component}-{element}`.
+
+This keeps names flat and readable without the visual noise of double underscores.
+
+```html
+<div class="fmxe-field">
+  <label class="fmxe-field-label"></label>
+  <div class="fmxe-field-input-wrap"></div>
+  <span class="fmxe-field-error"></span>
+</div>
+
+<span class="fmxe-tooltip">
+  <button class="fmxe-tooltip-trigger"></button>
+  <span class="fmxe-tooltip-content"></span>
+</span>
+```
+
+Not every child element needs a class. If an element is only ever styled within the context of its parent and doesn't need to be targeted independently, a plain element selector is cleaner.
+
+```css
+/* Prefer this */
+.fmxe-field-choice-option label { ... }
+
+/* Over this */
+.fmxe-field-choice-option-label { ... }
+```
+
+## 4. Modifiers
+
+Modifiers describe a variation or state of a component. They are always written as short, standalone classes rather than appended to the component name.
+
+### 4.1 Size
+
+Use t-shirt sizing. Applied directly to the root or child element being sized.
+
+```html
+<img class="fmxe-avatar size-sm">
+<img class="fmxe-avatar size-md">
+<img class="fmxe-avatar size-lg">
+```
+
+### 4.2 States and variants
+
+Both states and variants use the `is-` prefix. States describe a transient condition, variants describe a fixed style or behavioral mode — but both read naturally with `is-` and are treated the same way in CSS.
+
+```html
+<div class="fmxe-field is-invalid"></div>
+<div class="fmxe-field is-disabled"></div>
+<button class="fmxe-button is-icon"></button>
+<button class="fmxe-button is-text"></button>
+<div class="fmxe-badges is-icon"></div>
+```
+
+### 4.4 Color
+
+Color modifiers use the `color-` prefix followed by the token name (without the `fmxe-color-` namespace).
+
+```html
+<span class="fmxe-logo color-white"></span>
+<span class="fmxe-logo color-gray-core"></span>
+```
+
+The `color-` prefix is intentionally generic. It sets the component's primary color identity via the CSS `color` property, which internal elements then inherit through `currentColor`. This means the modifier isn't tied to a specific property like background or text — it drives whatever the component uses `currentColor` for, whether that's an SVG fill, a border, or text. Use `bg-` only when the modifier specifically targets a background.
+
+The available color options for a given component are determined by its Figma use cases. If a color variant doesn't exist in Figma, it should not be added as a modifier.
+
+### 4.5 Placement and alignment
+
+Placement modifiers use the `place-` prefix. Alignment modifiers use the `align-` prefix. These are applied as independent, composable classes.
+
+```html
+<span class="fmxe-tooltip place-bottom align-start"></span>
+<span class="fmxe-tooltip place-top align-end"></span>
+```
+
+## 5. Utility modifiers on wrappers
+
+Utility classes can be combined with component classes to add supplementary behavior. These are not component-specific and can appear on any element.
+
+```html
+<div class="fmxe-field-input-wrap has-icon icon-search"></div>
+<ul class="fmxe-badges is-icon"></ul>
+```
+
+## 6. Theming with `data-theme`
+
+Dark and light theme context is communicated via a `data-theme` attribute on a containing element, not via modifier classes. Components respond to this attribute using CSS ancestor selectors.
+
+```html
+<div data-theme="dark">
+  <div class="fmxe-pictogram">...</div>
+  <span class="fmxe-tooltip">...</span>
+</div>
+```
+
+```css
+[data-theme="dark"] .fmxe-pictogram {
+  background-color: var(--fmxe-color-white);
+}
+```
+
+This separates theme context from component structure — a component doesn't need to know what theme it's in, it just responds to its environment. `data-theme` can be set on any ancestor, from a single component wrapper up to the page root.
+
+## 7. JavaScript behavioral state
+
+When JavaScript sets state dynamically at runtime, use a `data-` attribute instead of a class. This signals in the DOM that the state is behavioral, and keeps classes reserved for styling intent.
+
+```js
+// JS sets this at runtime based on viewport position
+tooltip.setAttribute('data-flipped', '');
+tooltip.removeAttribute('data-flipped');
+```
+
+```css
+/* CSS targets the attribute */
+.fmxe-tooltip[data-flipped] .fmxe-tooltip-content {
+  top: 100%;
+}
+```
+
+Use a boolean attribute (empty string value) for on/off state. Use a value when the state has multiple meaningful variants.
+
+```html
+<!-- Boolean: present or absent -->
+<span class="fmxe-tooltip" data-flipped></span>
+
+<!-- Valued: conveys which state is active -->
+<div class="fmxe-field" data-state="loading"></div>
+```
+
+Classes remain appropriate for configuration set at construction time (e.g. `place-bottom`, `align-start`), even when set via JS, because they represent authored intent rather than runtime behavior.
+
+## 8. What to avoid
+
+- **Double underscores (`__`)** — not used; child elements use a single hyphen instead.
+- **Double dashes as modifiers (`--`)** — not used for class names; double dashes are reserved for CSS custom properties.
+- **Long compound names** — prefer short, predictable names. If a name feels long, the structure may need simplifying.
+- **Repeating the full component name on every child** — child names only need enough context to be unambiguous within their component. See section 3 for guidance on when to name a child element at all.
