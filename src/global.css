@@ -141,8 +141,8 @@ body {
 
 /* Scoped to story render roots — canvas (#storybook-root) and docs previews (.sb-unstyled).
    Avoids affecting Storybook's own UI chrome (sidebar, toolbar, docs navigation). */
-#storybook-root a,
-.sb-unstyled a {
+#storybook-root a:not(.fmxe-button),
+.sb-unstyled a:not(.fmxe-button) {
   color: var(--fmxe-color-orange);
   text-decoration: underline;
   text-decoration-thickness: 1px;
