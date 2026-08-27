@@ -170,7 +170,41 @@ Use a boolean attribute (empty string value) for on/off state. Use a value when 
 
 Classes remain appropriate for configuration set at construction time (e.g. `place-bottom`, `align-start`), even when set via JS, because they represent authored intent rather than runtime behavior.
 
-## 8. What to avoid
+## 8. CSS custom property naming
+
+Custom properties follow a two-tier model based on origin.
+
+### 8.1 Design tokens
+
+Tokens sourced directly from Figma are a 1-to-1 match, converted to hyphenated lowercase. These live in the global token layer and should not be modified at the project level. See [Design Tokens](?path=/docs/design-tokens-overview--docs) for the full reference.
+
+```css
+--fmxe-color-orange
+--fmxe-space-md
+--fmxe-font-family-figtree
+--fmxe-border-radius-round
+```
+
+### 8.2 Project-level variables
+
+Variables defined at the project or theme level use an `fmx-theme-` prefix to distinguish them from Figma tokens. These are appropriate for semantic aliases, contextual overrides, or values that don't map 1-to-1 to a token.
+
+```css
+--fmx-theme-primary
+--fmx-theme-surface
+--fmx-theme-text
+```
+
+### 8.3 Component-scoped variables
+
+Short-lived variables scoped to a single component use a `--_` prefix. These are private to the component and should never be referenced from outside it.
+
+```css
+--_bg: var(--fmxe-color-orange);
+--_gap: var(--fmxe-space-2);
+```
+
+## 9. What to avoid
 
 - **Double underscores (`__`)** — not used; child elements use a single hyphen instead.
 - **Double dashes as modifiers (`--`)** — not used for class names; double dashes are reserved for CSS custom properties.
