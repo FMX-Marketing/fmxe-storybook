@@ -63,12 +63,12 @@ const INLINE_ICONS = [];
  *
  * @param {string} name - Icon name matching the filename in public/icons/ (without .svg)
  * @param {string} size - Size: xs | sm | md | lg | xl (rendered as size-{value} class)
- * @param {string|null} orientation - Optional orientation class: right | down | left | up | flip-x | flip-y
+ * @param {string|null} orientation - Optional orientation: right | down | left | up | flip-x | flip-y (rendered as orient-{value} class)
  * @param {string} [className] - Additional class names to apply to the wrapper span
  * @returns {React.ReactElement}
  */
 export function Icon({ name, size = 'md', orientation = null, className = '' }) {
-  const classes = ['fmxe-icon', `size-${size}`, `fmxe-icon--${name}`, orientation, className]
+  const classes = ['fmxe-icon', `size-${size}`, `fmxe-icon-${name}`, orientation ? `orient-${orientation}` : null, className]
     .filter(Boolean)
     .join(' ');
 

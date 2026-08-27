@@ -2,11 +2,11 @@
   border-bottom: 1px solid var(--fmxe-color-gray-light-1);
   padding: var(--fmxe-space-md) 0;
 
-  &[open] .changelog-section__summary::after {
+  &[open] .changelog-section-summary::after {
     transform: rotate(-90deg);
   }
 
-  .changelog-section__summary {
+  .changelog-section-summary {
     align-items: center;
     cursor: pointer;
     display: flex;
@@ -37,7 +37,7 @@
     }
   }
 
-  .changelog-section__version {
+  .changelog-section-version {
     color: var(--fmxe-color-gray-core);
     font-family: var(--fmxe-font-family-figtree);
     font-size: var(--fmxe-font-family-size-h5);
@@ -45,14 +45,14 @@
     line-height: var(--fmxe-font-family-line-height-h5);
   }
 
-  .changelog-section__date {
+  .changelog-section-date {
     color: var(--fmxe-color-gray-light-3);
     font-family: var(--fmxe-font-family-figtree);
     font-size: var(--fmxe-font-family-size-xs);
     font-weight: var(--fmxe-font-family-weight-500);
   }
 
-  .changelog-section__body {
+  .changelog-section-body {
     padding-top: var(--fmxe-space-md);
 
     h3 {

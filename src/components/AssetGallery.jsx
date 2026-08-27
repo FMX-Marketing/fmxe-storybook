@@ -7,7 +7,7 @@ function AssetItem({ name, renderAsset, align }) {
 
   React.useEffect(() => {
     if (ref.current) {
-      const label = ref.current.querySelector('.asset-gallery__label');
+      const label = ref.current.querySelector('.asset-gallery-label');
       Array.from(ref.current.childNodes).forEach(child => {
         if (child !== label) child.remove();
       });
@@ -16,8 +16,8 @@ function AssetItem({ name, renderAsset, align }) {
   }, [name, renderAsset]);
 
   return (
-    <div ref={ref} className="asset-gallery__item" style={{ '--_align': align }}>
-      <pre className="asset-gallery__label">{name}</pre>
+    <div ref={ref} className="asset-gallery-item" style={{ '--_align': align }}>
+      <pre className="asset-gallery-label">{name}</pre>
     </div>
   );
 }
@@ -30,7 +30,7 @@ function AssetGalleryComponent({ names, renderAsset, theme = 'light', columns = 
 
   return (
     <div
-      className={`asset-gallery asset-gallery--${theme}`}
+      className="asset-gallery"
       data-theme={theme === 'dark' ? 'dark' : undefined}
       style={style}
     >
