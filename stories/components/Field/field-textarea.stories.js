@@ -1,10 +1,8 @@
-import { createFieldTextarea } from './Field.js';
+import { createFieldTextarea } from './field-textarea.js';
 import { loadSprite } from '@components/Icon.jsx';
 import './field.css';
 import '../Tooltip/tooltip.css';
 import '../Icon/icon.css';
-
-const STATES = ['default', 'selected', 'disabled', 'invalid'];
 
 export default {
   title: 'Components/Atoms/Form Field/Textarea',
@@ -27,15 +25,9 @@ export default {
       control: 'text',
       description: 'Optional tooltip content',
     },
-    state: {
-      control: { type: 'select' },
-      options: STATES,
-      description: 'Field state',
-    },
     errorMessage: {
       control: 'text',
-      description: 'Error message shown when state is invalid',
-      if: { arg: 'state', eq: 'invalid' },
+      description: 'Error message shown in the invalid state',
     },
   },
   args: {
@@ -43,7 +35,6 @@ export default {
     placeholder: 'Enter your notes here…',
     rows: 4,
     tooltip: '',
-    state: 'default',
     errorMessage: 'This field is required.',
   },
   render: (args) => createFieldTextarea(args),

@@ -1,10 +1,8 @@
-import { createFieldSelect } from './Field.js';
+import { createFieldSelect } from './field-select.js';
 import { loadSprite } from '@components/Icon.jsx';
 import './field.css';
 import '../Tooltip/tooltip.css';
 import '../Icon/icon.css';
-
-const STATES = ['default', 'selected', 'disabled', 'invalid'];
 
 const SAMPLE_OPTIONS = {
   '1-10':   '1–10',
@@ -26,21 +24,14 @@ export default {
       control: 'text',
       description: 'Optional tooltip content',
     },
-    state: {
-      control: { type: 'select' },
-      options: STATES,
-      description: 'Field state',
-    },
     errorMessage: {
       control: 'text',
-      description: 'Error message shown when state is invalid',
-      if: { arg: 'state', eq: 'invalid' },
+      description: 'Error message shown in the invalid state',
     },
   },
   args: {
     label: 'Number of technicians',
     tooltip: '',
-    state: 'default',
     errorMessage: 'Please select an option.',
   },
   render: ({ label, tooltip, state, errorMessage }) => createFieldSelect({ label, options: SAMPLE_OPTIONS, tooltip, state, errorMessage }),

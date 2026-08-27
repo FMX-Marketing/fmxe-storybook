@@ -1,7 +1,7 @@
 let _choiceId = 0;
 function nextId() { return `fmxe-choice-${++_choiceId}`; }
 
-export function createChoiceGroup({ inputType, options, size, state, legend = '' }) {
+export function createRadioGroup({ options, size, state, legend = '' }) {
   const group = document.createElement('fieldset');
   const classes = ['fmxe-field-choice'];
   if (size !== 'md') classes.push(`size-${size}`);
@@ -23,7 +23,7 @@ export function createChoiceGroup({ inputType, options, size, state, legend = ''
     row.className = 'fmxe-field-choice-option';
 
     const input = document.createElement('input');
-    input.type  = inputType;
+    input.type  = 'radio';
     input.id    = id;
     input.name  = groupName;
     input.value = `option-${i}`;

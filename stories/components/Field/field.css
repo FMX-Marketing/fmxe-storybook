@@ -53,7 +53,7 @@
     display: none;
   }
 
-  .fmxe-field__select-wrap {
+  .fmxe-field-select-wrap {
     position: relative;
 
     &::after {
@@ -78,7 +78,7 @@
     }
   }
 
-  .fmxe-field__input-wrap {
+  .fmxe-field-input-wrap {
     align-items: center;
     display: flex;
     position: relative;
@@ -86,8 +86,8 @@
     input { flex: 1; }
   }
 
-  .fmxe-field__input-wrap.has-icon,
-  .fmxe-field__select-wrap.has-icon {
+  .fmxe-field-input-wrap.has-icon,
+  .fmxe-field-select-wrap.has-icon {
     &::before {
       background-color: var(--fmxe-color-black);
       content: '';
@@ -113,14 +113,14 @@
   }
 
   /* Icon variants */
-  .fmxe-field__input-wrap.icon-dollar-sign::before,
-  .fmxe-field__select-wrap.icon-dollar-sign::before {
+  .fmxe-field-input-wrap.icon-dollar-sign::before,
+  .fmxe-field-select-wrap.icon-dollar-sign::before {
     -webkit-mask-image: url('/icons/dollar-sign.svg');
     mask-image: url('/icons/dollar-sign.svg');
   }
 
-  .fmxe-field__input-wrap.icon-search::before,
-  .fmxe-field__select-wrap.icon-search::before {
+  .fmxe-field-input-wrap.icon-search::before,
+  .fmxe-field-select-wrap.icon-search::before {
     -webkit-mask-image: url('/icons/search.svg');
     mask-image: url('/icons/search.svg');
   }
@@ -191,7 +191,7 @@
     }
   }
 
-  .fmxe-field__error {
+  .fmxe-field-error {
     color: var(--fmxe-color-red);
     font-size: var(--fmxe-font-family-size-xs);
     line-height: var(--fmxe-font-family-line-height-xs);

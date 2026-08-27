@@ -7,15 +7,15 @@
   margin: 0;
   padding: 0;
 
-  .fmxe-field-choice__legend {
+  .fmxe-field-choice-legend {
     color: var(--fmxe-color-gray-light-3);
-    font-size: var(--fmxe-font-size-h5);
-    font-weight: var(--fmxe-font-weight-700);
-    line-height: var(--fmxe-line-height-h5);
+    font-size: var(--fmxe-font-family-size-h5);
+    font-weight: var(--fmxe-font-family-weight-700);
+    line-height: var(--fmxe-font-family-line-height-h5);
     margin-bottom: var(--fmxe-space-sm);
   }
 
-  .fmxe-field-choice__option {
+  .fmxe-field-choice-option {
     align-items: center;
     display: flex;
     gap: var(--fmxe-space-md);
@@ -148,7 +148,7 @@
   }
 
   /* Invalid state */
-  &.is-invalid .fmxe-field-choice__option {
+  &.is-invalid .fmxe-field-choice-option {
     input[type="radio"],
     input[type="checkbox"] {
       border-color: var(--fmxe-color-red);
@@ -167,32 +167,32 @@
     }
   }
 
-  .fmxe-field-choice__error {
+  .fmxe-field-choice-error {
     color: var(--fmxe-color-red);
-    font-size: var(--fmxe-font-size-xs);
-    line-height: var(--fmxe-line-height-xs);
+    font-size: var(--fmxe-font-family-size-xs);
+    line-height: var(--fmxe-font-family-line-height-xs);
   }
 
   /* Size variants */
   &.size-sm {
-    .fmxe-field-choice__option {
+    .fmxe-field-choice-option {
       input[type="radio"],
       input[type="checkbox"] {
         height: 16px;
         width: 16px;
       }
-      label { font-size: var(--fmxe-font-size-sm); }
+      label { font-size: var(--fmxe-font-family-size-sm); }
     }
   }
 
   &.size-lg {
-    .fmxe-field-choice__option {
+    .fmxe-field-choice-option {
       input[type="radio"],
       input[type="checkbox"] {
         height: 24px;
         width: 24px;
       }
-      label { font-size: var(--fmxe-font-size-lg); }
+      label { font-size: var(--fmxe-font-family-size-lg); }
     }
   }
 }

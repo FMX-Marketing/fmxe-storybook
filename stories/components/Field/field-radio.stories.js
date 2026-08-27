@@ -1,4 +1,4 @@
-import { createChoiceGroup } from './FieldChoice.js';
+import { createRadioGroup } from './field-radio.js';
 import './field-choice.css';
 
 const SAMPLE_OPTIONS = ['Option one', 'Option two', 'Option three'];
@@ -13,18 +13,12 @@ const sharedArgTypes = {
     options: ['sm', 'md', 'lg'],
     description: 'Input size',
   },
-  state: {
-    control: { type: 'select' },
-    options: ['default', 'invalid', 'disabled'],
-    description: 'Field state',
-  },
 };
 
 const sharedArgs = {
   legend: 'Select an option',
   options: SAMPLE_OPTIONS,
   size: 'md',
-  state: 'default',
 };
 
 export default {
@@ -32,7 +26,7 @@ export default {
   tags: ['autodocs'],
   argTypes: sharedArgTypes,
   args: sharedArgs,
-  render: (args) => createChoiceGroup({ ...args, inputType: 'radio' }),
+  render: (args) => createRadioGroup(args),
   parameters: {
     docs: {
       description: {

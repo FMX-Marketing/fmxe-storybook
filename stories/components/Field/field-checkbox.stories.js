@@ -1,4 +1,4 @@
-import { createChoiceGroup } from './FieldChoice.js';
+import { createCheckboxGroup } from './field-checkbox.js';
 import './field-choice.css';
 
 const SAMPLE_OPTIONS = ['Option one', 'Option two', 'Option three'];
@@ -13,18 +13,12 @@ const sharedArgTypes = {
     options: ['sm', 'md', 'lg'],
     description: 'Input size',
   },
-  state: {
-    control: { type: 'select' },
-    options: ['default', 'invalid', 'disabled'],
-    description: 'Field state',
-  },
 };
 
 const sharedArgs = {
   legend: 'Select all that apply',
   options: SAMPLE_OPTIONS,
   size: 'md',
-  state: 'default',
 };
 
 export default {
@@ -32,7 +26,7 @@ export default {
   tags: ['autodocs'],
   argTypes: sharedArgTypes,
   args: sharedArgs,
-  render: (args) => createChoiceGroup({ ...args, inputType: 'checkbox' }),
+  render: (args) => createCheckboxGroup(args),
   parameters: {
     docs: {
       description: {

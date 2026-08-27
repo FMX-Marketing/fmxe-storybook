@@ -20,7 +20,7 @@ function createLabel(id, labelText, tooltip) {
   label.htmlFor = id;
 
   const text = document.createElement('span');
-  text.className = 'fmxe-field__label-text';
+  text.className = 'fmxe-field-label';
   text.textContent = labelText;
   label.appendChild(text);
 
@@ -30,7 +30,7 @@ function createLabel(id, labelText, tooltip) {
 
 function createError(id, state, errorMessage) {
   const error = document.createElement('span');
-  error.className = 'fmxe-field__error';
+  error.className = 'fmxe-field-error';
   error.id = `${id}-error`;
   error.setAttribute('aria-live', 'polite');
   if (state === 'invalid' && errorMessage) error.textContent = errorMessage;
@@ -53,7 +53,7 @@ export function createFieldNumber({ label, placeholder = '', tooltip = '', state
 
   if (icon) {
     const inputWrap = document.createElement('div');
-    inputWrap.className = `fmxe-field__input-wrap has-icon icon-${icon}`;
+    inputWrap.className = `fmxe-field-input-wrap has-icon icon-${icon}`;
     inputWrap.appendChild(input);
     wrap.appendChild(inputWrap);
   } else {
@@ -107,7 +107,7 @@ export function createFieldSelect({ label, options = {}, tooltip = '', state = '
   });
 
   const selectWrap = document.createElement('div');
-  selectWrap.className = 'fmxe-field__select-wrap';
+  selectWrap.className = 'fmxe-field-select-wrap';
   if (icon) {
     selectWrap.classList.add('has-icon', `icon-${icon}`);
   }

@@ -1,0 +1,33 @@
+import { nextId, createFieldWrap, createLabel, createError } from './field-shared.js';
+
+export function createFieldSelect({ label, options = {}, tooltip = '', state = 'default', errorMessage = '', icon = '' }) {
+  const id   = nextId();
+  const wrap = createFieldWrap(state);
+
+  const select = document.createElement('select');
+  select.id   = id;
+  select.name = id;
+  select.setAttribute('aria-describedby', `${id}-error`);
+
+  const placeholder = document.createElement('option');
+  placeholder.value       = '';
+  placeholder.textContent = 'Select...';
+  select.appendChild(placeholder);
+
+  Object.entries(options).forEach(([value, optLabel]) => {
+    const opt = document.createElement('option');
+    opt.value       = value;
+    opt.textContent = optLabel;
+    select.appendChild(opt);
+  });
+
+  const selectWrap = document.createElement('div');
+  selectWrap.className = 'fmxe-field-select-wrap';
+  if (icon) selectWrap.classList.add('has-icon', `icon-${icon}`);
+  selectWrap.appendChild(select);
+
+  wrap.appendChild(createLabel(id, label, tooltip));
+  wrap.appendChild(selectWrap);
+  wrap.appendChild(createError(id, state, errorMessage));
+  return wrap;
+}
