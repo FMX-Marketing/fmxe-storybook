@@ -44,6 +44,7 @@ export default {
     return root;
   },
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2351-4259&m=dev',
     docs: {
       description: {
         component: 'The FMX brand logo in small, medium, and large sizes. Multiple color variants are available to suit light and dark backgrounds.',

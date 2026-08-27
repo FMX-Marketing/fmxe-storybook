@@ -36,6 +36,7 @@ export default {
   },
   render: ({ label, tooltip, state, errorMessage }) => createFieldSelect({ label, options: SAMPLE_OPTIONS, tooltip, state, errorMessage }),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2348-4065&m=dev',
     docs: {
       description: {
         component: 'Select dropdown field. Supports default, selected, disabled, and invalid states. An optional tooltip can be attached to the label.',

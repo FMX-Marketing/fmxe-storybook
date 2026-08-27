@@ -29,6 +29,7 @@ export default {
     return wrap;
   },
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2353-4285&m=dev',
     docs: {
       description: {
         component: 'An info icon that reveals a tooltip on hover or focus. Positions above by default and flips below when near the top of the viewport. Theme-aware — responds to a `data-theme="dark"` attribute on any ancestor element.',

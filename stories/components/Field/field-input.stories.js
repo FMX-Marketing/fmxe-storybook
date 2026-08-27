@@ -46,6 +46,7 @@ export default {
   },
   render: (args) => createFieldInput(args),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2348-4065&m=dev',
     docs: {
       description: {
         component: 'A general purpose text input supporting multiple input modes including text, email, password, date, and more. Supports an optional leading icon, tooltip, and default, selected, disabled, and invalid states.',

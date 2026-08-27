@@ -72,6 +72,7 @@ export default {
     color: 'orange',
   },
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2080-2821&m=dev',
     docs: {
       description: {
         component: 'Standard button component supporting multiple sizes, color variants, icon positions, and text/icon-only modes.',

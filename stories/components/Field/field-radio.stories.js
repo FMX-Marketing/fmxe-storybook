@@ -28,6 +28,7 @@ export default {
   args: sharedArgs,
   render: (args) => createRadioGroup(args),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2351-4272&m=dev',
     docs: {
       description: {
         component: 'Radio button group for single-select options. Supports default, invalid, and disabled states across small, medium, and large sizes.',

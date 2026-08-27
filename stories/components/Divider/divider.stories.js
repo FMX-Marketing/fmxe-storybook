@@ -46,6 +46,7 @@ export default {
   },
   render: (args) => createDivider(args),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2348-4032&m=dev',
     docs: {
       description: {
         component: 'A horizontal rule for separating sections of content. Fills all available horizontal space with optional vertical margin.',

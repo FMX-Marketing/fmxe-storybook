@@ -55,6 +55,7 @@ export default {
   },
   render: ({ name, size, background, space }) => renderPictogram(name, size, background, space),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2420-4531&m=dev',
     docs: {
       description: {
         component: 'Illustrated pictograms for representing features, industries, and concepts. Designed to be embedded within other components such as cards. Available in multiple sizes with a transparent background variant. Theme-aware — responds to a `data-theme="dark"` attribute on any ancestor element.',

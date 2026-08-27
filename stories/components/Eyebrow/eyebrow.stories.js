@@ -46,6 +46,7 @@ export default {
   },
   render: (args) => createEyebrow(args),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2348-4052&m=dev',
     docs: {
       description: {
         component: 'A small decorative label with an accent bar, used above headings to introduce a section. Supports left, center, and right alignment.',

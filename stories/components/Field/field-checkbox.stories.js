@@ -28,6 +28,7 @@ export default {
   args: sharedArgs,
   render: (args) => createCheckboxGroup(args),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2348-3911&m=dev',
     docs: {
       description: {
         component: 'Checkbox group for multi-select options. Supports default, invalid, and disabled states across small, medium, and large sizes.',

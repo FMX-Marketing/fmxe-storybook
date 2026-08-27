@@ -51,6 +51,7 @@ export default {
     return icon;
   },
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2095-6787&m=dev',
     docs: {
       description: {
         component: 'A set of icons available in multiple sizes, colors, and orientations. Directional icons default to pointing right and can be rotated or flipped as needed.',

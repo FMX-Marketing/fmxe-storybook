@@ -49,6 +49,7 @@ export default {
   },
   render: ({ name, variant, size }) => renderLogo(name, variant, size),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2351-4259&m=dev',
     docs: {
       description: {
         component: 'FMX product logos available as full logos or icon-only marks, in small, medium, and large sizes. Light and dark variants are available for each product.',

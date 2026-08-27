@@ -38,6 +38,7 @@ export default {
   },
   render: (args) => createAvatar({ src: args.src, alt: args.alt, size: args.size }),
   parameters: {
+    figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2348-3808&m=dev',
     docs: {
       description: {
         component: 'Stylized avatar image for content creators, authors, and team members.',
