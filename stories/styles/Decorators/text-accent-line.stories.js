@@ -1,11 +1,11 @@
-import './eyebrow.css';
+import './text-accent-line.css';
 
 const TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
 const ALIGNMENTS = ['left', 'center', 'right'];
 const COLORS = ['electric-blue', 'white'];
 
-function createEyebrow({ tag, text, align, color }) {
-  const classes = ['fmxe-eyebrow'];
+function createTextAccentLine({ tag, text, align, color }) {
+  const classes = ['fmxe-text-accent-line'];
   if (align !== 'left') classes.push(`align-${align}`);
   if (color !== 'electric-blue') classes.push(`color-${color}`);
   const el = document.createElement(tag);
@@ -15,7 +15,7 @@ function createEyebrow({ tag, text, align, color }) {
 }
 
 export default {
-  title: 'Components/Atoms/Eyebrow',
+  title: 'Styles/Decorators/Text Accent Line',
   tags: ['autodocs'],
   argTypes: {
     tag: {
@@ -25,7 +25,7 @@ export default {
     },
     text: {
       control: 'text',
-      description: 'Eyebrow text content',
+      description: 'Text content',
     },
     align: {
       control: { type: 'inline-radio' },
@@ -44,7 +44,7 @@ export default {
     align: 'left',
     color: 'electric-blue',
   },
-  render: (args) => createEyebrow(args),
+  render: (args) => createTextAccentLine(args),
   parameters: {
     figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2348-4052&m=dev',
     docs: {
