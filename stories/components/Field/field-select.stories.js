@@ -58,6 +58,6 @@ const LONG_OPTIONS = {
 export const Preview     = {};
 export const Dark        = { name: 'Dark', globals: { backgrounds: { value: 'cobalt-blue-midnight-dark' } }, render: ({ label, tooltip, state, errorMessage }) => { const wrap = document.createElement('div'); wrap.setAttribute('data-theme', 'dark'); wrap.appendChild(createFieldSelect({ label, options: SAMPLE_OPTIONS, tooltip, state, errorMessage, required: true })); return wrap; }, parameters: { docs: { description: { story: 'Default appearance on a dark background.' } } } };
 export const WithTooltip = { name: 'With Tooltip', args: { tooltip: 'Select the range that best describes your team size.' } };
-export const LongValue   = { name: 'Long Value', render: ({ state }) => createFieldSelect({ label: 'Category', options: LONG_OPTIONS, state }), parameters: { docs: { description: { story: 'Demonstrates how the select handles long option labels that exceed the field width.' } } } };
+export const LongValue   = { name: 'Long Value', render: ({ state }) => createFieldSelect({ label: 'Category', options: LONG_OPTIONS, selected: 'option-1', state }), parameters: { docs: { description: { story: 'Demonstrates how the select handles long option labels that exceed the field width.' } } } };
 export const Invalid     = { args: { state: 'invalid', errorMessage: 'Please select an option.' } };
 export const Disabled    = { args: { state: 'disabled' } };
