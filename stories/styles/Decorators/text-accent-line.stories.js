@@ -1,12 +1,12 @@
 import './text-accent-line.css';
 
-const TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
+const TAGS = ['h1', 'h2'];
 const ALIGNMENTS = ['left', 'center', 'right'];
 const COLORS = ['electric-blue', 'white'];
 
 function createTextAccentLine({ tag, text, align, color }) {
   const classes = ['fmxe-text-accent-line'];
-  if (align !== 'left') classes.push(`align-${align}`);
+  if (align !== 'left') classes.push(`line-${align}`);
   if (color !== 'electric-blue') classes.push(`color-${color}`);
   const el = document.createElement(tag);
   el.className = classes.join(' ');

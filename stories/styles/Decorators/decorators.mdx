@@ -1,11 +1,20 @@
-import { Meta, Story } from "@storybook/addon-docs/blocks";
-import * as TextAccentLineStories from './text-accent-line.stories.js';
+import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="Styles/Decorators" />
 
 # Decorators
 
 Decorators are utility classes that apply a stylized look and feel without requiring structural markup like a component. Apply them directly to existing elements using a single class name.
+
+## Naming
+
+Decorator classes follow the pattern `fmxe-[type]-[descriptor]`, where `type` describes the kind of visual treatment and `descriptor` identifies the specific style applied.
+
+```html
+<h2 class="fmxe-text-accent-line">Why FMX</h2>
+```
+
+## Available decorators
 
 | Class | Description |
 |---|---|

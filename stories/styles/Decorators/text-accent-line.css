@@ -11,11 +11,11 @@
     width: 50px;
   }
 
-  &.align-center::before {
+  &.line-center::before {
     margin-inline: auto;
   }
 
-  &.align-right::before {
+  &.line-right::before {
     margin-inline: auto 0;
   }
 
