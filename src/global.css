@@ -23,6 +23,7 @@
   --fmxe-color-orange-light: #EB5514;
   --fmxe-color-yellow: #F5C855;
   --fmxe-color-red: #D13429;
+  --fmxe-color-red-light: #FF6467;
   --fmxe-color-green: #6AB67A;
   --fmxe-color-black: #000000;
   --fmxe-color-white: #FFFFFF;
@@ -59,6 +60,7 @@
   --fmxe-color-gray-dark-1: #15151E;
   --fmxe-font-family-figtree: "Figtree", serif;
   --fmxe-font-family-code: monaco, consolas, "Andale Mon", "DejaVu Sans Mono", monospace;
+  --fmxe-font-family-weight-400: 400;
   --fmxe-font-family-weight-500: 500;
   --fmxe-font-family-weight-700: 700;
   --fmxe-font-family-weight-800: 800;
