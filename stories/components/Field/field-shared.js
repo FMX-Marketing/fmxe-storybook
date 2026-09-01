@@ -6,9 +6,10 @@ export function nextId() {
   return `fmxe-field-${++_fieldId}`;
 }
 
-export function createFieldWrap(state) {
+export function createFieldWrap(state, size) {
   const wrap = document.createElement('div');
   const classes = ['fmxe-field'];
+  if (size && size !== 'lg') classes.push(`size-${size}`);
   if (state === 'invalid') classes.push('is-invalid');
   if (state === 'disabled') classes.push('is-disabled');
   wrap.className = classes.join(' ');
@@ -20,6 +21,7 @@ export function createLabel(id, labelText, tooltip) {
   label.htmlFor = id;
 
   const text = document.createElement('span');
+  text.className = 'fmxe-field-label-text';
   text.textContent = labelText;
   label.appendChild(text);
 

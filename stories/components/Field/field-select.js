@@ -1,12 +1,13 @@
 import { nextId, createFieldWrap, createLabel, createMsg } from './field-shared.js';
 
-export function createFieldSelect({ label, options = {}, tooltip = '', state = 'default', errorMessage = '', icon = '' }) {
+export function createFieldSelect({ label, options = {}, tooltip = '', state = 'default', errorMessage = '', icon = '', required = false }) {
   const id   = nextId();
   const wrap = createFieldWrap(state);
 
   const select = document.createElement('select');
-  select.id   = id;
-  select.name = id;
+  select.id       = id;
+  select.name     = id;
+  select.required = required;
   select.setAttribute('aria-describedby', `${id}-msg`);
 
   const placeholder = document.createElement('option');

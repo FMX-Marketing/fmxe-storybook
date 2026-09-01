@@ -1,10 +1,10 @@
 let _choiceId = 0;
 function nextId() { return `fmxe-choice-${++_choiceId}`; }
 
-export function createRadioGroup({ options, size, state, legend = '' }) {
+export function createRadioGroup({ options, size, state, legend = '', required = false }) {
   const group = document.createElement('fieldset');
   const classes = ['fmxe-field-choice'];
-  if (size !== 'md') classes.push(`size-${size}`);
+  if (size !== 'sm') classes.push(`size-${size}`);
   if (state === 'invalid') classes.push('is-invalid');
   group.className = classes.join(' ');
 
@@ -27,6 +27,8 @@ export function createRadioGroup({ options, size, state, legend = '' }) {
     input.id    = id;
     input.name  = groupName;
     input.value = `option-${i}`;
+    if (!state && i === 0) input.checked = true;
+    if (required && i === 0) input.required = true;
     if (state === 'disabled') {
       input.disabled = true;
       if (i === options.length - 1) input.checked = true;
