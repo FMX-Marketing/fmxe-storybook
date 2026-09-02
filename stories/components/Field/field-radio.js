@@ -16,6 +16,7 @@ export function createRadioGroup({ options, size, state, legend = '', required =
   }
 
   const groupName = nextId();
+  const msgId = `${groupName}-msg`;
 
   options.forEach((optLabel, i) => {
     const id = `${groupName}-${i}`;
@@ -29,6 +30,7 @@ export function createRadioGroup({ options, size, state, legend = '', required =
     input.value = `option-${i}`;
     if (!state && i === 0) input.checked = true;
     if (required && i === 0) input.required = true;
+    input.setAttribute('aria-describedby', msgId);
     if (state === 'disabled') {
       input.disabled = true;
       if (i === options.length - 1) input.checked = true;
@@ -44,13 +46,12 @@ export function createRadioGroup({ options, size, state, legend = '', required =
     group.appendChild(row);
   });
 
-  if (state === 'invalid') {
-    const error = document.createElement('span');
-    error.className   = 'fmxe-field-msg';
-    error.setAttribute('data-msg', 'error');
-    error.textContent = 'Please select an option.';
-    group.appendChild(error);
-  }
+  const error = document.createElement('span');
+  error.id          = msgId;
+  error.className   = 'fmxe-field-msg';
+  error.setAttribute('data-msg', 'error');
+  if (state === 'invalid') error.textContent = 'Please select an option.';
+  group.appendChild(error);
 
   return group;
 }

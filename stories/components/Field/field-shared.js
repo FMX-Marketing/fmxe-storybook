@@ -11,9 +11,12 @@ export function createFieldWrap(state, size) {
   const classes = ['fmxe-field'];
   if (size && size !== 'lg') classes.push(`size-${size}`);
   if (state === 'invalid') classes.push('is-invalid');
-  if (state === 'disabled') classes.push('is-disabled');
   wrap.className = classes.join(' ');
   return wrap;
+}
+
+export function applyDisabled(el, state) {
+  if (state === 'disabled') el.disabled = true;
 }
 
 export function createLabel(id, labelText, tooltip) {
@@ -34,7 +37,6 @@ export function createMsg(id, state, errorMessage) {
   msg.className = 'fmxe-field-msg';
   msg.setAttribute('data-msg', 'error');
   msg.id = `${id}-msg`;
-  msg.setAttribute('aria-live', 'polite');
   if (state === 'invalid' && errorMessage) msg.textContent = errorMessage;
   return msg;
 }

@@ -1,4 +1,4 @@
-import { nextId, createFieldWrap, createLabel, createMsg } from './field-shared.js';
+import { nextId, createFieldWrap, createLabel, createMsg, applyDisabled } from './field-shared.js';
 
 export function createFieldTextarea({ label, placeholder = '', value = '', tooltip = '', rows = 4, state = 'default', errorMessage = '', required = false }) {
   const id   = nextId();
@@ -12,6 +12,7 @@ export function createFieldTextarea({ label, placeholder = '', value = '', toolt
   textarea.rows        = rows;
   textarea.required    = required;
   textarea.setAttribute('aria-describedby', `${id}-msg`);
+  applyDisabled(textarea, state);
 
   wrap.appendChild(createLabel(id, label, tooltip));
   wrap.appendChild(textarea);

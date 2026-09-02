@@ -17,10 +17,10 @@
     margin-bottom: var(--fmxe-space-sm);
 
     .fmxe-tooltip {
-      margin-left: var(--fmxe-space-sm);
+      margin-left: auto;
 
       @media (--md) {
-        margin-left: auto;
+        margin-left: var(--fmxe-space-sm);
       }
     }
   }
@@ -173,8 +173,7 @@
   }
 
   /* Disabled state */
-  &.is-disabled {
-
+  &:has(:disabled) {
     input:not([type="submit"]),
     select,
     textarea {
