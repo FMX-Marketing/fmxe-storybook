@@ -23,7 +23,7 @@ The root element of a component takes a single flat name: `fmxe-{component}`.
 ```html
 <div class="fmxe-field"></div>
 <div class="fmxe-badges"></div>
-<span class="fmxe-text-accent-line"></span>
+<span class="fmxe-tooltip"></span>
 ```
 
 ## 3. Child elements
@@ -33,16 +33,10 @@ Named child elements within a component use a single hyphen to separate the comp
 This keeps names flat and readable without the visual noise of double underscores.
 
 ```html
-<div class="fmxe-field">
-  <label class="fmxe-field-label"></label>
-  <div class="fmxe-field-input-wrap"></div>
-  <span class="fmxe-field-msg" data-msg="error"></span>
+<div class="fmxe-card">
+  <p>Some content here.</p>
+  <button class="fmxe-card-action">Learn more</button>
 </div>
-
-<span class="fmxe-tooltip">
-  <button class="fmxe-tooltip-trigger"></button>
-  <span class="fmxe-tooltip-content"></span>
-</span>
 ```
 
 Not every child element needs a class. If an element is only ever styled within the context of its parent and doesn't need to be targeted independently, a plain element selector is cleaner.
@@ -53,6 +47,15 @@ Not every child element needs a class. If an element is only ever styled within 
 
 /* Over this */
 .fmxe-field-choice-option-label { ... }
+```
+
+## 3.1 Decorators
+
+Decorators are utility classes that apply visual styling without requiring structural markup. Unlike components, they are applied directly to existing elements and carry no child elements of their own. Decorator classes use a `deco-` type segment to distinguish them from component names. See [Decorators](?path=/docs/styles-decorators--docs) for the full reference.
+
+```html
+<h2 class="fmxe-deco-heading-border">Why FMX</h2>
+<section class="fmxe-deco-wave-container">...</section>
 ```
 
 ## 4. Modifiers

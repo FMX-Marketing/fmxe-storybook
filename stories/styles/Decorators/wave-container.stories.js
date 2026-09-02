@@ -1,4 +1,4 @@
-import './section-wave.css';
+import './wave-container.css';
 
 function injectClipPath() {
   if (document.getElementById('fmxe-wave-clip-svg')) return;
@@ -26,17 +26,27 @@ const COLORS = [
   'white',
 ];
 
-function createSection({ color, label, wave = true }) {
+function createSection({ color, wave = true }) {
   const el = document.createElement('div');
-  if (wave) el.className = 'fmxe-section-wave';
+  if (wave) el.className = 'fmxe-deco-wave-container';
   el.style.backgroundColor = `var(--fmxe-color-${color})`;
   el.style.padding = 'var(--fmxe-space-xl) var(--fmxe-space-lg)';
-  el.textContent = label;
+
+  const label = document.createElement('span');
+  label.textContent = wave ? 'Wave container' : 'Regular container';
+  label.style.backgroundColor = 'var(--fmxe-color-cobalt-blue-midnight-dark)';
+  label.style.borderRadius = 'var(--fmxe-border-radius-sm)';
+  label.style.color = 'var(--fmxe-color-white)';
+  label.style.display = 'inline-block';
+  label.style.fontSize = 'var(--fmxe-font-family-size-xs)';
+  label.style.padding = 'var(--fmxe-space-xs) var(--fmxe-space-sm)';
+  el.appendChild(label);
+
   return el;
 }
 
 export default {
-  title: 'Styles/Decorators/Section Wave',
+  title: 'Styles/Decorators/Wave Container',
   tags: ['autodocs'],
   loaders: [() => injectClipPath()],
   argTypes: {
@@ -45,21 +55,26 @@ export default {
       options: COLORS,
       description: 'Background color of the wavy section',
     },
+    wave: {
+      control: 'boolean',
+      description: 'Toggle the wave decorator on or off',
+    },
   },
   args: {
     color: 'cobalt-blue-midnight',
+    wave: true,
   },
-  render: ({ color }) => {
+  render: ({ color, wave }) => {
     const wrap = document.createElement('div');
 
-    wrap.appendChild(createSection({ color, label: 'Section with wave' }));
-    wrap.appendChild(createSection({ color: 'sky-blue-light-1', label: 'Following section', wave: false }));
+    wrap.appendChild(createSection({ color, wave }));
+    wrap.appendChild(createSection({ color: 'sky-blue-light-1', wave: false }));
     return wrap;
   },
   parameters: {
     docs: {
       description: {
-        component: 'Applies a wavy bottom edge to a section that flows into the next. Uses a CSS `clip-path` on a `::after` pseudo-element colored via `background-color: inherit`. When two wave sections are adjacent, a `::before` fills the negative space with the following section\'s color, creating a two-tone wave transition with no z-index management required.',
+        component: 'Adds a decorative wave to the bottom of a section, creating a smooth visual transition into the next. When two wave sections are stacked, the colors of both sections blend naturally into the wave shape.',
       },
     },
   },
@@ -71,16 +86,18 @@ export const Stacked = {
   name: 'Stacked waves',
   parameters: {
     controls: { disable: true },
-    docs: { description: { story: 'Multiple consecutive wave sections with no z-index management required.' } },
+    docs: { description: { story: 'Wave sections can be stacked in any order and freely mixed with regular sections — no z-index management required. The wave automatically picks up the background color of its section and blends into whatever follows.' } },
   },
   render: () => {
     const wrap = document.createElement('div');
 
     [
-      { color: 'cobalt-blue-midnight', label: 'Section 1' },
-      { color: 'electric-blue-core', label: 'Section 2' },
-      { color: 'sky-blue-light-1', label: 'Section 3' },
-      { color: 'white', label: 'Final section', wave: false },
+      { color: 'cobalt-blue-midnight' },
+      { color: 'electric-blue-core' },
+      { color: 'sky-blue-light-1', wave: false },
+      { color: 'cobalt-blue-dark' },
+      { color: 'sky-blue-light-2' },
+      { color: 'white', wave: false },
     ].forEach(section => wrap.appendChild(createSection(section)));
 
     return wrap;

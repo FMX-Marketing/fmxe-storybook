@@ -1,4 +1,4 @@
-.fmxe-section-wave {
+.fmxe-deco-wave-container {
   --_wave-height: 75px;
 
   margin-bottom: var(--_wave-height);
@@ -13,7 +13,6 @@
     margin-top: -2px; /* Fixes artifact line left by SVG */
     pointer-events: none;
     position: absolute;
-    right: 0;
     top: 100%;
     width: 100%;
     z-index: 1;

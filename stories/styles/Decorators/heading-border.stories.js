@@ -1,11 +1,11 @@
-import './text-accent-line.css';
+import './heading-border.css';
 
 const TAGS = ['h1', 'h2'];
 const ALIGNMENTS = ['left', 'center', 'right'];
 const COLORS = ['electric-blue', 'white'];
 
-function createTextAccentLine({ tag, text, align, color }) {
-  const classes = ['fmxe-text-accent-line'];
+function createHeadingBorder({ tag, text, align, color }) {
+  const classes = ['fmxe-deco-heading-border'];
   if (align !== 'left') classes.push(`line-${align}`);
   if (color !== 'electric-blue') classes.push(`color-${color}`);
   const el = document.createElement(tag);
@@ -15,7 +15,7 @@ function createTextAccentLine({ tag, text, align, color }) {
 }
 
 export default {
-  title: 'Styles/Decorators/Text Accent Line',
+  title: 'Styles/Decorators/Heading Border',
   tags: ['autodocs'],
   argTypes: {
     tag: {
@@ -44,7 +44,7 @@ export default {
     align: 'left',
     color: 'electric-blue',
   },
-  render: (args) => createTextAccentLine(args),
+  render: (args) => createHeadingBorder(args),
   parameters: {
     figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2348-4052&m=dev',
     docs: {
