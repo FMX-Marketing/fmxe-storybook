@@ -243,6 +243,12 @@
     }
   }
 
+  /* Icon */
+  .fmxe-field-input-wrap.has-icon::before,
+  .fmxe-field-select-wrap.has-icon::before {
+    background-color: var(--fmxe-color-gray-light-2);
+  }
+
   /* Required indicator */
   &:has(input:required, select:required, textarea:required) label .fmxe-field-label-text::after {
     color: var(--fmxe-color-red-light);
