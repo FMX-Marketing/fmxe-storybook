@@ -7,7 +7,6 @@
   display: flex;
   flex-direction: column;
   font-family: var(--fmxe-font-family-figtree);
-  gap: 9px;
   margin: 0;
   padding: 0;
 
@@ -28,7 +27,12 @@
     align-items: start;
     display: flex;
     gap: var(--fmxe-space-xs);
+    margin-bottom: 9px;
     position: relative;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
     input[type="radio"],
     input[type="checkbox"] {
@@ -157,10 +161,11 @@
     }
   }
 
-  .fmxe-field-msg[data-msg="error"] {
+  .fmxe-field-msg[data-msg="error"]:not(:empty) {
     color: var(--fmxe-color-red);
     font-size: var(--fmxe-font-family-size-xs);
     line-height: var(--fmxe-font-family-line-height-xs);
+    margin-top: var(--fmxe-space-sm);
   }
 }
 

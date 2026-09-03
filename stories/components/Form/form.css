@@ -33,12 +33,6 @@
     justify-self: start;
   }
 
-  .fmxe-form-footer p {
-    font-size: var(--fmxe-font-family-size-xs);
-    font-weight: var(--fmxe-font-family-weight-400);
-    line-height: var(--fmxe-font-family-line-height-xs);
-  }
-
   .fmxe-form-recaptcha {
     color: var(--fmxe-color-gray-light-3);
     font-size: var(--fmxe-font-family-size-xs);
@@ -56,10 +50,6 @@
   }
 
   .fmxe-form-description,
-  .fmxe-form-recaptcha p {
-    color: var(--fmxe-color-white);
-  }
-
   .fmxe-form-recaptcha {
     color: var(--fmxe-color-cobalt-blue-light-1);
   }
