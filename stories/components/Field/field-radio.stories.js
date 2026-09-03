@@ -12,18 +12,12 @@ const sharedArgTypes = {
     control: 'boolean',
     description: 'Marks the first input as required, showing a * after the legend',
   },
-  size: {
-    control: false,
-    options: ['sm'],
-    description: 'Input size',
-  },
 };
 
 const sharedArgs = {
   legend: 'Select an option',
   options: SAMPLE_OPTIONS,
   required: false,
-  size: 'sm',
 };
 
 export default {
@@ -36,7 +30,7 @@ export default {
     figmaUrl: 'https://www.figma.com/design/4XRgVV07db8aSCntzB8WSC/FMX-Components?node-id=2351-4272&m=dev',
     docs: {
       description: {
-        component: 'Radio button group for single-select options. Supports default, invalid, and disabled states. Rendered at a fixed small size.',
+        component: 'Radio button group for single-select options. Supports default, invalid, and disabled states.',
       },
     },
   },

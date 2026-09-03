@@ -9,11 +9,6 @@ export default {
   tags: ['autodocs'],
   loaders: [() => loadSprite()],
   argTypes: {
-    size: {
-      control: { type: 'inline-radio' },
-      options: ['lg', 'sm'],
-      description: 'Input size — lg is the default and outputs no class',
-    },
     inputType: {
       control: { type: 'select' },
       options: ['text', 'email', 'password', 'tel', 'url', 'search', 'number', 'date', 'time'],
@@ -46,7 +41,6 @@ export default {
     },
   },
   args: {
-    size: 'lg',
     required: false,
     inputType: 'text',
     label: 'Full name',
