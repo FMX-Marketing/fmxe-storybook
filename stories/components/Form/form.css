@@ -13,7 +13,7 @@
     font-size: var(--fmxe-font-family-size-h4);
     font-weight: var(--fmxe-font-family-weight-700);
     line-height: var(--fmxe-font-family-line-height-h4);
-    margin: 0;
+    margin: 0 0 var(--fmxe-space-xs);
   }
 
   .fmxe-form-description {

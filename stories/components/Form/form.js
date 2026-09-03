@@ -21,21 +21,28 @@ export function createForm({ heading = '', description = '', fields = [], submit
   form.className = 'fmxe-form';
   form.noValidate = true;
 
-  if (heading) {
-    const headingId = `${formId}-heading`;
-    form.setAttribute('aria-labelledby', headingId);
-    const h = document.createElement('h3');
-    h.id = headingId;
-    h.className = 'fmxe-form-heading';
-    h.textContent = heading;
-    form.appendChild(h);
-  }
+  if (heading || description) {
+    const header = document.createElement('div');
+    header.className = 'fmxe-form-header';
 
-  if (description) {
-    const p = document.createElement('p');
-    p.className = 'fmxe-form-description';
-    p.textContent = description;
-    form.appendChild(p);
+    if (heading) {
+      const headingId = `${formId}-heading`;
+      form.setAttribute('aria-labelledby', headingId);
+      const h = document.createElement('h3');
+      h.id = headingId;
+      h.className = 'fmxe-form-heading';
+      h.textContent = heading;
+      header.appendChild(h);
+    }
+
+    if (description) {
+      const p = document.createElement('p');
+      p.className = 'fmxe-form-description';
+      p.textContent = description;
+      header.appendChild(p);
+    }
+
+    form.appendChild(header);
   }
 
   if (fields.length) {
