@@ -1,5 +1,4 @@
-let _choiceId = 0;
-function nextId() { return `fmxe-choice-${++_choiceId}`; }
+import { nextChoiceId } from './field-shared.js';
 
 export function createCheckboxGroup({ options, size, state, legend = '', required = false }) {
   const group = document.createElement('fieldset');
@@ -15,7 +14,7 @@ export function createCheckboxGroup({ options, size, state, legend = '', require
     group.appendChild(legendEl);
   }
 
-  const groupName = nextId();
+  const groupName = nextChoiceId();
   const msgId = `${groupName}-msg`;
 
   options.forEach((optLabel, i) => {

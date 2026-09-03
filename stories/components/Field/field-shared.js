@@ -1,9 +1,14 @@
 import { createTooltip } from '../Tooltip/Tooltip.js';
 
 let _fieldId = 0;
+let _choiceId = 0;
 
 export function nextId() {
   return `fmxe-field-${++_fieldId}`;
+}
+
+export function nextChoiceId() {
+  return `fmxe-choice-${++_choiceId}`;
 }
 
 export function createFieldWrap(state, size) {
