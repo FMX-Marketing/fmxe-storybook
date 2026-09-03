@@ -51,7 +51,7 @@
     }
 
     &:hover {
-      border-color: var(--fmxe-color-electric-blue-core);
+      border-color: var(--fmxe-color-electric-blue-dark);
     }
   }
 
@@ -208,6 +208,7 @@
 }
 
 [data-theme="dark"] .fmxe-field {
+  /* Default state */
   label {
     color: var(--fmxe-color-white);
   }
@@ -216,33 +217,38 @@
   select,
   textarea {
     background-color: var(--fmxe-color-cobalt-blue-midnight-dark);
-    border-color: var(--fmxe-color-gray-light-2);
+    border-color: var(--fmxe-color-gray-light-3);
     color: var(--fmxe-color-gray-light-2);
 
     &::placeholder {
       color: var(--fmxe-color-gray-light-2);
     }
 
+    /* Focus state */
     &:focus {
       background-color: var(--fmxe-color-white);
       color: var(--fmxe-color-gray-core);
     }
   }
 
+  /* Filled state */
   &:not(.is-invalid):not(:focus-within):has(input:not([type="submit"]):not(:placeholder-shown)),
   &:not(.is-invalid):not(:focus-within):has(select option:checked:not([value=""])),
   &:not(.is-invalid):not(:focus-within):has(textarea:not(:placeholder-shown)) {
     input:not([type="submit"]),
     select,
     textarea {
+      border-color: var(--fmxe-color-gray-light-3);
       color: var(--fmxe-color-white);
     }
   }
 
+  /* Required indicator */
   &:has(input:required, select:required, textarea:required) label .fmxe-field-label-text::after {
     color: var(--fmxe-color-red-light);
   }
 
+  /* Invalid state */
   &.is-invalid {
     input:not([type="submit"]),
     select,
@@ -251,6 +257,7 @@
     }
   }
 
+  /* Error message */
   .fmxe-field-msg[data-msg="error"]:not(:empty) {
     color: var(--fmxe-color-red-light);
 

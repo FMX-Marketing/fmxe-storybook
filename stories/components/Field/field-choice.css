@@ -46,10 +46,9 @@
       top: 2px;
       transition: background-color 150ms ease, border-color 150ms ease;
       width: var(--_input-size);
-      z-index: 1;
 
       &:hover {
-        border-color: var(--fmxe-color-electric-blue-core);
+        border-color: var(--fmxe-color-electric-blue-dark);
       }
 
       &:focus {
@@ -58,7 +57,7 @@
       }
 
       &:checked {
-        border-color: var(--fmxe-color-electric-blue-core);
+        border-color: var(--fmxe-color-electric-blue-dark);
       }
 
       &:disabled {
@@ -76,7 +75,7 @@
       }
 
       &:checked {
-        background-color: var(--fmxe-color-electric-blue-core);
+        background-color: var(--fmxe-color-electric-blue-dark);
 
         &::before {
           background-color: var(--fmxe-color-white);
@@ -104,7 +103,7 @@
       border-radius: 3px;
 
       &:checked {
-        background-color: var(--fmxe-color-electric-blue-core);
+        background-color: var(--fmxe-color-electric-blue-dark);
 
         &::before {
           background-color: var(--fmxe-color-white);
