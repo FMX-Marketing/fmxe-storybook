@@ -1,0 +1,73 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import { SpriteDump } from '@components/SpriteDump';
+
+<Meta title="Components/Atoms/Icon/Usage" />
+
+# Icon Usage
+
+Icons are rendered via the SVG sprite pattern. The sprite is inlined once near the top of `<body>` and every icon references it by name — the browser parses it once and shares it across every instance on the page.
+
+---
+
+## 1. Include the sprite
+
+Paste the sprite once, hidden, near the top of `<body>`.
+
+<SpriteDump />
+
+## 2. Add the CSS
+
+<Source language="css" code={`.fmxe-icon {
+  align-items: center;
+  color: currentColor;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.fmxe-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fmxe-icon.size-xs { height: 12px; width: 12px; }
+.fmxe-icon.size-sm { height: 16px; width: 16px; }
+.fmxe-icon.size-md { height: 20px; width: 20px; }
+.fmxe-icon.size-lg { height: 24px; width: 24px; }
+.fmxe-icon.size-xl { height: 32px; width: 32px; }
+
+.fmxe-icon.right  { transform: rotate(0deg); }
+.fmxe-icon.down   { transform: rotate(90deg); }
+.fmxe-icon.left   { transform: rotate(180deg); }
+.fmxe-icon.up     { transform: rotate(270deg); }
+.fmxe-icon.flip-x { transform: scaleX(-1); }
+.fmxe-icon.flip-y { transform: scaleY(-1); }`} />
+
+## 3. Use an icon
+
+Reference any symbol by its ID using a `size-*` modifier for dimensions.
+
+<Source language="html" code={`<span class="fmxe-icon size-md">
+  <svg aria-hidden="true">
+    <use href="#icon-search"></use>
+  </svg>
+</span>`} />
+
+## 4. Override the color
+
+Icons inherit color from their parent element via CSS.
+
+<Source language="css" code={`.your-component {
+  color: var(--fmxe-color-orange);
+}`} />
+
+## 5. Change orientation
+
+Add an orientation class to rotate or flip a directional icon. All directional icons point right by default.
+
+<Source language="html" code={`<span class="fmxe-icon size-md down">
+  <svg aria-hidden="true">
+    <use href="#icon-arrow"></use>
+  </svg>
+</span>`} />

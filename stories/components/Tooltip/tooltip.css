@@ -1,0 +1,158 @@
+div#story--components-atoms-tooltip--preview--primary-inner {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fmxe-tooltip {
+  --_bg: var(--fmxe-color-white);
+  --_color: var(--fmxe-color-gray-light-3);
+  --_offset: -8px;             /* bubble offset from trigger edge for aligned placements */
+  --_gap: 8px;                 /* space between trigger and bubble (accommodates arrow) */
+  --_arrow-inset-block: 4px;   /* arrow distance from top/bottom bubble edge */
+  --_arrow-inset-inline: 13px; /* arrow distance from left/right bubble edge for aligned placements */
+
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: var(--fmxe-font-family-figtree);
+  position: relative;
+
+  /* Trigger */
+  .fmxe-tooltip-trigger {
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--fmxe-color-gray-light-3);
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  /* Shared content styles */
+  .fmxe-tooltip-content {
+    filter: drop-shadow(0 0 var(--fmxe-shadow-md, 10px) var(--fmxe-color-gray-light-1));
+    left: 50%;
+    min-width: 220px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: opacity 0.15s ease;
+    visibility: hidden;
+    z-index: 9999;
+
+    &::before {
+      background-color: var(--fmxe-color-white);
+      border-radius: 1px;
+      content: '';
+      height: 10px;
+      position: absolute;
+      transform: rotate(45deg);
+      width: 10px;
+      z-index: 1;
+    }
+  }
+
+  /* Top (default) */
+  &:not([class*="place-"]) .fmxe-tooltip-content,
+  &.place-top .fmxe-tooltip-content {
+    bottom: 100%;
+    padding-bottom: var(--_gap);
+
+    &::before {
+      bottom: var(--_arrow-inset-block);
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
+
+  /* Bottom */
+  &[data-flipped] .fmxe-tooltip-content,
+  &.place-bottom .fmxe-tooltip-content {
+    padding-top: var(--_gap);
+    top: 100%;
+
+    &::before {
+      left: 50%;
+      top: var(--_arrow-inset-block);
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
+
+  /* Alignment */
+  &.align-start .fmxe-tooltip-content {
+    left: var(--_offset);
+    transform: none;
+
+    &::before {
+      left: var(--_arrow-inset-inline);
+      transform: rotate(45deg);
+    }
+  }
+
+  &.align-end .fmxe-tooltip-content {
+    left: auto;
+    right: var(--_offset);
+    transform: none;
+
+    &::before {
+      left: auto;
+      right: var(--_arrow-inset-inline);
+      transform: rotate(45deg);
+    }
+  }
+
+  /* Text bubble */
+  .fmxe-tooltip-text {
+    background: var(--_bg);
+    border-radius: var(--fmxe-border-radius-md);
+    box-shadow: 0 0 var(--fmxe-shadow-md, 10px) 0 var(--fmxe-color-gray-light-1);
+    color: var(--_color);
+    display: block;
+    font-size: var(--fmxe-font-family-size-xs);
+    font-weight: var(--fmxe-font-family-weight-400);
+    line-height: var(--fmxe-font-family-line-height-xs);
+    padding: var(--fmxe-space-sm);
+    position: relative;
+
+    a {
+      color: var(--fmxe-color-orange);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+  }
+
+  /* Visible state */
+  .fmxe-tooltip-trigger:hover + .fmxe-tooltip-content,
+  .fmxe-tooltip-trigger:focus-visible + .fmxe-tooltip-content {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+/* Dark theme */
+
+[data-theme="dark"] .fmxe-tooltip {
+  --_bg: var(--fmxe-color-cobalt-blue-dark-1);
+  --_color: var(--fmxe-color-white);
+
+  .fmxe-tooltip-content::before {
+    background-color: var(--_bg);
+  }
+}

@@ -1,0 +1,29 @@
+import { createStarRating } from './StarRating.js';
+import { loadSprite } from '@components/Icon.jsx';
+import './star-rating.css';
+import '../Icon/icon.css';
+
+export default {
+  title: 'Components/Atoms/Star Rating',
+  tags: ['autodocs'],
+  loaders: [() => loadSprite()],
+  argTypes: {
+    rating: {
+      control: { type: 'number', min: 0, max: 5, step: 1 },
+      description: 'Number of filled stars (0–5)',
+    },
+  },
+  args: {
+    rating: 5,
+  },
+  render: ({ rating }) => createStarRating(rating),
+  parameters: {
+    docs: {
+      description: {
+        component: 'Star rating display out of 5, typically used alongside review counts or testimonials.',
+      },
+    },
+  },
+};
+
+export const Preview = {};

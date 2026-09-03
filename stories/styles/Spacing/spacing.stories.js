@@ -1,4 +1,4 @@
-import './spacing.scss';
+import './spacing.css';
 import { VariableTableFiltered } from '@components/VariableTableFiltered.jsx';
 import { variables } from '@src/variables';
 import React from 'react';
@@ -131,18 +131,12 @@ Because this design system is intended to be used on a marketing website, we sho
 
 If the design is not feeling right after exploring the default spacing units, you should hardcode a desired spacing style relative to one of the standard sizes.
 
-For example, if you determine that you need padding set to \`3.5rem\` instead of the \`lg\` size's \`2rem\` value, you should calculate the new value relative to the nearest standard unit's size using Sass or CSS calculations:
+For example, if you determine that you need padding set to \`3.5rem\` instead of the \`lg\` size's \`2rem\` value, calculate the new value relative to the nearest standard unit using a CSS calculation:
 
 **Example CSS:**
-\`\`\`scss
-/* Vanilla CSS */
+\`\`\`css
 .pricing-block {
   padding: calc(var(--fmxe-space-lg) * 1.75);
-}
-
-// Sass
-.pricing-block {
-  padding: $fmxe-space-lg * 1.75;
 }
 \`\`\``,
       },

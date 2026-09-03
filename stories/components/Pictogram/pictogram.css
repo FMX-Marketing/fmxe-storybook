@@ -1,0 +1,35 @@
+.fmxe-pictogram {
+  align-items: center;
+  background-color: var(--fmxe-color-sky-blue-light-1);
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+
+  &.is-transparent { background-color: transparent; }
+
+  &:not(.space-none) {
+    img.size-sm  { padding: var(--fmxe-space-xs) 0; }
+    img.size-md  { padding: var(--fmxe-space-sm) 0; }
+    img.size-lg  { padding: var(--fmxe-space-md) 0; }
+    img.size-xl  { padding: var(--fmxe-space-lg) 0; }
+    img.size-2xl { padding: var(--fmxe-space-xl) 0; }
+  }
+
+  img {
+    aspect-ratio: 3 / 2; /* Safely limit overly wide pictograms */
+    display: block;
+    object-fit: contain;
+    object-position: center;
+
+    &.size-sm  { height: 44px; }
+    &.size-md  { height: 64px; }
+    &.size-lg  { height: 96px; }
+    &.size-xl  { height: 128px; }
+    &.size-2xl { height: 175px; }
+  }
+}
+
+[data-theme="dark"] .fmxe-pictogram {
+  background-color: var(--fmxe-color-white);
+}

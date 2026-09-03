@@ -1,0 +1,13 @@
+.fmxe-divider {
+  background-color: var(--fmxe-color-gray-light-1);
+  border: none;
+  display: block;
+  height: 1px;
+  width: 100%;
+
+  &.color-white { background-color: var(--fmxe-color-white); }
+
+  &.space-sm { margin: var(--fmxe-space-sm) 0; }
+  &.space-md { margin: var(--fmxe-space-md) 0; }
+  &.space-lg { margin: var(--fmxe-space-lg) 0; }
+}

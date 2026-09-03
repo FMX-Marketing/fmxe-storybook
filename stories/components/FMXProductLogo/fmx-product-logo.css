@@ -1,0 +1,8 @@
+.fmxe-product-logo {
+  display: inline-block;
+  height: auto;
+
+  &.size-sm { height: 32px; }
+  &.size-md { height: 44px; }
+  &.size-lg { height: 64px; }
+}

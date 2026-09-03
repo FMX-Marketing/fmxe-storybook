@@ -1,3 +1,9 @@
+@custom-media --xs (min-width: 340px);
+@custom-media --sm (min-width: 490px);
+@custom-media --md (min-width: 768px);
+@custom-media --lg (min-width: 1040px);
+@custom-media --xl (min-width: 1440px);
+
 :root {
   --fmxe-border-radius-sm: 0.3125rem; /* 5px */
   --fmxe-border-radius-md: 0.625rem; /* 10px */
@@ -14,11 +20,14 @@
   --fmxe-space-lg: 2rem; /* 32px */
   --fmxe-space-xl: 5rem; /* 80px */
   --fmxe-color-orange: #CE4A12;
+  --fmxe-color-orange-light: #EB5514;
   --fmxe-color-yellow: #F5C855;
   --fmxe-color-red: #D13429;
+  --fmxe-color-red-light: #FF6467;
   --fmxe-color-green: #6AB67A;
   --fmxe-color-black: #000000;
   --fmxe-color-white: #FFFFFF;
+  --fmxe-color-focus: #006BFF;
   --fmxe-color-electric-blue-core: #12AFD7;
   --fmxe-color-electric-blue-light: #E9FAFF;
   --fmxe-color-electric-blue-light-1: #CAECF6;
@@ -34,6 +43,7 @@
   --fmxe-color-cobalt-blue-dark: #042B8C;
   --fmxe-color-cobalt-blue-dark-1: #041662;
   --fmxe-color-cobalt-blue-midnight: #031047;
+  --fmxe-color-cobalt-blue-midnight-dark: #020B32;
   --fmxe-color-sky-blue-core: #B9D2E6;
   --fmxe-color-sky-blue-light: #FBFCFD;
   --fmxe-color-sky-blue-light-1: #EFF5F9;
@@ -50,6 +60,7 @@
   --fmxe-color-gray-dark-1: #15151E;
   --fmxe-font-family-figtree: "Figtree", serif;
   --fmxe-font-family-code: monaco, consolas, "Andale Mon", "DejaVu Sans Mono", monospace;
+  --fmxe-font-family-weight-400: 400;
   --fmxe-font-family-weight-500: 500;
   --fmxe-font-family-weight-700: 700;
   --fmxe-font-family-weight-800: 800;
@@ -127,8 +138,29 @@
 }
 
 body {
-  font-family: var(--fmxe-font-family-Figtree);
+  font-family: var(--fmxe-font-family-figtree);
 }
+
+/* Scoped to story render roots — canvas (#storybook-root) and docs previews (.sb-unstyled).
+   Avoids affecting Storybook's own UI chrome (sidebar, toolbar, docs navigation). */
+#storybook-root a:not(.fmxe-button),
+.sb-unstyled a:not(.fmxe-button) {
+  color: var(--fmxe-color-orange);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 200ms ease, box-shadow 200ms ease;
+
+  &:hover,
+  &:focus { box-shadow: 0 1px 0 currentColor; }
+  &:focus-visible { outline: 2px solid var(--fmxe-color-focus); outline-offset: 2px; }
+}
+
+#storybook-root [data-theme="dark"] a,
+.sb-unstyled [data-theme="dark"] a {
+  color: var(--fmxe-color-orange-light);
+}
+
 
 h1,
 .h1-style {

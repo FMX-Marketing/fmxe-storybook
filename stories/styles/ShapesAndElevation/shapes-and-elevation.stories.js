@@ -1,4 +1,4 @@
-import './shapes-and-elevation.scss';
+import './shapes-and-elevation.css';
 import { VariableTableFiltered } from '@components/VariableTableFiltered.jsx';
 import { variables } from '@src/variables';
 import React from 'react';

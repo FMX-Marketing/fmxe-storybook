@@ -1,0 +1,25 @@
+.fmxe-deco-heading-border {
+  display: block;
+
+  &::before {
+    background-color: var(--fmxe-color-electric-blue-core);
+    content: '';
+    display: block;
+    height: 5px;
+    margin-bottom: var(--fmxe-space-md);
+    margin-inline: 0 auto;
+    width: 50px;
+  }
+
+  &.line-center::before {
+    margin-inline: auto;
+  }
+
+  &.line-right::before {
+    margin-inline: auto 0;
+  }
+
+  &.color-white::before {
+    background-color: var(--fmxe-color-white);
+  }
+}

@@ -1,6 +1,10 @@
 import React from 'react';
 import '../src/global.css';
 import { variables } from '../src/variables.js';
+import { loadSprite } from '../src/components/Icon.jsx';
+import { FigmaLink } from '../src/components/FigmaLink.jsx';
+
+loadSprite();
 import {
   Title,
   Subtitle,
@@ -8,6 +12,7 @@ import {
   Primary,
   Controls,
   Stories,
+  useOf,
 } from '@storybook/addon-docs/blocks';
 
 // Generate backgrounds from variables.js
@@ -62,26 +67,33 @@ const preview = {
       },
     },
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Controls />
-          <Stories includePrimary={false} />
-        </>
-      ),
+      page: () => {
+        const { story } = useOf('story', ['story']);
+        const figmaUrl = story.parameters?.figmaUrl;
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            {figmaUrl && <FigmaLink url={figmaUrl} />}
+            <Primary />
+            <Controls />
+            <Stories includePrimary={false} />
+          </>
+        );
+      },
     },
     options: {
       storySort: {
-        order: ['Welcome', 'Styles', 'Design Tokens', 'Components'],
+        order: ['Welcome', 'Styles', 'Design Tokens', 'Components', ['*', ['Atoms', ['Button', 'Icon', 'Logo', 'Input Field', ['Checkbox', 'Currency', 'Number', 'Radio', 'Select']]]]],
+        method: 'alphabetical',
       },
     },
   },
   decorators: [
     (story, context) => {
-      const selectedBgKey = context.globals.backgrounds?.value;
+      const selectedBgKey = context.globals.backgrounds?.value
+        ?? context.parameters.backgrounds?.default;
       /**
        * For A11y to work in real time, we need to apply the currently selected background color to the
        * storybook root element. We do this via DOM manipulation so it doesn't appear in the "Show code" output.

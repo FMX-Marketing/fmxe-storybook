@@ -1,0 +1,67 @@
+.link-states {
+  a {
+    color: var(--fmxe-color-orange);
+    cursor: pointer;
+    display: inline;
+    font-family: var(--fmxe-font-family-figtree);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 200ms ease, box-shadow 200ms ease;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 1px 0 currentColor;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--fmxe-color-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  &[data-theme="dark"] {
+    a, .fmxe-link-state {
+      color: var(--fmxe-color-orange-light);
+    }
+
+    .link-states-label {
+      color: var(--fmxe-color-white);
+    }
+  }
+}
+
+/* State display spans */
+.fmxe-link-state {
+  color: var(--fmxe-color-orange);
+  cursor: pointer;
+  font-family: var(--fmxe-font-family-figtree);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  &.is-hover { box-shadow: 0 1px 0 currentColor; }
+  &.is-focus {
+    box-shadow: 0 1px 0 currentColor;
+    outline: 2px solid var(--fmxe-color-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Presentation for links */
+.link-states-row {
+  align-items: center;
+  display: flex;
+  gap: var(--fmxe-space-lg);
+  margin-bottom: var(--fmxe-space-md);
+
+  .link-states-label {
+    color: var(--fmxe-color-gray-core);
+    font-family: var(--fmxe-font-family-figtree);
+    flex-shrink: 0;
+    font-size: var(--fmxe-font-size-xs);
+    width: 5rem;
+  }
+}

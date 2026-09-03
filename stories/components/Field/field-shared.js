@@ -1,0 +1,54 @@
+import { createTooltip } from '../Tooltip/Tooltip.js';
+
+let _fieldId = 0;
+let _choiceId = 0;
+
+export function nextId() {
+  return `fmxe-field-${++_fieldId}`;
+}
+
+export function nextChoiceId() {
+  return `fmxe-choice-${++_choiceId}`;
+}
+
+export function createFieldWrap(state, size) {
+  const wrap = document.createElement('div');
+  const classes = ['fmxe-field'];
+  if (size && size !== 'lg') classes.push(`size-${size}`);
+  if (state === 'invalid') classes.push('is-invalid');
+  wrap.className = classes.join(' ');
+  return wrap;
+}
+
+export function applyDisabled(el, state) {
+  if (state === 'disabled') el.disabled = true;
+}
+
+export function createLabel(id, labelText, tooltip) {
+  const label = document.createElement('label');
+  label.htmlFor = id;
+
+  const text = document.createElement('span');
+  text.className = 'fmxe-field-label-text';
+  text.textContent = labelText;
+  label.appendChild(text);
+
+  if (tooltip) label.appendChild(createTooltip(tooltip));
+  return label;
+}
+
+export function createFieldDesc(text) {
+  const p = document.createElement('p');
+  p.className = 'fmxe-field-desc';
+  p.textContent = text;
+  return p;
+}
+
+export function createMsg(id, state, errorMessage) {
+  const msg = document.createElement('span');
+  msg.className = 'fmxe-field-msg';
+  msg.setAttribute('data-msg', 'error');
+  msg.id = `${id}-msg`;
+  if (state === 'invalid' && errorMessage) msg.textContent = errorMessage;
+  return msg;
+}

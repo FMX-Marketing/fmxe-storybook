@@ -1,0 +1,22 @@
+.fmxe-logo {
+  color: var(--fmxe-color-electric-blue-core);
+  display: inline-flex;
+
+  & svg {
+    aspect-ratio: 57 / 44;
+    display: block;
+    height: 44px;
+    width: auto;
+  }
+
+  /* Size */
+  &.size-sm { & svg { height: 32px; } }
+  &.size-md { & svg { height: 44px; } }
+  &.size-lg { & svg { height: 64px; } }
+
+  /* Color */
+  &.color-electric-blue-core { color: var(--fmxe-color-electric-blue-core); }
+  &.color-electric-blue-dark { color: var(--fmxe-color-electric-blue-dark); }
+  &.color-gray-core          { color: var(--fmxe-color-gray-core); }
+  &.color-white              { color: var(--fmxe-color-white); }
+}

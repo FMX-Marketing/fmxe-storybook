@@ -41,7 +41,7 @@ export const VariableTable = ({ data }) => {
                 const unitOut = section['unit-out'] || '';
                 return (
                   <tr key={i}>
-                    <td style={tdStyle}>{entry.name}</td>
+                    <td style={{ ...tdStyle, width: '120px' }}>{entry.name}</td>
                     {section.mode ? (
                       <>
                         <td style={tdStyle}>

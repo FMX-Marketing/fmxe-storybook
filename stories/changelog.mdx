@@ -1,10 +1,52 @@
 import { Meta } from "@storybook/addon-docs/blocks";
+import { ChangelogSection } from "@components/ChangelogSection.jsx";
 
 <Meta title="Changelog" />
 
 # Changelog
 
-## 1.0.0
+<ChangelogSection version="1.1.0" date="2026-08-27" defaultOpen={true}>
+
+### New Components
+
+- **Avatar** — Stylized avatar image component with size variants.
+- **Badges** — Grouped badge layout as full or icon displays.
+- **Divider** — Horizontal rule component with optional vertical margin.
+- **Heading Border** — Small decorative label used above headings. Renamed from Eyebrow; class updated to `fmxe-deco-heading-border`.
+- **FMX Product Logo** — Full product logos and icon-only variants for all FMX products, with light and dark (white) versions.
+- **Icon** — SVG sprite-based icon component with size, orientation, and color controls.
+- **Pictogram** — Illustrated pictogram component with a new flexible height-based layout.
+- **Star Rating** — Star rating display with a controllable number of stars and filled/unfilled states.
+- **Tooltip** — Accessible tooltip with top and bottom placement, start and end alignment, and automatic flip when near the viewport edge.
+- **Form Field / Checkbox** — Custom-styled checkbox with checkmark indicator and invalid/disabled states.
+- **Form Field / Input** — Generic text input supporting `text`, `email`, `password`, `tel`, `url`, `search`, `number`, `date`, and `time` types. Includes default, focus, filled, selected, invalid, and disabled states, plus optional leading icon and tooltip.
+- **Form Field / Radio** — Custom-styled radio button with inner dot indicator and invalid/disabled states.
+- **Form Field / Select** — Dropdown select with custom chevron, optional leading icon, and full state coverage.
+- **Form Field / Textarea** — Multi-line text input with configurable row count and full state coverage.
+
+### New Styles
+
+- **Links** — Link style documentation covering default, hover, focus-visible, and dark theme variants.
+- **Decorators / Heading Border** — Utility class `fmxe-deco-heading-border` that adds a short accent bar above text. Supports center and right alignment modifiers, and a white color variant for dark backgrounds.
+
+### Token Updates
+
+- **Added** `--fmxe-color-orange-light` (`#EB5514`) — lighter orange for link text on dark backgrounds.
+- **Added** `--fmxe-color-focus` (`#006BFF`) — standardised focus ring color used across all interactive components.
+- **Added** `--fmxe-color-cobalt-blue-midnight-dark` (`#020B32`) — replaces the removed `--fmxe-color-dark` token.
+- **Added** `--fmxe-color-red-light` (`#FF6467`) — lighter red used for error states on dark backgrounds.
+- **Added** `--fmxe-font-family-weight-400` (`400`) — regular font weight, used as the base weight for body text and form labels.
+
+### Improvements
+
+- **Button** — This component has been fully re-written to use updated styles, animations, and the new icon system. It is now a more flexible component that can be used in countless combinations with less code.
+- **Spacing** — Removed Sass variable references from spacing documentation. All spacing values now use CSS custom properties exclusively.
+
+</ChangelogSection>
+
+<ChangelogSection version="1.0.0">
 
 - Created a storybook config.
 - Initial release of the storybook based on FMXE.
+
+</ChangelogSection>

@@ -43,11 +43,14 @@ export const variables = [
     "category": "fmxe-color",
     "values": [
       { "name": "orange", "value": "#CE4A12" },
+      { "name": "orange-light", "value": "#EB5514" },
       { "name": "yellow", "value": "#F5C855" },
       { "name": "red", "value": "#D13429" },
+      { "name": "red-light", "value": "#FF6467" },
       { "name": "green", "value": "#6AB67A" },
       { "name": "black", "value": "#000000" },
-      { "name": "white", "value": "#FFFFFF" }
+      { "name": "white", "value": "#FFFFFF" },
+      { "name": "focus", "value": "#006BFF" }
     ],
   },
   {
@@ -73,6 +76,7 @@ export const variables = [
       { "name": "dark", "value": "#042B8C" },
       { "name": "dark-1", "value": "#041662" },
       { "name": "midnight", "value": "#031047" },
+      { "name": "midnight-dark", "value": "#020B32" },
     ]
   },
   {
@@ -111,6 +115,7 @@ export const variables = [
   {
     "category": "fmxe-font-family/weight",
     "values": [
+      { "name": "400", "value": "400" },
       { "name": "500", "value": "500" },
       { "name": "700", "value": "700" },
       { "name": "800", "value": "800" },
