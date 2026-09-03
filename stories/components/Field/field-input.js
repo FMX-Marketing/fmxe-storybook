@@ -1,6 +1,6 @@
-import { nextId, createFieldWrap, createLabel, createMsg, applyDisabled } from './field-shared.js';
+import { nextId, createFieldWrap, createLabel, createFieldDesc, createMsg, applyDisabled } from './field-shared.js';
 
-export function createFieldInput({ label, placeholder = '', tooltip = '', state = 'default', errorMessage = '', icon = '', inputType = 'text', size = 'lg', required = false }) {
+export function createFieldInput({ label, description = '', placeholder = '', tooltip = '', state = 'default', errorMessage = '', icon = '', inputType = 'text', size = 'lg', required = false }) {
   const id   = nextId();
   const wrap = createFieldWrap(state, size);
 
@@ -15,6 +15,7 @@ export function createFieldInput({ label, placeholder = '', tooltip = '', state 
   applyDisabled(input, state);
 
   wrap.appendChild(createLabel(id, label, tooltip));
+  if (description) wrap.appendChild(createFieldDesc(description));
 
   if (icon) {
     const inputWrap = document.createElement('div');

@@ -1,6 +1,6 @@
-import { nextChoiceId } from './field-shared.js';
+import { nextChoiceId, createFieldDesc } from './field-shared.js';
 
-export function createRadioGroup({ options, size, state, legend = '', required = false }) {
+export function createRadioGroup({ options, size, state, legend = '', description = '', required = false }) {
   const group = document.createElement('fieldset');
   const classes = ['fmxe-field-choice'];
   if (size !== 'sm') classes.push(`size-${size}`);
@@ -13,6 +13,8 @@ export function createRadioGroup({ options, size, state, legend = '', required =
     legendEl.textContent = legend;
     group.appendChild(legendEl);
   }
+
+  if (description) group.appendChild(createFieldDesc(description));
 
   const groupName = nextChoiceId();
   const msgId = `${groupName}-msg`;

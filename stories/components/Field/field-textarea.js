@@ -1,6 +1,6 @@
-import { nextId, createFieldWrap, createLabel, createMsg, applyDisabled } from './field-shared.js';
+import { nextId, createFieldWrap, createLabel, createFieldDesc, createMsg, applyDisabled } from './field-shared.js';
 
-export function createFieldTextarea({ label, placeholder = '', value = '', tooltip = '', rows = 4, state = 'default', errorMessage = '', required = false }) {
+export function createFieldTextarea({ label, description = '', placeholder = '', value = '', tooltip = '', rows = 4, state = 'default', errorMessage = '', required = false }) {
   const id   = nextId();
   const wrap = createFieldWrap(state);
 
@@ -15,6 +15,7 @@ export function createFieldTextarea({ label, placeholder = '', value = '', toolt
   applyDisabled(textarea, state);
 
   wrap.appendChild(createLabel(id, label, tooltip));
+  if (description) wrap.appendChild(createFieldDesc(description));
   wrap.appendChild(textarea);
   wrap.appendChild(createMsg(id, state, errorMessage));
   return wrap;

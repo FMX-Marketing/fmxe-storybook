@@ -16,6 +16,18 @@
     font-weight: var(--fmxe-font-family-weight-500);
     line-height: var(--fmxe-font-family-line-height-sm);
     margin-bottom: var(--fmxe-space-sm);
+
+    &:has(+ .fmxe-field-desc) {
+      margin-bottom: 0;
+    }
+  }
+
+  .fmxe-field-desc {
+    color: var(--fmxe-color-gray-light-3);
+    font-size: var(--fmxe-font-family-size-sm);
+    font-weight: var(--fmxe-font-family-weight-400);
+    line-height: var(--fmxe-font-family-line-height-sm);
+    margin: 0 0 var(--fmxe-space-sm);
   }
 
   &:has(input:required) .fmxe-field-choice-legend::after {
@@ -173,6 +185,10 @@
   .fmxe-field-choice {
     .fmxe-field-choice-legend {
       color: var(--fmxe-color-white);
+    }
+
+    .fmxe-field-desc {
+      color: var(--fmxe-color-gray-light-2);
     }
 
     &:has(input:required) .fmxe-field-choice-legend::after {

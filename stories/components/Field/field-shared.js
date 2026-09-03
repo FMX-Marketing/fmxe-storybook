@@ -37,6 +37,13 @@ export function createLabel(id, labelText, tooltip) {
   return label;
 }
 
+export function createFieldDesc(text) {
+  const p = document.createElement('p');
+  p.className = 'fmxe-field-desc';
+  p.textContent = text;
+  return p;
+}
+
 export function createMsg(id, state, errorMessage) {
   const msg = document.createElement('span');
   msg.className = 'fmxe-field-msg';

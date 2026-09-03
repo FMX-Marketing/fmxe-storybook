@@ -16,6 +16,10 @@
     line-height: var(--fmxe-font-family-line-height-sm);
     margin-bottom: var(--fmxe-space-sm);
 
+    &:has(+ .fmxe-field-desc) {
+      margin-bottom: 0;
+    }
+
     .fmxe-tooltip {
       margin-left: auto;
 
@@ -28,6 +32,14 @@
   &:has(input:required, select:required, textarea:required) label .fmxe-field-label-text::after {
     color: var(--fmxe-color-red);
     content: '*';
+  }
+
+  .fmxe-field-desc {
+    color: var(--fmxe-color-gray-light-3);
+    font-size: var(--fmxe-font-family-size-sm);
+    font-weight: var(--fmxe-font-family-weight-400);
+    line-height: var(--fmxe-font-family-line-height-sm);
+    margin: 0 0 var(--fmxe-space-sm);
   }
 
   input:not([type="submit"]),
@@ -211,6 +223,10 @@
   /* Default state */
   label {
     color: var(--fmxe-color-white);
+  }
+
+  .fmxe-field-desc {
+    color: var(--fmxe-color-gray-light-2);
   }
 
   input:not([type="submit"]),

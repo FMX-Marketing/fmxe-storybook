@@ -35,6 +35,10 @@ export default {
       control: 'boolean',
       description: 'Marks the field as required — appends * to the label',
     },
+    description: {
+      control: 'text',
+      description: 'Optional helper text displayed below the label',
+    },
     errorMessage: {
       control: 'text',
       description: 'Error message shown in the invalid state',
@@ -44,6 +48,7 @@ export default {
     required: false,
     inputType: 'text',
     label: 'Full name',
+    description: '',
     placeholder: 'Enter text…',
     icon: '',
     tooltip: '',
@@ -63,6 +68,7 @@ export default {
 export const Preview     = {};
 export const Dark        = { name: 'Dark', args: { required: true }, globals: { backgrounds: { value: 'cobalt-blue-midnight-dark' } }, render: (args) => { const wrap = document.createElement('div'); wrap.setAttribute('data-theme', 'dark'); wrap.appendChild(createFieldInput(args)); return wrap; }, parameters: { docs: { description: { story: 'Default appearance on a dark background.' } } } };
 export const WithIcon    = { name: 'With Icon', args: { icon: 'dollar-sign', label: 'Average hourly labor cost', placeholder: '0' } };
+export const WithDescription = { name: 'With Description', args: { description: 'Enter your first and last name as they appear on your government-issued ID.' } };
 export const WithTooltip = { name: 'With Tooltip', args: { tooltip: 'Enter your full legal name.' } };
 export const LongValue   = { name: 'Long Value', args: { label: 'Address', placeholder: '1234 Very Long Street Name, Suite 500, Springfield, United States of America 99999' }, parameters: { docs: { description: { story: 'Demonstrates how the input handles long text values that exceed the field width.' } } } };
 export const Invalid     = { args: { state: 'invalid', errorMessage: 'This field is required.' } };

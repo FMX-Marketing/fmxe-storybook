@@ -10,7 +10,7 @@ import '../Button/button.css';
 const SAMPLE_FIELDS = [
   { type: 'input', label: 'Full name', placeholder: 'Enter your name…', required: true },
   { type: 'input', label: 'Email address', placeholder: 'Enter your email…', inputType: 'email', required: true },
-  { type: 'input', label: 'Average hourly labor cost', placeholder: '0', icon: 'dollar-sign' },
+  { type: 'input', label: 'Average hourly labor cost', placeholder: '0', icon: 'dollar-sign', description: 'Enter the average cost per hour across all technician roles.' },
   { type: 'select', label: 'Number of technicians', options: { '1-10': '1–10', '11-50': '11–50', '51-100': '51–100', '100+': '100+' } },
   { type: 'radio', legend: 'Preferred contact method', options: ['Email', 'Phone', 'In-app notification'] },
   { type: 'checkbox', legend: 'Areas of interest', options: ['Preventive maintenance', 'Asset tracking', 'Inventory management'] },

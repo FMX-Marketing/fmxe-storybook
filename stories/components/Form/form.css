@@ -9,7 +9,7 @@
   padding: var(--fmxe-space-lg);
 
   .fmxe-form-heading {
-    color: var(--fmxe-color-gray-dark-1);
+    color: var(--fmxe-color-gray-core);
     font-size: var(--fmxe-font-family-size-h4);
     font-weight: var(--fmxe-font-family-weight-700);
     line-height: var(--fmxe-font-family-line-height-h4);

@@ -1,6 +1,6 @@
-import { nextId, createFieldWrap, createLabel, createMsg, applyDisabled } from './field-shared.js';
+import { nextId, createFieldWrap, createLabel, createFieldDesc, createMsg, applyDisabled } from './field-shared.js';
 
-export function createFieldSelect({ label, options = {}, tooltip = '', state = 'default', errorMessage = '', icon = '', required = false, selected = '' }) {
+export function createFieldSelect({ label, description = '', options = {}, tooltip = '', state = 'default', errorMessage = '', icon = '', required = false, selected = '' }) {
   const id   = nextId();
   const wrap = createFieldWrap(state);
 
@@ -31,6 +31,7 @@ export function createFieldSelect({ label, options = {}, tooltip = '', state = '
   selectWrap.appendChild(select);
 
   wrap.appendChild(createLabel(id, label, tooltip));
+  if (description) wrap.appendChild(createFieldDesc(description));
   wrap.appendChild(selectWrap);
   wrap.appendChild(createMsg(id, state, errorMessage));
   return wrap;
